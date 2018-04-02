@@ -1,28 +1,128 @@
+*{
+  padding: 0;
+  margin: 0;
+}
 .App {
-  text-align: center;
+  height: auto;
+  width: 100vw;
+  /* background-color: grey; */
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/* Input Story View and Components Styles */
+/* ***************************************** */
+
+
+/* InputStoryHeader */
+.input-story-header-component-main-div{
+  height: 10vh;
+  width: 100%;
+  /* background-color: deeppink; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.story-header-icons{
+  height:30px;
+  width:30px;
+}
+.user-image{
+  height: 40px;
+  width: 40px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.input-story-header-logo-left-div{
+  width: 15%;
+  /* background-color: darkslategrey; */
+  margin-left: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-around; */
+  
+}
+.story-header-right-side-div{
+  height: 100%;
+  width: 25%;
+  /* background-color: darksalmon; */
+  margin-right: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.story-header-right-side-div > p{
+  font-size: 12px;
+}
+.input-story-header-logo-left-div > p{
+  font-size: 12px;
+}
+.logo-small{
+  height:70px;
+  width: 70px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+/* InputBodyComponent */
+.input-body-component-main-div{
+  height: auto;
+  min-height: 88vh;
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.input-body-component-user-info{
+  height: 10vh;
+  width: 50%;
+  /* background-color: dodgerblue; */
+  padding: 10px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: solid 1px rgb(131, 131, 131);
+  /* border-top-style: solid; */
 }
 
-.App-title {
+.input-body-component-title{
+  height: auto;
+  min-height: 10vh;
+  width: 50%;
+  font-size: 2.5em;
+  border: none;
+  padding: 10px;
+}
+.text-area-body-component-body{
+  height: auto;
+  min-height: 80`vh;
+  width: 50%;
+  border: none;
+  padding: 10px;
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+*:focus {
+  outline: none;
+}
+.input-body-component-user-info{
+  display: flex;
+  flex-direction: row;
+}
+.input-body-component-user-info-image{
+  height: 40px;
+  width: 40px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.input-body-component-user-info-name{
+  margin-left: 10px;
+  font-size: 12px;
+}
+.input-body-component-user-info-name > p {
+  margin: 3px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+/* input story view */
+
