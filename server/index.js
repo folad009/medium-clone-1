@@ -64,7 +64,7 @@ app.get("/api/getuser", (req, res, next) => {
   if (req.session.user) {
     app
       .get("db")
-      .getUser([req.session.user.userid])
+      .getUser([req.session.user.authid])
       .then(response => {
         res.status(200).send(response);
       });
@@ -109,18 +109,20 @@ app.get("/me", function(req, res, next) {
               req.user.name.familyName
             ])
             .then(response => {
-              console.log(response);
-              req.session.user = { userid: response[0].id };
-              console.log(req.session);
-            })
-            .then(res.redirect("http://localhost:3000"));
+              req.session.user = {
+                userid: response[0].id,
+                authid: response[0].authid
+              };
+              res.status(200).send(req.session.user);
+            });
+
           next();
         } else {
           req.session.user = {
-            userid: response[0].id
+            userid: response[0].id,
+            authid: response[0].authid
           };
-          console.log(req.session);
-          res.redirect("http://localhost:3000");
+          res.status(200).send(req.session.user);
         }
       });
   }
