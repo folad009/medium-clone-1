@@ -106,25 +106,25 @@ app.get("/me", function(req, res, next) {
             .addUser([
               req.user.id,
               req.user.name.givenName,
-              req.user.name.familyName
+              req.user.name.familyName,
+              req.user.picture
             ])
             .then(response => {
               req.session.user = {
                 userid: response[0].id,
                 authid: response[0].authid
               };
-            })
-            .then(res.redirect("http://localhost:3000"));
-
-          next();
+              res.redirect("http://localhost:3000");
+            });
         } else {
           req.session.user = {
             userid: response[0].id,
             authid: response[0].authid
           };
+          console.log(req.session.user);
+          res.redirect("http://localhost:3000");
         }
-      })
-      .then(res.redirect("http://localhost:3000"));
+      });
   }
 });
 
