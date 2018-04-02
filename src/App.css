@@ -95,7 +95,7 @@
 }
 .text-area-body-component-body{
   height: auto;
-  min-height: 80vh;
+  min-height: 80`vh;
   width: 50%;
   border: none;
   padding: 10px;
