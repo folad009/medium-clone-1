@@ -6,7 +6,7 @@ import StoryReadView from "./Views/StoryReadView";
 
 export default (
   <Switch>
-    <Route path="/" exact component={HomePageView} />
+    <Route exact path="/" exact component={HomePageView} />
     <Route path="/new-story" component={AddStoryView} />
     <Route path="/story-view" component={StoryReadView}/>
   </Switch>
