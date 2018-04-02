@@ -3,6 +3,9 @@ import axios from "axios";
 const TEST = "TEST";
 const GET_ALL_POSTS = "GET_ALL_POSTS";
 const GET_USER = "GET_USER";
+const POST = "POST";
+
+
 
 export function getAllPosts() {
   return {
