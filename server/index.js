@@ -59,8 +59,9 @@ passport.deserializeUser((profile, done) => {
 // GET
 
 // GETS ALL POSTS
-app.get("/api/getposts", postController.getPosts);
-app.get("/api/getuser", (req, res, next) => {
+app.get("/api/posts", postController.getPosts);
+app.get("/api/getpost/:id", postController.getPost);
+app.get("/api/user", (req, res, next) => {
   if (req.session.user) {
     app
       .get("db")
@@ -121,7 +122,6 @@ app.get("/me", function(req, res, next) {
             userid: response[0].id,
             authid: response[0].authid
           };
-          console.log(req.session.user);
           res.redirect("http://localhost:3000");
         }
       });
