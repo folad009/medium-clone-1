@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
 }
+img{
+  height:400px;
+}
 .App {
   height: auto;
   width: 100vw;
@@ -95,7 +98,7 @@
 }
 .text-area-body-component-body{
   height: auto;
-  min-height: 80`vh;
+  min-height: 80vh;
   width: 50%;
   border: none;
   padding: 10px;
@@ -126,3 +129,85 @@
 
 /* input story view */
 
+
+
+/* MainHeader Styles */
+
+.main-header-component-main-div{
+  height: 10vh;
+  width: 80%;
+  /* background-color: deeppink; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.main-header-icon-user-div{
+  /* background-color: bisque; */
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main-header-logo-div{
+  /* background-color: aquamarine; */
+  width: 80%;
+  display: flex;
+  justify-content: center;
+
+}
+.logo-large{
+  height:60px;
+  width: auto;
+  /* background-color: aquamarine; */
+}
+
+/* Story render component styles */
+/* ************************************** */
+.story-render-component-main-div{
+  /* background-color: azure; */
+  padding: 10px;
+  height: auto;
+  min-width: 50%;
+  /* margin-top: 100px; */
+}
+.story-render-component-body{
+  margin-top: 100px;
+  min-width: 60%;
+  /* background-color: blueviolet; */
+  
+}
+
+.story-render-component-clap-section{
+  width: 100%;
+  /* background-color: rgb(196, 12, 12); */
+  /* margin-top: 10px; */
+  border-top: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding-top: 10px;
+}
+
+
+.story-render-component-clap-section-text{
+  height: 100px;
+  /* background-color: aqua; */
+}
+.story-render-component-clap-section-icons-div{
+  /* background-color: bisque; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 50px;
+}
+
+/* StoryReadView Styles */
+.story-read-view-main-div{
+  /* background-color: #bbb; */
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
