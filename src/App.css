@@ -211,3 +211,45 @@ img{
   flex-direction: column;
   align-items: center;
 }
+
+/* HomeView Styles */
+
+.hompage-view-temporary{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Card Component Styles */
+
+.featured-large-card-main-div{
+  background-color: blueviolet;
+  
+  width: 40%;
+}
+.featured-medium-card-main-div{
+  background-color: blue;
+  height: 300px;
+  width:300px;
+}
+.featured-medium-card-info{
+  background-color: azure;
+  height: 50%;
+}
+.featured-small-card-main-div{
+  background-color: aquamarine;
+  height: 100px;
+  width: 300px;
+}
+
+/* Featured Component Styles */
+/* ****************************** */
+
+.featured-component-main-div{
+  height: 800px;
+  min-width: 70%;
+  display: flex;
+  background-color: rgb(75, 75, 75);
+}
