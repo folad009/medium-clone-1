@@ -1,0 +1,31 @@
+input[type="search"] {
+  border: 0px;
+  width: 0px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  animation: SearchDeexpand 0.25s;
+}
+.search-field {
+  display: flex;
+}
+input:focus {
+  width: 156px;
+  animation: SearchExpand 0.25s;
+}
+@keyframes SearchExpand {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 156px;
+  }
+}
+@keyframes SearchDeexpand {
+  0% {
+    width: 156px;
+  }
+  100% {
+    width: 0px;
+  }
+}
