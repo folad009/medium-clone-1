@@ -5,7 +5,7 @@ import InputBodyComponent from "../Components/InputBodyComponent/InputBodyCompon
 function AddStoryView() {
   return (
     <div className="add-story-view-main-div">
-      <InputStoryHeader />
+      {/* <InputStoryHeader /> */}
       <InputBodyComponent />
     </div>
   );
