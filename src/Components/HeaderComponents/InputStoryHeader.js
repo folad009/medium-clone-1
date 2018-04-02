@@ -15,8 +15,8 @@ function InputStoryHeader(){
             <p>Publish</p>
             <Dots className="story-header-icons"/>
             <Bookmark className="story-header-icons"/>
-            <img alt="icon round num"/>
-            <img alt="icon round user image"/>
+            <img className="user-image"/>
+            <img className="user-image"/>
             </div>
         </div>
     )

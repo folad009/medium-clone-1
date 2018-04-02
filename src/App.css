@@ -5,7 +5,7 @@
 .App {
   height: auto;
   width: 100vw;
-  background-color: grey;
+  /* background-color: grey; */
 }
 
 /* Input Story View and Components Styles */
@@ -16,29 +16,44 @@
 .input-story-header-component-main-div{
   height: 10vh;
   width: 100%;
-  background-color: deeppink;
+  /* background-color: deeppink; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .story-header-icons{
-  height:40px;
-  width:40px;
+  height:30px;
+  width:30px;
+}
+.user-image{
+  height: 40px;
+  width: 40px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
 }
 .input-story-header-logo-left-div{
-  background-color: darkslategrey;
+  width: 15%;
+  /* background-color: darkslategrey; */
   margin-left: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   
 }
 .story-header-right-side-div{
-  background-color: darksalmon;
+  height: 100%;
+  width: 25%;
+  /* background-color: darksalmon; */
   margin-right: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
+}
+.story-header-right-side-div > p{
+  font-size: 12px;
 }
 
 
@@ -46,7 +61,7 @@
 .input-body-component-main-div{
   height: auto;
   min-height: 88vh;
-  background-color: green;
+  /* background-color: green; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,9 +69,14 @@
 .input-body-component-user-info{
   height: 10vh;
   width: 50%;
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
   padding: 10px;
-  margin-top: 20px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-top: solid 1px rgb(46, 46, 46);
+  /* border-top-style: solid; */
 }
 
 .input-body-component-title{
@@ -74,8 +94,24 @@
   border: none;
   padding: 10px;
 }
+.input-body-component-user-info{
+  display: flex;
+  flex-direction: row;
+}
+.input-body-component-user-info-image{
+  height: 40px;
+  width: 40px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.input-body-component-user-info-name{
+  margin-left: 10px;
+  font-size: 12px;
+}
+.input-body-component-user-info-name > p {
+  margin: 3px;
+}
 
 /* input story view */
-.add-story-view-main-div{
 
-}
