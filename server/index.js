@@ -113,8 +113,8 @@ app.get("/me", function(req, res, next) {
                 userid: response[0].id,
                 authid: response[0].authid
               };
-              res.status(200).send(req.session.user);
-            });
+            })
+            .then(res.redirect("http://localhost:3000"));
 
           next();
         } else {
@@ -122,9 +122,9 @@ app.get("/me", function(req, res, next) {
             userid: response[0].id,
             authid: response[0].authid
           };
-          res.status(200).send(req.session.user);
         }
-      });
+      })
+      .then(res.redirect("http://localhost:3000"));
   }
 });
 
