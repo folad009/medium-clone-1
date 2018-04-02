@@ -1,5 +1,6 @@
 import axios from "axios";
 
+const TEST = "TEST";
 const GET_ALL_POSTS = "GET_ALL_POSTS";
 const GET_USER = "GET_USER";
 
@@ -47,6 +48,7 @@ export default function reducer(state = initialState, action) {
       });
     case `${GET_ALL_POSTS}_REJECTED`:
       return Object.assign({}, state, { isLoading: false, didErr: true });
-      default: return state:
+    default:
+      return state;
   }
 }
