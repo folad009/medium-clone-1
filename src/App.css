@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
 }
+img{
+  height:400px;
+}
 .App {
   height: auto;
   width: 100vw;
@@ -164,11 +167,12 @@
   background-color: azure;
   padding: 10px;
   height: auto;
-  width: 50%;
+  min-width: 50%;
   margin-top: 100px;
 }
 .story-render-component-body{
   margin-top: 100px;
+  min-width: 60%;
   background-color: blueviolet;
   
 }

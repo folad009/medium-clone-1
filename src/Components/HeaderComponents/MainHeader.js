@@ -3,7 +3,7 @@ import IoIconPack from 'react-icons/lib/io';
 import Bookmark from 'react-icons/lib/io/android-bookmark';
 import Notification from 'react-icons/lib/io/android-notifications-none';
 import SearchIcon from 'react-icons/lib/io/search';
-import logoLarge from '../../assets/mediumlogo.svg'
+import logoLarge from '../../assets/mediumlogo.svg';
 class MainHeader extends Component{
     render(){
         return(

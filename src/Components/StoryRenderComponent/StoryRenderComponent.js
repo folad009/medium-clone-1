@@ -6,7 +6,7 @@ import FacebookIcon from 'react-icons/lib/io/social-facebook-outline'
 
 function StoryRenderComponent(){
     return(
-        <div >
+        <div className="story-render-component-main-div">
            <div className="story-render-component-body">
 
            <ul>
