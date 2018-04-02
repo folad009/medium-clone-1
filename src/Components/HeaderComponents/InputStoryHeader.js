@@ -4,6 +4,10 @@ import Dots from "react-icons/lib/io/ios-more";
 import Bookmark from "react-icons/lib/io/android-bookmark";
 import Notification from "react-icons/lib/io/android-notifications-none";
 import Logo from "../../assets/logo.svg";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { addPost } from "../../ducks/reducer";
+
 import { Link } from "react-router-dom";
 
 function InputStoryHeader() {
@@ -29,4 +33,6 @@ function InputStoryHeader() {
   );
 }
 
-export default InputStoryHeader;
+const mapStateToProps = state => state;
+
+export default withRouter(connect(mapStateToProps)(InputStoryHeader));
