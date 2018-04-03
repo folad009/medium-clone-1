@@ -315,6 +315,15 @@
   padding: 10px;
 }
 
+.featured-small-card-main-div > h4 {
+  font-size: 17px;
+  font-weight: 650;
+}
+.featured-small-card-main-div > p {
+  font-size: 15px;
+  color: #bbb;
+}
+
 
 /* card containers style */
 .medium-card-container-main-div{
@@ -335,6 +344,12 @@
 .featured-medium-card-info > h2 {
   font-weight: 600;
   font-size: 19px;
+}
+
+.featured-medium-card-info > p {
+  font-weight: 300;
+  font-size: 15px;
+  color: #bbb;
 }
 
 .small-card-container{
