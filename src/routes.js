@@ -12,6 +12,6 @@ export default (
     <Route path="/new-story" component={AddStoryView} />
     <Route path="/story-view" component={StoryReadView} />
     <Route path="/topics" component={ExploreTopicsView} />
-    <Route path="/@user" component={ProfilePageView} />
+    <Route path="/@user/:user" component={ProfilePageView} />
   </Switch>
 );

@@ -230,6 +230,10 @@
 }
 
 .profile-page-main-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 0px 20px 20px 20px;
 
@@ -240,6 +244,8 @@
   /* The 10 vh is from the height of the header */
   height: calc(207px - 10vh);
   background: mediumslateblue;
+  max-width: 640px;
+  width: fill;
 }
 .hero-profile {
   display: flex;
