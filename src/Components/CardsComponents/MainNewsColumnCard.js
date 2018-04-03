@@ -1,16 +1,16 @@
 import React from 'react';
 
-function NewsHomepageColumnCard(){
+function NewsHomepageColumnCard(props){
     return(
         <div className="news-home-page-column-card-main-div">
             <div className="news-home-page-column-card-info">
-                <h3>design is "about details",just dont fret over the little things</h3>
+                <h3>{props.articleTitle}</h3>
                 <p>Using pytubes,numpy and other stuff</p>
-                <p>steve stagg</p>
-                <p>mar 28</p>
+                <p>{`${props.articleFirstName} ${props.articleLastName}`}</p>
+                <p>{props.articleDate}</p>
             </div>
             <div>
-                <img src="https://cdn-images-1.medium.com/max/600/1*GTuX_3Xo3bxvtf_GgJTwpA.jpeg" className="news-home-page-column-card-image"/>
+                <img src={props.articleImg} className="news-home-page-column-card-image"/>
             </div>
         </div>
     )
