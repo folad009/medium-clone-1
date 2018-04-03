@@ -5,6 +5,7 @@ import Dots from 'react-icons/lib/io/ios-more'
 import Bookmark from 'react-icons/lib/io/android-bookmark';
 import Notification from 'react-icons/lib/io/android-notifications-none';
 import Logo from '../../assets/logo.svg'
+import InputStoryHeader from "../HeaderComponents/InputStoryHeader";
 
 require('medium-editor/dist/css/medium-editor.css');
 require('medium-editor/dist/css/themes/default.css');
@@ -18,18 +19,7 @@ class InputBodyComponent extends Component {
         }
     }
 
-    addPost(title, body, categories) {
 
-        let post = { title, body, categories }
-
-        axios.post("/api/addpost", post).then(results => {
-            console.log(results)
-        }).catch(err => console.log(err))
-
-
-
-
-    }
 
     handleChanges = (text, medium) => {
         this.setState({ body: text });
@@ -44,20 +34,7 @@ class InputBodyComponent extends Component {
     render() {
         console.log(this.state.body, this.state.title)
         return (<div>
-            <div className="input-story-header-component-main-div">
-                <div className="input-story-header-logo-left-div">
-                    <img src={Logo} className="logo-small" />
-                    <p>Save</p>
-                </div>
-                <div className="story-header-right-side-div">
-                    <p>Share</p>
-                    <p onClick={() => this.addPost(this.state.title, this.state.body, this.state.categories)} >Publish</p>
-                    <Dots className="story-header-icons" />
-                    <Bookmark className="story-header-icons" />
-                    <Notification className="story-header-icons" />
-                    <img className="user-image" />
-                </div>
-            </div>
+            <InputStoryHeader title={this.state.title} body={this.state.body} />
             <div className="input-body-component-main-div">
                 <div className="input-body-component-user-info">
                     <img className="input-body-component-user-info-image" />
@@ -70,11 +47,9 @@ class InputBodyComponent extends Component {
                 <Editor
                     className="input-body-component-title"
                     data-placeholder="Title"
+                    onChange={this.handleChange}
 
-                    onChange={
-                        this.handleChange
-                    }
-                    options={{ toolbar: { buttons: ['bold', 'italic', 'underline', 'anchor', 'h1', 'image', 'quote'] } }}
+                    options={{ toolbar: { buttons: [] } }}
                 />
 
                 <Editor

@@ -1,6 +1,6 @@
 module.exports = {
   // WILL RETRIEVE ALL POSTS
-  getPosts: function(req, res, next) {
+  getPosts: function (req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -13,7 +13,7 @@ module.exports = {
 
   // WILL RETRIEVE SINGLE POST
 
-  getPost: function(req, res, next) {
+  getPost: function (req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -59,8 +59,10 @@ module.exports = {
 
   // WILL ADD POST TO POST TABLE
 
-  addPost: function(req, res, next) {
+  addPost: function (req, res, next) {
     const db = req.app.get("db");
+
+    console.log(req.body)
     if (req.body.categories === "") {
       req.body.categories = null;
     }
