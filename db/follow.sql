@@ -1,0 +1,1 @@
+INSERT INTO follow (followerid, followedid) VALUES ($1, $2) RETURNING *;
