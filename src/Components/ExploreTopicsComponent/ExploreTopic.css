@@ -1,0 +1,23 @@
+.topic-card {
+  width: 280px;
+  height: 280px;
+  background: brown;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 98px;
+  width: 238px;
+  padding: 0px 20px;
+  background: bisque;
+}
+.topic-add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33px;
+  height: 33px;
+  background: cadetblue;
+  border-radius: 50%;
+}
