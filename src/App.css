@@ -2,9 +2,14 @@
   padding: 0;
   margin: 0;
 }
-img {
+<<<<<<< head img {
   height: 400px;
 }
+=======
+/* img{
+  height:400px;
+} */
+>>>>>>> master
 .App {
   height: auto;
   width: 100vw;
@@ -251,4 +256,83 @@ img {
   height: 80px;
   width: 80px;
   border-radius: 50%;
+}
+/* HomeView Styles */
+
+.hompage-view-temporary {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Card Component Styles */
+
+.featured-large-card-main-div {
+  background-color: blueviolet;
+
+  width: 40%;
+}
+.featured-medium-card-main-div {
+  background-color: blue;
+  height: 300px;
+  width: 300px;
+}
+.featured-medium-card-info {
+  background-color: azure;
+  height: 50%;
+}
+.featured-small-card-main-div {
+  background-color: aquamarine;
+  height: 100px;
+  width: 300px;
+}
+
+.news-home-page-column-card-main-div {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  background-color: aquamarine;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.news-home-page-column-card-info {
+  background-color: bisque;
+  width: 60%;
+}
+.news-home-page-column-card-image {
+  background-color: rgb(64, 184, 184);
+  height: 200px;
+  width: 200px;
+}
+
+/* Featured Component Styles */
+/* ****************************** */
+
+.featured-component-main-div {
+  height: 600px;
+  width: 80%;
+  display: flex;
+  background-color: rgb(205, 68, 68);
+}
+
+/* HomePageView */
+/* ******************* */
+
+.hompage-view-main-div {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100vw;
+  align-items: center;
+}
+
+/*  NewsHomePageColumnRender */
+/* ******************************* */
+
+.news-home-page-column-render-main-div {
+  background-color: blue;
+  width: 50%;
+  min-height: 800px;
 }
