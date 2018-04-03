@@ -1,1 +1,1 @@
-INSERT INTO users (authid, firstname, lastname) VALUES ($1, $2, $3) RETURNING *;
+INSERT INTO users (authid, firstname, lastname, avatar) VALUES ($1, $2, $3, $4) RETURNING *;

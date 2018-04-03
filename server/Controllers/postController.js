@@ -11,6 +11,19 @@ module.exports = {
       .catch(res.status(400));
   },
 
+  // WILL RETRIEVE SINGLE POST
+
+  getPost: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getPost([req.params.id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+
   // WILL ADD POST TO POST TABLE
 
   addPost: function (req, res, next) {

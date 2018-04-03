@@ -7,7 +7,9 @@ import Logo from '../../assets/logo.svg'
 import axios from 'axios';
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addPost } from "../../ducks/reducer"
+import { addPost } from "../../ducks/reducer";
+
+import { Link } from "react-router-dom";
 
 class InputStoryHeader extends Component {
     constructor() {
@@ -50,8 +52,6 @@ class InputStoryHeader extends Component {
         )
     }
 }
-
-
 
 const mapStateToProps = state => state;
 
