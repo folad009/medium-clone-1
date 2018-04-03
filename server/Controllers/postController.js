@@ -36,6 +36,27 @@ module.exports = {
       .catch(res.status(400));
   },
 
+  getCategories: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getCategories()
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+
+  getComments: function(req, res, next) {
+    const db = req.app.get("db");
+    db
+      .getComments([req.params.id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+
   // WILL ADD POST TO POST TABLE
 
   addPost: function(req, res, next) {
@@ -45,6 +66,17 @@ module.exports = {
     }
     db
       .addPost(req.body.title, req.body.body, req.body.categories)
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+
+  addComment: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .addComment(req.body.id, req.body.body)
       .then(response => {
         res.status(200).send(response);
       })
