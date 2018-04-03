@@ -70,6 +70,8 @@ app.get("/api/categories", postController.getCategories);
 app.get("/api/category/:id", postController.getAllPostCategory);
 //GETS USERS INTERESTS
 app.get("/api/interests/:userid", userController.getUserInterests);
+// GETS FOLLOWING
+app.get("/api/following/:id", userController.getFollowing);
 // CHECKS FOR A USER ON SESSION
 app.get("/api/user", (req, res, next) => {
   if (req.session.user) {
@@ -88,12 +90,19 @@ app.get("/api/user", (req, res, next) => {
 
 // ADDS POST
 app.post("/api/addpost", postController.addPost);
+app.post("/api/follow/add", userController.follow);
+// ADDS COMMENT
 app.post("/api/addcomment", postController.addComment);
 
 // PUT
-// app.put("/api/editpost", postController.editPost);
+
+// EDITS POST
+app.put("/api/editpost", postController.editPost);
 
 // DELETE
+
+// DELETES POST
+app.delete("/api/delete/:id", postController.deletePost);
 
 // AUTHENTICATION
 app.get(
