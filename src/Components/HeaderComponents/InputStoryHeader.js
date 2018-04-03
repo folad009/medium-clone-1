@@ -25,7 +25,8 @@ class InputStoryHeader extends Component {
         let post = { title, body, categories }
 
         axios.post("/api/addpost", post).then(results => {
-            console.log(results.data)
+
+            this.props.history.push(`/story-view/${results.data[0].id}`)
         }).catch(err => console.log(err))
 
 

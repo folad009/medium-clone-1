@@ -13,7 +13,7 @@ module.exports = {
 
   // WILL RETRIEVE SINGLE POST
 
-  getPost: function(req, res, next) {
+  getPost: function (req, res, next) {
     const db = req.app.get("db");
 
     db

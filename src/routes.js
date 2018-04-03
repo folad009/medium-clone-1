@@ -7,9 +7,9 @@ import ProfilePageView from "./Views/ProfilePageView";
 
 export default (
   <Switch>
-    <Route exact path="/" exact component={HomePageView} />
     <Route path="/new-story" component={AddStoryView} />
-    <Route path="/story-view" component={StoryReadView} />
+    <Route path="/story-view/:id" component={StoryReadView} />
     <Route path="/@user" component={ProfilePageView} />
+    <Route exact path="/" component={HomePageView} />
   </Switch>
 );
