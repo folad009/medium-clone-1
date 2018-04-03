@@ -59,7 +59,8 @@ passport.deserializeUser((profile, done) => {
 // GET
 
 // GETS ALL POSTS
-app.get("/api/getposts", postController.getPosts);
+app.get("/api/posts", postController.getPosts);
+app.get("/api/getpost/:id", postController.getPost);
 app.get("/api/user", (req, res, next) => {
   if (req.session.user) {
     app
@@ -92,7 +93,7 @@ app.get(
   })
 );
 
-app.get("/me", function (req, res, next) {
+app.get("/me", function(req, res, next) {
   if (!req.user.id) {
     res.redirect("/login");
   } else {
@@ -106,25 +107,24 @@ app.get("/me", function (req, res, next) {
             .addUser([
               req.user.id,
               req.user.name.givenName,
-              req.user.name.familyName
+              req.user.name.familyName,
+              req.user.picture
             ])
             .then(response => {
               req.session.user = {
                 userid: response[0].id,
                 authid: response[0].authid
               };
-            })
-            .then(res.redirect("http://localhost:3000"));
-
-          next();
+              res.redirect("http://localhost:3000");
+            });
         } else {
           req.session.user = {
             userid: response[0].id,
             authid: response[0].authid
           };
+          res.redirect("http://localhost:3000");
         }
-      })
-      .then(res.redirect("http://localhost:3000"));
+      });
   }
 });
 
