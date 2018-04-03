@@ -1,6 +1,6 @@
 module.exports = {
   // WILL CHECK FOR A USER ON SESSION
-  getUser: function(req, res, next) {
+  getUser: function (req, res, next) {
     const db = req.app.get("db");
 
     if (req.session.user) {
