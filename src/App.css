@@ -2,6 +2,9 @@
   padding: 0;
   margin: 0;
 }
+.temp-nav {
+  /* Styles for the temporary nav button links on the home page */
+}
 /* img{
   height:400px;
 } */
@@ -291,40 +294,39 @@
 
 /* Card Component Styles */
 
-.featured-large-card-main-div{
+.featured-large-card-main-div {
   /* background-color: blueviolet; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 40%;
 }
-.featured-medium-card-main-div{
+.featured-medium-card-main-div {
   /* background-color: blue; */
   /* height: 300px;
   width: 300px; */
   margin: 0px 12px;
 }
-.featured-medium-card-info{
+.featured-medium-card-info {
   /* background-color: azure; */
   height: 50%;
 }
-.featured-small-card-main-div{
+.featured-small-card-main-div {
   /* background-color: aquamarine; */
   height: 100px;
   width: 100%;
   padding: 10px;
 }
 
-
 /* card containers style */
-.medium-card-container-main-div{
+.medium-card-container-main-div {
   height: 50%;
   width: 100%;
   /* background-color: aqua; */
   display: flex;
   flex-direction: row;
 }
-.featured-medium-card-info{
+.featured-medium-card-info {
   padding: 12px 0px 12px 0px;
   height: 137px;
   width: 240px;
@@ -337,7 +339,7 @@
   font-size: 19px;
 }
 
-.small-card-container{
+.small-card-container {
   border-top: 1px solid black;
   height: 50%;
   width: 40%;
@@ -347,9 +349,7 @@
   margin: 10px;
 }
 
-
-
-.news-home-page-column-card-main-div{
+.news-home-page-column-card-main-div {
   height: 200px;
   width: 100%;
   display: flex;
@@ -357,16 +357,15 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.news-home-page-column-card-info{
+.news-home-page-column-card-info {
   /* background-color: bisque; */
   width: 60%;
 }
-.news-home-page-column-card-image{
+.news-home-page-column-card-image {
   /* background-color: rgb(64, 184, 184); */
   height: 200px;
   width: 200px;
 }
-
 
 /* Featured Component Styles */
 /* ****************************** */
@@ -377,8 +376,8 @@
   display: flex;
   /* background-color: rgb(205, 68, 68); */
 }
-.featured-component-right-div{
-  width:60%;
+.featured-component-right-div {
+  width: 60%;
   /* background-color: antiquewhite; */
 }
 
@@ -396,8 +395,8 @@
 /*  NewsHomePageColumnRender */
 /* ******************************* */
 
-.news-home-page-column-render-main-div{
+.news-home-page-column-render-main-div {
   /* background-color: blue; */
-  width:50%;
+  width: 50%;
   min-height: 800px;
 }

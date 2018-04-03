@@ -15,11 +15,14 @@ class HomePageView extends React.Component {
   render() {
     return (
       <div className="hompage-view-main-div">
-        <Link to="/new-story">Write-Story</Link>
-        <a href={process.env.REACT_APP_LOGIN}>
-          <button>Login</button>
-        </a>
-        <button onClick={() => console.log(this.props.user)} />
+        <div className="temp-nav">
+          <Link to="/new-story">Write-Story</Link>
+          <Link to="/topics">Topics</Link>
+          <a href={process.env.REACT_APP_LOGIN}>
+            <button>Login</button>
+          </a>
+          <button onClick={() => console.log(this.props.user)} />
+        </div>
         <MainHeader />
         <FeaturedComponent />
         <NewsHomePageColumnRender />
