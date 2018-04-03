@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import routes from './routes';
-import './App.css';
+import React, { Component } from "react";
+import routes from "./routes";
+import "./App.css";
 
-import AddStoryView from './Views/AddStoryView';
-
+import AddStoryView from "./Views/AddStoryView";
 
 class App extends Component {
   render() {

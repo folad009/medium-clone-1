@@ -1,0 +1,1 @@
+SELECT u.firstname, u.lastname, p.id, p.title, p.body, p.date, p.thumbnailimg FROM users AS u JOIN posts as P ON u.id = p.userid WHERE p.id = $1;
