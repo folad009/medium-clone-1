@@ -1,0 +1,1 @@
+INSERT INTO comments (postid, body) VALUES ($1, $2) RETURNING *;
