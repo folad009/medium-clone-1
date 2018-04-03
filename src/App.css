@@ -1,9 +1,9 @@
-*{
+* {
   padding: 0;
   margin: 0;
 }
-img{
-  height:400px;
+img {
+  height: 400px;
 }
 .App {
   height: auto;
@@ -14,9 +14,8 @@ img{
 /* Input Story View and Components Styles */
 /* ***************************************** */
 
-
 /* InputStoryHeader */
-.input-story-header-component-main-div{
+.input-story-header-component-main-div {
   height: 10vh;
   width: 100%;
   /* background-color: deeppink; */
@@ -24,18 +23,18 @@ img{
   flex-direction: row;
   justify-content: space-between;
 }
-.story-header-icons{
-  height:30px;
-  width:30px;
+.story-header-icons {
+  height: 30px;
+  width: 30px;
 }
-.user-image{
+.user-image {
   height: 40px;
   width: 40px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 }
-.input-story-header-logo-left-div{
+.input-story-header-logo-left-div {
   width: 15%;
   /* background-color: darkslategrey; */
   margin-left: 200px;
@@ -43,9 +42,8 @@ img{
   flex-direction: row;
   align-items: center;
   /* justify-content: space-around; */
-  
 }
-.story-header-right-side-div{
+.story-header-right-side-div {
   height: 100%;
   width: 25%;
   /* background-color: darksalmon; */
@@ -55,19 +53,19 @@ img{
   align-items: center;
   justify-content: space-around;
 }
-.story-header-right-side-div > p{
+.story-header-right-side-div > p {
   font-size: 12px;
 }
-.input-story-header-logo-left-div > p{
+.input-story-header-logo-left-div > p {
   font-size: 12px;
 }
-.logo-small{
-  height:70px;
+.logo-small {
+  height: 70px;
   width: 70px;
 }
 
 /* InputBodyComponent */
-.input-body-component-main-div{
+.input-body-component-main-div {
   height: auto;
   min-height: 88vh;
   /* background-color: green; */
@@ -75,7 +73,7 @@ img{
   flex-direction: column;
   align-items: center;
 }
-.input-body-component-user-info{
+.input-body-component-user-info {
   height: 10vh;
   width: 50%;
   /* background-color: dodgerblue; */
@@ -88,7 +86,7 @@ img{
   /* border-top-style: solid; */
 }
 
-.input-body-component-title{
+.input-body-component-title {
   height: auto;
   min-height: 10vh;
   width: 50%;
@@ -96,7 +94,7 @@ img{
   border: none;
   padding: 10px;
 }
-.text-area-body-component-body{
+.text-area-body-component-body {
   height: auto;
   min-height: 80vh;
   width: 50%;
@@ -108,18 +106,18 @@ img{
 *:focus {
   outline: none;
 }
-.input-body-component-user-info{
+.input-body-component-user-info {
   display: flex;
   flex-direction: row;
 }
-.input-body-component-user-info-image{
+.input-body-component-user-info-image {
   height: 40px;
   width: 40px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
 }
-.input-body-component-user-info-name{
+.input-body-component-user-info-name {
   margin-left: 10px;
   font-size: 12px;
 }
@@ -129,11 +127,9 @@ img{
 
 /* input story view */
 
-
-
 /* MainHeader Styles */
 
-.main-header-component-main-div{
+.main-header-component-main-div {
   height: 10vh;
   width: 80%;
   /* background-color: deeppink; */
@@ -141,43 +137,41 @@ img{
   flex-direction: row;
   justify-content: space-between;
 }
-.main-header-icon-user-div{
+.main-header-icon-user-div {
   /* background-color: bisque; */
   width: 20%;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.main-header-logo-div{
+.main-header-logo-div {
   /* background-color: aquamarine; */
   width: 80%;
   display: flex;
   justify-content: center;
-
 }
-.logo-large{
-  height:60px;
+.logo-large {
+  height: 60px;
   width: auto;
   /* background-color: aquamarine; */
 }
 
 /* Story render component styles */
 /* ************************************** */
-.story-render-component-main-div{
+.story-render-component-main-div {
   /* background-color: azure; */
   padding: 10px;
   height: auto;
   min-width: 50%;
   /* margin-top: 100px; */
 }
-.story-render-component-body{
+.story-render-component-body {
   margin-top: 100px;
   min-width: 60%;
   /* background-color: blueviolet; */
-  
 }
 
-.story-render-component-clap-section{
+.story-render-component-clap-section {
   width: 100%;
   /* background-color: rgb(196, 12, 12); */
   /* margin-top: 10px; */
@@ -188,12 +182,11 @@ img{
   padding-top: 10px;
 }
 
-
-.story-render-component-clap-section-text{
+.story-render-component-clap-section-text {
   height: 100px;
   /* background-color: aqua; */
 }
-.story-render-component-clap-section-icons-div{
+.story-render-component-clap-section-icons-div {
   /* background-color: bisque; */
   display: flex;
   flex-direction: row;
@@ -202,7 +195,7 @@ img{
 }
 
 /* StoryReadView Styles */
-.story-read-view-main-div{
+.story-read-view-main-div {
   /* background-color: #bbb; */
   min-height: 100vh;
   height: auto;
@@ -210,4 +203,52 @@ img{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/*ExploreTopicsView Styles*/
+.explore-topics-view-main-div {
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* ProfilePageView Styles */
+.profile-page-view-main-div {
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-page-main-div {
+  width: 100%;
+  padding: 0px 20px 20px 20px;
+
+  background: teal;
+}
+.profile-page-header {
+  padding: 20px;
+  /* The 10 vh is from the height of the header */
+  height: calc(207px - 10vh);
+  background: mediumslateblue;
+}
+.hero-profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 0px 0px 0px;
+  margin-bottom: 10px;
+  background: mediumvioletred;
+}
+.hero-profile h1 {
+  padding: 10px 0px 10px 5px;
+}
+.profile-avatar {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
 }

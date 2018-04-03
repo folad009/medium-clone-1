@@ -6,7 +6,7 @@ import ExploreTopicsComponent from "../Components/ExploreTopicsComponent/Explore
 class ExploreTopicsView extends React.Component {
   render() {
     return (
-      <div className="expore-topics-view">
+      <div className="explore-topics-view-main-div">
         <MainHeader />
         <ExploreTopicsComponent />
       </div>
