@@ -295,9 +295,12 @@
   /* background-color: blueviolet; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
   width: 40%;
+  margin: 10px;
 }
+
 .featured-medium-card-main-div{
   /* background-color: blue; */
   /* height: 300px;
