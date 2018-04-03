@@ -237,12 +237,12 @@
   padding: 20px;
   /* The 10 vh is from the height of the header */
   height: calc(207px - 10vh);
-  background: mediumslateblue;
+  /* background: mediumslateblue; */
   max-width: 640px;
   width: fill;
 }
 .profile-page-header h5 {
-  color: rgba(0, 0, 0, 0.54);
+  /* color: rgba(0, 0, 0, 0.54); */
   font-weight: 400;
 }
 .hero-profile {
@@ -251,7 +251,7 @@
   align-items: flex-start;
   padding: 10px 0px 0px 0px;
   margin-bottom: 10px;
-  background: mediumvioletred;
+  /* background: mediumvioletred; */
 }
 .hero-profile h1 {
   padding: 10px 0px 10px 5px;
@@ -262,7 +262,7 @@
   border-radius: 50%;
 }
 .profile-tabs {
-  background: lawngreen;
+  /* background: lawngreen; */
   display: flex;
   flex-direction: row;
   width: 100px;
@@ -274,7 +274,7 @@
   font-size: 16px;
   font-weight: 300;
   line-height: 22.4px;
-  color: rgba(0, 0, 0, 0.54);
+  /* color: rgba(0, 0, 0, 0.54); */
 }
 #tab-heading-profile {
   margin-right: 20px;
@@ -300,8 +300,9 @@
 }
 .featured-medium-card-main-div{
   /* background-color: blue; */
-  height: 300px;
-  width: 300px;
+  /* height: 300px;
+  width: 300px; */
+  margin: 0px 12px;
 }
 .featured-medium-card-info{
   /* background-color: azure; */
@@ -311,6 +312,7 @@
   /* background-color: aquamarine; */
   height: 100px;
   width: 100%;
+  padding: 10px;
 }
 
 
@@ -322,13 +324,29 @@
   display: flex;
   flex-direction: row;
 }
+.featured-medium-card-info{
+  padding: 12px 0px 12px 0px;
+  height: 137px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.featured-medium-card-info > h2 {
+  font-weight: 600;
+  font-size: 19px;
+}
+
 .small-card-container{
+  border-top: 1px solid black;
   height: 50%;
-  width: 30%;
+  width: 40%;
   /* background-color: rgb(78, 75, 82); */
   display: flex;
   flex-direction: column;
+  margin: 10px;
 }
+
 
 
 .news-home-page-column-card-main-div{
@@ -348,6 +366,7 @@
   height: 200px;
   width: 200px;
 }
+
 
 /* Featured Component Styles */
 /* ****************************** */
