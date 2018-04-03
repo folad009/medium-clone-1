@@ -24,6 +24,18 @@ module.exports = {
       .catch(res.status(400));
   },
 
+  // WILL RETRIEVE POSTS FROM CORRESPONDING CATEGORY
+  getAllPostCategory: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getPostCategory([req.params.id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+
   // WILL ADD POST TO POST TABLE
 
   addPost: function (req, res, next) {

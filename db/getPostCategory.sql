@@ -1,0 +1,1 @@
+SELECT c.categoryid, p.id, p.title, p.body, p.date, u.firstname, u.lastname FROM postcategory AS c JOIN posts as p ON c.postid = p.id JOIN users AS u ON p.userid = u.id WHERE c.categoryid = $1;

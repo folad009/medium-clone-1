@@ -1,11 +1,12 @@
 import React from "react";
 import MainHeader from "../Components/HeaderComponents/MainHeader";
+import ProfilePage from "../Components/ProfileComponents/ProfilePage";
 
 function ProfilePageView() {
   return (
-    <div className="profile-page-view">
+    <div className="profile-page-view-main-div">
       <MainHeader />
-      <h1>Profile</h1>
+      <ProfilePage />
     </div>
   );
 }
