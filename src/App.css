@@ -225,39 +225,59 @@
 /* Card Component Styles */
 
 .featured-large-card-main-div{
-  background-color: blueviolet;
-  
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 40%;
 }
 .featured-medium-card-main-div{
-  background-color: blue;
+  /* background-color: blue; */
   height: 300px;
   width:300px;
 }
 .featured-medium-card-info{
-  background-color: azure;
+  /* background-color: azure; */
   height: 50%;
 }
 .featured-small-card-main-div{
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   height: 100px;
-  width: 300px;
+  width: 100%;
 }
+
+
+/* card containers style */
+.medium-card-container-main-div{
+  height: 50%;
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: row;
+}
+.small-card-container{
+  height: 50%;
+  width: 30%;
+  /* background-color: rgb(78, 75, 82); */
+  display: flex;
+  flex-direction: column;
+}
+
 
 .news-home-page-column-card-main-div{
   height: 200px;
   width: 100%;
   display: flex;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   flex-direction: row;
   justify-content: space-between;
 }
 .news-home-page-column-card-info{
-  background-color: bisque;
+  /* background-color: bisque; */
   width: 60%;
 }
 .news-home-page-column-card-image{
-  background-color: rgb(64, 184, 184);
+  /* background-color: rgb(64, 184, 184); */
   height: 200px;
   width: 200px;
 }
@@ -269,9 +289,12 @@
   height: 600px;
   width:80%;
   display: flex;
-  background-color: rgb(205, 68, 68);
+  /* background-color: rgb(205, 68, 68); */
 }
-
+.featured-component-right-div{
+  width:60%;
+  /* background-color: antiquewhite; */
+}
 
 /* HomePageView */
 /* ******************* */
@@ -288,7 +311,7 @@
 /* ******************************* */
 
 .news-home-page-column-render-main-div{
-  background-color: blue;
+  /* background-color: blue; */
   width:50%;
   min-height: 800px;
 }
