@@ -12,18 +12,30 @@ class ProfilePage extends React.Component {
         <div className="profile-page-header">
           <div className="hero-profile">
             <h1>
-              {`${this.props.user.firstname} ${this.props.user.lastname}`}
+              {this.props.user.firstname
+                ? `${this.props.user.firstname} ${this.props.user.lastname}`
+                : "No user"}
             </h1>
             <img
-              src="https://cdn-images-1.medium.com/fit/c/125/125/0*WrSrr3mpeHkyCZzh."
+              src={
+                this.props.user.firstname
+                  ? `${this.props.user.avatar}`
+                  : "https://cdn-images-1.medium.com/fit/c/125/125/0*WrSrr3mpeHkyCZzh."
+              }
               className="profile-avatar"
             />
           </div>
-          <h6>4 Following</h6>
+          <h5>4 Following</h5>
           <button>Edit</button>
         </div>
-        <span>Profile</span>
-        <span>Claps</span>
+        <div className="profile-tabs">
+          <h6 id="tab-heading-profile" className="profile-heading-tab">
+            Profile
+          </h6>
+          <h6 id="tab-heading-claps" className="profile-heading-tab">
+            Claps
+          </h6>
+        </div>
       </div>
     );
   }

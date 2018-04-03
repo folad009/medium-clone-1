@@ -236,7 +236,6 @@
   align-items: center;
   width: 100%;
   padding: 0px 20px 20px 20px;
-
   background: teal;
 }
 .profile-page-header {
@@ -246,6 +245,10 @@
   background: mediumslateblue;
   max-width: 640px;
   width: fill;
+}
+.profile-page-header h5 {
+  color: rgba(0, 0, 0, 0.54);
+  font-weight: 400;
 }
 .hero-profile {
   display: flex;
@@ -262,6 +265,24 @@
   height: 80px;
   width: 80px;
   border-radius: 50%;
+}
+.profile-tabs {
+  background: lawngreen;
+  display: flex;
+  flex-direction: row;
+  width: 100px;
+  height: 34px;
+}
+.profile-heading-tab {
+  height: 24px;
+  padding-bottom: 8px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22.4px;
+  color: rgba(0, 0, 0, 0.54);
+}
+#tab-heading-profile {
+  margin-right: 20px;
 }
 /* HomeView Styles */
 

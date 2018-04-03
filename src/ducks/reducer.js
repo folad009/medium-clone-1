@@ -5,8 +5,6 @@ const GET_ALL_POSTS = "GET_ALL_POSTS";
 const GET_USER = "GET_USER";
 const POST = "POST";
 
-
-
 export function getAllPosts() {
   return {
     type: GET_ALL_POSTS,
@@ -21,7 +19,7 @@ export function getUser() {
     type: GET_USER,
     payload: axios
       .get("/api/user")
-      .then(response => response.data)
+      .then(response => response.data[0])
       .catch(() => [])
   };
 }
