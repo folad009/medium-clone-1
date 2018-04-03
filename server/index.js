@@ -88,7 +88,7 @@ app.get("/api/user", (req, res, next) => {
 
 // POST
 
-// ADDS POST
+// ADDS POSTS
 app.post("/api/addpost", postController.addPost);
 app.post("/api/follow/add", userController.follow);
 // ADDS COMMENT
