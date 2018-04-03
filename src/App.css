@@ -298,9 +298,12 @@
   /* background-color: blueviolet; */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
   width: 40%;
+  margin: 10px;
 }
+
 .featured-medium-card-main-div {
   /* background-color: blue; */
   /* height: 300px;
@@ -316,6 +319,15 @@
   height: 100px;
   width: 100%;
   padding: 10px;
+}
+
+.featured-small-card-main-div > h4 {
+  font-size: 17px;
+  font-weight: 650;
+}
+.featured-small-card-main-div > p {
+  font-size: 15px;
+  color: rgb(160, 160, 160);
 }
 
 /* card containers style */
@@ -337,6 +349,12 @@
 .featured-medium-card-info > h2 {
   font-weight: 600;
   font-size: 19px;
+}
+
+.featured-medium-card-info > p {
+  font-weight: 300;
+  font-size: 15px;
+  color: #bbb;
 }
 
 .small-card-container {

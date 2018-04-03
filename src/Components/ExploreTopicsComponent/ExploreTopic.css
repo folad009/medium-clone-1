@@ -3,7 +3,7 @@
   height: 280px;
   border: 1px solid rgba(0, 0, 0, 0.44);
 }
-.topic-card:hover{
+.topic-card:hover {
   cursor: pointer;
 }
 .card-header {
@@ -23,8 +23,7 @@
   background: cadetblue;
   border-radius: 50%;
 }
-.topic-add-button:hover{
-  
+.topic-add-button:hover {
 }
 .topic-card-img {
   width: 280px;
@@ -33,5 +32,5 @@
   background-size: cover;
 }
 .card-header h2 {
-  color: rgba(0, 0, 0, 0.84))
+  color: rgba(0, 0, 0, 0.84);
 }
