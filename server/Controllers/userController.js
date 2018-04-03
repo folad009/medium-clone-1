@@ -1,6 +1,6 @@
 module.exports = {
   // WILL CHECK FOR A USER ON SESSION
-  getUser: function (req, res, next) {
+  getUser: function(req, res, next) {
     const db = req.app.get("db");
 
     if (req.session.user) {
@@ -16,6 +16,26 @@ module.exports = {
 
     db
       .userInterests([req.params.userid])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+  getFollowing: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getFollowing([req.params.id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+  follow: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .follow(req.body.followerID, req.body.followedID)
       .then(response => {
         res.status(200).send(response);
       })
