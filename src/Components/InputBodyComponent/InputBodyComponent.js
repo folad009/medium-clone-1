@@ -47,11 +47,9 @@ class InputBodyComponent extends Component {
                 <Editor
                     className="input-body-component-title"
                     data-placeholder="Title"
+                    onChange={this.handleChange}
 
-                    onChange={
-                        this.handleChange
-                    }
-                    options={{ toolbar: { buttons: ['bold', 'italic', 'underline', 'anchor', 'h1', 'image', 'quote'] } }}
+                    options={{ toolbar: { buttons: [] } }}
                 />
 
                 <Editor
