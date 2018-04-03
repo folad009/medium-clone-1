@@ -1,0 +1,1 @@
+SELECT i.category, c.name FROM userintrests as i JOIN category as c ON i.category = c.id WHERE i.userid = $1;
