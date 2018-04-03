@@ -60,7 +60,13 @@ passport.deserializeUser((profile, done) => {
 
 // GETS ALL POSTS
 app.get("/api/posts", postController.getPosts);
+// GETS SINGLE POST
 app.get("/api/getpost/:id", postController.getPost);
+// GETS ALL POSTS BY CATEGORY
+app.get("/api/category/:id", postController.getAllPostCategory);
+//GETS USERS INTERESTS
+app.get("/api/interests/:userid", userController.getUsersInterests);
+// CHECKS FOR A USER ON SESSION
 app.get("/api/user", (req, res, next) => {
   if (req.session.user) {
     app
