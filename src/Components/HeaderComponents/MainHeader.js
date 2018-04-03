@@ -4,20 +4,6 @@ import Bookmark from "react-icons/lib/io/android-bookmark";
 import Notification from "react-icons/lib/io/android-notifications-none";
 import SearchIcon from "react-icons/lib/io/search";
 import logoLarge from "../../assets/mediumlogo.svg";
-<<<<<<< HEAD
-class MainHeader extends Component {
-  render() {
-    return (
-      <div className="main-header-component-main-div">
-        <div classNam="main-header-logo-div">
-          <img src={logoLarge} className="logo-large" />
-        </div>
-        <div className="main-header-icon-user-div">
-          <SearchIcon className="story-header-icons" />
-          <Bookmark className="story-header-icons" />
-          <Notification className="story-header-icons" />
-          <img className="user-image" />
-=======
 import { Link } from "react-router-dom";
 import "./Header.css";
 
@@ -60,7 +46,6 @@ class MainHeader extends Component {
           <Link to="/@user">
             <img className="user-image" />
           </Link>
->>>>>>> master
         </div>
       </div>
     );
