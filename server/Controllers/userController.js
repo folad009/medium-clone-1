@@ -11,7 +11,7 @@ module.exports = {
       res.status(400).send("No user found");
     }
   },
-  getUsersInterests: function(req, res, next) {
+  getUserInterests: function(req, res, next) {
     const db = req.app.get("db");
 
     db
