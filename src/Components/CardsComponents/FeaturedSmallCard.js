@@ -1,14 +1,14 @@
 import React from 'react';
 
-function FeaturedSmallCard(){
+function FeaturedSmallCard(props){
     return(
         <div className="featured-small-card-main-div">
             <div>
                 <h4>
-                Title
+                {props.articleTitle}
                 </h4>
                 <p>
-                Author
+                {props.articleAuthor}
                 </p>    
             </div>
         </div>  

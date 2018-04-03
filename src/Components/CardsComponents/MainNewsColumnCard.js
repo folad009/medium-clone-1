@@ -4,7 +4,7 @@ function NewsHomepageColumnCard(props){
     return(
         <div className="news-home-page-column-card-main-div">
             <div className="news-home-page-column-card-info">
-                <h3>{props.articleTitle}</h3>
+                <h1>{props.articleTitle}</h1>
                 <p>Using pytubes,numpy and other stuff</p>
                 <p>{`${props.articleFirstName} ${props.articleLastName}`}</p>
                 <p>{props.articleDate}</p>
