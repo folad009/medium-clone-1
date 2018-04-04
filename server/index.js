@@ -96,7 +96,16 @@ app.post("/api/addpost", postController.addPost);
 app.post("/api/follow/add", userController.follow);
 // ADDS COMMENT
 app.post("/api/addcomment", postController.addComment);
-
+// ADD USER INTEREST
+// app.post("/api/usertopic/:id", (req, res, next) => {
+//   const { user } = req.session.user;
+//   req.app
+//     .get("db")
+//     .addUserInterest(user.id, req.params.id)
+//     .then(response => {
+//       res.status(200).json(response);
+//     });
+// });
 
 // ADDS POST TO USER'S READING LIST
 app.post("/api/addreadinglist", userController.addToReadingList);
@@ -126,7 +135,7 @@ app.get(
   })
 );
 
-app.get("/me", function (req, res, next) {
+app.get("/me", function(req, res, next) {
   if (!req.user.id) {
     res.redirect("/login");
   } else {
