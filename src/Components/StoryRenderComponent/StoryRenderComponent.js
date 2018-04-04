@@ -13,14 +13,15 @@ class StoryRenderComponent extends Component {
         this.state = {
             post: "",
             comment: "",
-            postComments: []
+            postComments: [],
+            claps: 0
         }
     }
 
     componentDidMount() {
         axios.get(`/api/getpost/${this.props.match.params.id}`).then(r => {
-            console.log(r.data[0])
-            this.setState({ post: r.data[0].body })
+
+            this.setState({ post: r.data[0].body, claps: r.data[0].rating })
         }).catch(err => console.log(err))
 
         axios.get(`/api/comments/${this.props.match.params.id}`).then(r => {
@@ -46,6 +47,16 @@ class StoryRenderComponent extends Component {
 
     }
 
+    addClap() {
+
+        let newClaps = this.state.claps += 1;
+        let claps = { claps: newClaps }
+
+        axios.put(`/api/clap/${this.props.match.params.id}`, claps).then(r => {
+            this.setState({ claps: r.data[0].rating })
+        }).catch(err => console.log(err))
+    }
+
     render() {
 
         let post;
@@ -54,14 +65,14 @@ class StoryRenderComponent extends Component {
         }
 
         let comments = this.state.postComments.map((item, i) => {
-            return <div>  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
+            return <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
                 {item.body}</div>
         })
 
         return (
             <div className="story-render-component-main-div">
 
-
+                <div>Claps:{this.state.claps}  <button onClick={() => this.addClap()} >Clap</button> </div>
                 <div className="story-render-component-body" dangerouslySetInnerHTML={this.createMarkup(post)} />
 
                 <div> <input onChange={(e) => this.setState({ comment: e.target.value })} type="text" /> <button onClick={() => this.addcomment(this.props.match.params.id, this.state.comment)} >Submit</button>  </div>
