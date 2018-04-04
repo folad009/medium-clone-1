@@ -4,6 +4,7 @@ const TEST = "TEST";
 const GET_ALL_POSTS = "GET_ALL_POSTS";
 const GET_USER = "GET_USER";
 const POST = "POST";
+const GET_CATEGORIES = "GET_CATEGORIES";
 const LOGOUT = "LOGOUT";
 
 export function getAllPosts() {
@@ -24,6 +25,13 @@ export function getUser() {
       .catch(() => [])
   };
 }
+export function getCategories() {
+  return {
+    type: GET_CATEGORIES,
+    payload: axios
+      .get("/api/categories")
+      .then(response => response.data.sort((a, b) => a.id - b.id))
+      .catch(() => [])
 export function logOut() {
   return {
     type: "LOGOUT",
@@ -38,11 +46,21 @@ export function logOut() {
 
 const initialState = {
   user: {},
+  categories: [],
   posts: []
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case `${GET_CATEGORIES}_PENDING`:
+      return Object.assign({}, state, { isLoading: true });
+    case `${GET_CATEGORIES}_FULFILLED`:
+      return Object.assign({}, state, {
+        isLoading: false,
+        categories: action.payload
+      });
+    case `${GET_CATEGORIES}_REJECTED`:
+      return Object.assign({}, state, { isLoading: false, didErr: true });
     case `${GET_USER}_PENDING`:
       return Object.assign({}, state, { isLoading: true });
     case `${GET_USER}_FULFILLED`:
