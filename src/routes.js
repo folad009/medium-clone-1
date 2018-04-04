@@ -5,6 +5,9 @@ import HomePageView from "./Views/HomePageView";
 import StoryReadView from "./Views/StoryReadView";
 import ExploreTopicsView from "./Views/ExploreTopicsView";
 import ProfilePageView from "./Views/ProfilePageView";
+import CategoryView from './Views/CategoryView';
+
+
 
 export default (
   <Switch>
@@ -13,5 +16,6 @@ export default (
     <Route path="/user/:id" component={ProfilePageView} />
     <Route path="/topics" component={ExploreTopicsView} />
     <Route exact path="/" component={HomePageView} />
+    <Route path = "/category" component={CategoryView}/>
   </Switch>
 );
