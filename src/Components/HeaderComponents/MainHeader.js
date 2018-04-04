@@ -36,8 +36,8 @@ class MainHeader extends Component {
         <div className="main-header-icon-user-div">
           <SearchIcon
             className="story-header-icons"
-            // uncommenting this vvvvv this will enable an unfinished scroll out search bar function
-            // onClick={() => this.focusMethod()}
+          // uncommenting this vvvvv this will enable an unfinished scroll out search bar function
+          // onClick={() => this.focusMethod()}
           />
           <input
             className="SearchBar"
@@ -49,9 +49,7 @@ class MainHeader extends Component {
           <Notification className="story-header-icons" />
           <Link
             to={
-              this.props.user.firstname
-                ? `/@${this.props.user.firstname}-${this.props.user.lastname}`
-                : "/"
+              `/user/${this.props.user.id}`
             }
           >
             <img className="user-image" src={this.props.user.avatar} />
