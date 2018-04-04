@@ -33,7 +33,6 @@
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  width: ;
 }
 .topic-header-grid.right {
   animation: TopicBarScrollRight 0.1s forwards;
