@@ -1,16 +1,18 @@
 .topic-card {
   width: 280px;
   height: 280px;
-  background: brown;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+}
+.topic-card:hover {
+  cursor: pointer;
 }
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 98px;
-  width: 238px;
+  width: 240px;
   padding: 0px 20px;
-  background: bisque;
 }
 .topic-add-button {
   display: flex;
@@ -20,4 +22,15 @@
   height: 33px;
   background: cadetblue;
   border-radius: 50%;
+}
+.topic-add-button:hover {
+}
+.topic-card-img {
+  width: 280px;
+  height: 183px;
+  background-position: center;
+  background-size: cover;
+}
+.card-header h2 {
+  color: rgba(0, 0, 0, 0.84);
 }
