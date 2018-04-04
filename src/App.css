@@ -476,3 +476,20 @@
   /* background-color: bisque; */
   padding: 10px;
 }
+
+/* Category View */
+/* *************************** */
+
+.category-view-main-container{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+  background-color: blueviolet;
+  
+}
+.category-view-title-follow{
+  width: 80%;
+  background-color: bisque;
+  margin-top: 150px;
+}

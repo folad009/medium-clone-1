@@ -14,8 +14,13 @@ class CategoryView extends Component{
                     <div>
                     <button>Follow</button>
                     </div>
-                        
-                    
+                </div>
+                <div className="related-topics">
+                    <h6>Related topics</h6>
+                    <h6>Creativity,Media,Music,Film,Art</h6>
+                </div>
+                <div className="for-you-render">
+                    <h3></h3>
                 </div>
             </div>
         )
