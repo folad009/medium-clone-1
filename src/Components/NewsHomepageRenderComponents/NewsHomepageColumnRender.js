@@ -3,6 +3,7 @@ import NewsHomepageColumnCard from '../CardsComponents/MainNewsColumnCard';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAllPosts } from '../../ducks/reducer';
+import PopularFromNetWorkContainer from '../CardContainers/PopularFromNetwork';
 
 
 class NewsHomePageColumnRender extends Component {
@@ -28,7 +29,12 @@ class NewsHomePageColumnRender extends Component {
 
         return (
             <div className="news-home-page-column-render-main-div">
-                {postsList}
+                <div className="news-home-page-column-main-articles">
+                    {postsList}
+                </div>
+                <div className="news-home-page-column-main-from-network-div">
+                    <PopularFromNetWorkContainer />
+                </div>
             </div>
         )
     }

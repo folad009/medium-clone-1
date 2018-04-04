@@ -6,6 +6,10 @@ import SearchIcon from "react-icons/lib/io/search";
 import logoLarge from "../../assets/mediumlogo.svg";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { connect } from "react-redux";
+import { getUser } from "../../ducks/reducer";
+
+//Connected with Redux
 
 class MainHeader extends Component {
   constructor() {
@@ -43,12 +47,22 @@ class MainHeader extends Component {
           />
           <Bookmark className="story-header-icons" />
           <Notification className="story-header-icons" />
-          <Link to="/@user">
-            <img className="user-image" />
+          <Link
+            to={
+              this.props.user.firstname
+                ? `/@${this.props.user.firstname}-${this.props.user.lastname}`
+                : "/"
+            }
+          >
+            <img className="user-image" src={this.props.user.avatar} />
           </Link>
         </div>
       </div>
     );
   }
 }
-export default MainHeader;
+
+function mapStateToProps(state) {
+  return state;
+}
+export default connect(mapStateToProps, { getUser })(MainHeader);
