@@ -8,7 +8,12 @@ function TopicCard(props) {
         <h2>Title</h2>
         <div className="topic-add-button">+</div>
       </div>
-      <img src="" />
+      <div
+        className="topic-card-img"
+        style={{
+          backgroundImage: `url(http://simpleabstract.com/assets/images/Oil-On-Canvas-Abstract-Art.jpg)`
+        }}
+      />
     </div>
   );
 }
