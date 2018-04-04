@@ -28,8 +28,8 @@
   flex-flow: row nowrap;
 }
 .topic-header-grid {
-  display: flex;
   /* grid-template-columns: repeat(14, 1fr); */
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
