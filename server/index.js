@@ -72,6 +72,8 @@ app.get("/api/category/:id", postController.getAllPostCategory);
 app.get("/api/interests/:userid", userController.getUserInterests);
 // GETS FOLLOWING
 app.get("/api/following/:id", userController.getFollowing);
+//GETS USER READING LIST
+app.get("/api/readinglist/:userid", userController.getReadingList);
 // CHECKS FOR A USER ON SESSION
 app.get("/api/user", (req, res, next) => {
   if (req.session.user) {
@@ -90,9 +92,12 @@ app.get("/api/user", (req, res, next) => {
 
 // ADDS POSTS
 app.post("/api/addpost", postController.addPost);
+// LETS USER FOLLOW ANTOHER USER
 app.post("/api/follow/add", userController.follow);
 // ADDS COMMENT
 app.post("/api/addcomment", postController.addComment);
+// ADDS POST TO USER'S READING LIST
+app.post("/api/addreadinglist", userController.addToReadingList);
 
 // PUT
 
@@ -103,6 +108,11 @@ app.put("/api/editpost", postController.editPost);
 
 // DELETES POST
 app.delete("/api/delete/:id", postController.deletePost);
+//REMOVES POST FROM USER'S READING LIST
+app.delete(
+  "/api/readinglist/remove/:userid/:readinglistid",
+  userController.deleteFromReadingList
+);
 
 // AUTHENTICATION
 app.get(
@@ -123,21 +133,39 @@ app.get("/me", function(req, res, next) {
       .getUser([req.user.id])
       .then(response => {
         if (!response[0]) {
-          app
-            .get("db")
-            .addUser([
-              req.user.id,
-              req.user.name.givenName,
-              req.user.name.familyName,
-              req.user.picture
-            ])
-            .then(response => {
-              req.session.user = {
-                userid: response[0].id,
-                authid: response[0].authid
-              };
-              res.redirect("http://localhost:3000");
-            });
+          if (req.user.hasOwnProperty("displayName") === false) {
+            app
+              .get("db")
+              .addUser([
+                req.user.id,
+                req.user.name.givenName,
+                req.user.name.familyName,
+                req.user.picture
+              ])
+              .then(response => {
+                req.session.user = {
+                  userid: response[0].id,
+                  authid: response[0].authid
+                };
+                res.redirect("http://localhost:3000");
+              });
+          } else {
+            let name = req.user.displayName;
+            let split = req.user.displayName.split(" ");
+            let firstname = split[0];
+            let lastname = split[1];
+
+            app
+              .get("db")
+              .addUser([req.user.id, firstname, lastname, req.user.picture])
+              .then(response => {
+                req.session.user = {
+                  userid: response[0].id,
+                  authid: response[0].authid
+                };
+                res.redirect("http://localhost:3000");
+              });
+          }
         } else {
           req.session.user = {
             userid: response[0].id,

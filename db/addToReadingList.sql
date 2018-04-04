@@ -1,0 +1,1 @@
+INSERT INTO readinglist (userid, postid) VALUES ($1, $2) RETURNING *;
