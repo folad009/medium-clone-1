@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import { connect } from "react-redux";
 import { getUser } from "../../ducks/reducer";
+import ImageIcon from "./ImageIcon/ImageIcon";
 
 //Connected with Redux
 
@@ -26,6 +27,13 @@ class MainHeader extends Component {
     console.log(document.getElementById("SearchBar"));
   }
   render() {
+    let loggedin = this.props.user.id ? (
+      <ImageIcon />
+    ) : (
+      <a href={process.env.REACT_APP_LOGIN}>
+        <button>Login</button>
+      </a>
+    );
     return (
       <div className="main-header-component-main-div">
         <Link to="/">
@@ -34,26 +42,24 @@ class MainHeader extends Component {
           </div>
         </Link>
         <div className="main-header-icon-user-div">
-          <SearchIcon
-            className="story-header-icons"
-          // uncommenting this vvvvv this will enable an unfinished scroll out search bar function
-          // onClick={() => this.focusMethod()}
-          />
-          <input
-            className="SearchBar"
-            id="SearchBar"
-            type="search"
-            placeholder="Search shMedium"
-          />
-          <Bookmark className="story-header-icons" />
-          <Notification className="story-header-icons" />
-          <Link
-            to={
-              `/user/${this.props.user.id}`
-            }
-          >
-            <img className="user-image" src={this.props.user.avatar} />
-          </Link>
+          <div className="search-and-icon">
+            <SearchIcon
+              className="story-header-icons"
+              // uncommenting this vvvvv this will enable an unfinished scroll out search bar function
+              onClick={() => this.focusMethod()}
+            />
+            <input
+              className="SearchBar"
+              id="SearchBar"
+              type="search"
+              placeholder="Search shMedium"
+            />
+          </div>
+          <div className="book-and-note">
+            <Bookmark className="story-header-icons" />
+            <Notification className="story-header-icons" />
+          </div>
+          {loggedin}
         </div>
       </div>
     );

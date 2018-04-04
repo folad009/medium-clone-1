@@ -6,6 +6,7 @@ import { getUser } from "../ducks/reducer";
 
 import FeaturedComponent from "../Components/FeaturedComponent/FeaturedComponent";
 import MainHeader from "../Components/HeaderComponents/MainHeader";
+import TopicHeaderBar from "../Components/HeaderComponents/TopicHeaderBar";
 import NewsHomePageColumnRender from "../Components/NewsHomepageRenderComponents/NewsHomepageColumnRender";
 
 class HomePageView extends React.Component {
@@ -16,14 +17,11 @@ class HomePageView extends React.Component {
     return (
       <div className="hompage-view-main-div">
         <div className="temp-nav">
-          <Link to="/new-story">Write-Story</Link>
           <Link to="/topics">Topics</Link>
-          <a href={process.env.REACT_APP_LOGIN}>
-            <button>Login</button>
-          </a>
           <button onClick={() => console.log(this.props.user)} />
         </div>
         <MainHeader />
+        <TopicHeaderBar className="sticky" />
         <FeaturedComponent />
         <NewsHomePageColumnRender />
       </div>
