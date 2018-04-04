@@ -134,7 +134,7 @@
 
 .main-header-component-main-div {
   height: 10vh;
-  width: 80%;
+  width: 70%;
   /* background-color: deeppink; */
   display: flex;
   flex-direction: row;
@@ -430,6 +430,41 @@
   width: 200px;
 }
 
+.category-card-main-div{
+  border: 1px solid black;
+  /* background-color: blueviolet; */
+  height: 200px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+}
+.category-card-image{
+  background-color: black;
+  width: 30%;
+  height: 100%;
+}
+.category-card-right-div{
+  /* background-color: bisque; */
+  width: 70%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.category-card-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: aquamarine; */
+  margin: 10px;
+}
+.category-card-user-info-save{
+  display: flex;
+  justify-content: space-between;
+  /* background-color: rgb(40, 65, 57); */
+  
+}
 /* Featured Component Styles */
 /* ****************************** */
 
@@ -485,11 +520,30 @@
   flex-direction: column;
   width: 100vw;
   align-items: center;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
+  height: auto;
   
 }
 .category-view-title-follow{
-  width: 80%;
-  background-color: bisque;
+  width: 70%;
+  /* background-color: bisque; */
   margin-top: 150px;
+  display: flex;
+  justify-content: space-between;
+  
 }
+.for-you-render{
+  /* background-color: aquamarine; */
+  min-width: 70%;
+  min-height: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px 0 10px 0;
+}
+.related-topics{
+  margin: 10px 0 10px 0;
+  height: 50px;
+  width: 70%;
+}
+

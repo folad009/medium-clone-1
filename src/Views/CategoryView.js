@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import MainHeader from '../Components/HeaderComponents/MainHeader';
+import CategoryCard from '../Components/CardsComponents/CategoryCard';
 
 class CategoryView extends Component{
     render(){
@@ -20,7 +21,9 @@ class CategoryView extends Component{
                     <h6>Creativity,Media,Music,Film,Art</h6>
                 </div>
                 <div className="for-you-render">
-                    <h3></h3>
+                    <h3 id="for-you-text">For You</h3>
+                    <CategoryCard/>
+                    {/* map for article category list goes here*/}
                 </div>
             </div>
         )
