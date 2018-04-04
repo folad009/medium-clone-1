@@ -32,6 +32,8 @@ export function getCategories() {
       .get("/api/categories")
       .then(response => response.data.sort((a, b) => a.id - b.id))
       .catch(() => [])
+  }
+}
 export function logOut() {
   return {
     type: "LOGOUT",
