@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import FeaturedSmallCard from '../CardsComponents/FeaturedSmallCard';
 
 class SmallCardContainer extends Component{
+    
     render(){
         return(
             <div className="small-card-container">
