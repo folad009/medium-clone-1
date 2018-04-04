@@ -29,7 +29,7 @@ export function getCategories() {
     type: GET_CATEGORIES,
     payload: axios
       .get("/api/categories")
-      .then(response => response.data)
+      .then(response => response.data.sort((a, b) => a.id - b.id))
       .catch(() => [])
   };
 }

@@ -10,18 +10,16 @@ class ExploreTopicsComponent extends React.Component {
   render() {
     let topicReel =
       this.props.categories.length > 0
-        ? this.props.categories
-            .sort((a, b) => a.id - b.id)
-            .map((val, index) => {
-              return (
-                <TopicCard
-                  name={val.name}
-                  key={index}
-                  img={val.image}
-                  className="topic-card"
-                />
-              );
-            })
+        ? this.props.categories.map((val, index) => {
+            return (
+              <TopicCard
+                name={val.name}
+                key={index}
+                img={val.image}
+                className="topic-card"
+              />
+            );
+          })
         : "Loading";
     return (
       <div className="explore-topics-main-div">

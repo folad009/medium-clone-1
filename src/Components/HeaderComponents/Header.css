@@ -1,3 +1,51 @@
+.topic-header-bar-main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 50px;
+  background: indianred;
+}
+.topic-header-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fill;
+  max-width: 1000px;
+  height: 50px;
+  background: palegreen;
+}
+.topic-header-bar a {
+  text-decoration: none;
+}
+.topic-nav-link {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.75px;
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0px 10px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.topic-header-grid {
+  display: flex;
+  /* grid-template-columns: repeat(14, 1fr); */
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  width: ;
+}
+.topic-header-grid.right {
+  animation: TopicBarScrollRight 0.1s forwards;
+}
+.topic-header-grid.left {
+  animation: TopicBarScrollLeft 0.1s;
+}
+.topic-header-arrow {
+  width: 21px;
+  height: 21px;
+  color: rgba(0, 0, 0, 0.54);
+}
 input[type="search"] {
   border: 0px;
   width: 0px;
@@ -12,6 +60,28 @@ input[type="search"] {
 input:focus {
   width: 156px;
   animation: SearchExpand 0.25s;
+}
+@keyframes TopicBarScrollRight {
+  0% {
+    justify-content: flex-start;
+  }
+  50% {
+    justify-content: center;
+  }
+  100% {
+    justify-content: flex-end;
+  }
+}
+@keyframes TopicBarScrollLeft {
+  0% {
+    justify-content: flex-end;
+  }
+  50% {
+    justify-content: center;
+  }
+  100% {
+    justify-content: flex-start;
+  }
 }
 @keyframes SearchExpand {
   0% {
