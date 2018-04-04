@@ -4,6 +4,7 @@ const TEST = "TEST";
 const GET_ALL_POSTS = "GET_ALL_POSTS";
 const GET_USER = "GET_USER";
 const POST = "POST";
+const LOGOUT = "LOGOUT";
 
 export function getAllPosts() {
   return {
@@ -21,6 +22,17 @@ export function getUser() {
       .get("/api/user")
       .then(response => response.data[0])
       .catch(() => [])
+  };
+}
+export function logOut() {
+  return {
+    type: "LOGOUT",
+    payload: axios
+      .get("/api/logout")
+      .then(response => {
+        return response;
+      })
+      .catch(console.log)
   };
 }
 
@@ -49,6 +61,17 @@ export default function reducer(state = initialState, action) {
       });
     case `${GET_ALL_POSTS}_REJECTED`:
       return Object.assign({}, state, { isLoading: false, didErr: true });
+    case `${LOGOUT}_REJECTED`:
+      return Object.assign({}, state, { isLoading: false, didErr: true });
+
+    case `${LOGOUT}_PENDING`:
+      return Object.assign({}, state, { isLoading: true });
+
+    case `${LOGOUT}_FULFILLED`:
+      return Object.assign({}, state, {
+        user: {}
+      });
+
     default:
       return state;
   }

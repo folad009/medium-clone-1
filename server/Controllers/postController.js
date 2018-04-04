@@ -1,6 +1,6 @@
 module.exports = {
   // WILL RETRIEVE ALL POSTS
-  getPosts: function (req, res, next) {
+  getPosts: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -13,7 +13,7 @@ module.exports = {
 
   // WILL RETRIEVE SINGLE POST
 
-  getPost: function (req, res, next) {
+  getPost: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -25,7 +25,7 @@ module.exports = {
   },
 
   // WILL RETRIEVE POSTS FROM CORRESPONDING CATEGORY
-  getAllPostCategory: function (req, res, next) {
+  getAllPostCategory: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -36,7 +36,7 @@ module.exports = {
       .catch(res.status(400));
   },
 
-  getCategories: function (req, res, next) {
+  getCategories: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -47,7 +47,7 @@ module.exports = {
       .catch(res.status(400));
   },
 
-  getComments: function (req, res, next) {
+  getComments: function(req, res, next) {
     const db = req.app.get("db");
     db
       .getComments([req.params.id])
@@ -59,21 +59,25 @@ module.exports = {
 
   // WILL ADD POST TO POST TABLE
 
-  addPost: function (req, res, next) {
+  addPost: function(req, res, next) {
     const db = req.app.get("db");
-
 
     if (req.body.categories === "") {
       req.body.categories = null;
     }
     db
-      .addPost([req.session.user.userid, req.body.title, req.body.body, req.body.categories])
+      .addPost([
+        req.session.user.userid,
+        req.body.title,
+        req.body.body,
+        req.body.categories
+      ])
       .then(response => {
         res.status(200).send(response);
       })
       .catch(res.status(400));
   },
-  editPost: function (req, res, next) {
+  editPost: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -84,9 +88,8 @@ module.exports = {
       .catch(res.status(400));
   },
 
-  addComment: function (req, res, next) {
+  addComment: function(req, res, next) {
     const db = req.app.get("db");
-
     db
       .addComment(req.session.user.userid, req.body.id, req.body.body)
       .then(response => {
@@ -94,7 +97,7 @@ module.exports = {
       })
       .catch(res.status(400));
   },
-  deletePost: function (req, res, next) {
+  deletePost: function(req, res, next) {
     const db = req.app.get("db");
 
     db
