@@ -55,7 +55,13 @@ class InputStoryHeader extends Component {
           <Dots className="story-header-icons" />
           <Bookmark className="story-header-icons" />
           <Notification className="story-header-icons" />
-          <Link to="@user">
+          <Link
+            to={
+              this.props.user.firstname
+                ? `/@${this.props.user.firstname}-${this.props.user.lastname}`
+                : "/"
+            }
+          >
             <img className="user-image" src={this.props.user.avatar} />
           </Link>
         </div>
