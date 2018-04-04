@@ -67,7 +67,12 @@ module.exports = {
       req.body.categories = null;
     }
     db
-      .addPost(req.body.title, req.body.body, req.body.categories)
+      .addPost(
+        req.session.user.userid,
+        req.body.title,
+        req.body.body,
+        req.body.categories
+      )
       .then(response => {
         res.status(200).send(response);
       })
@@ -86,9 +91,8 @@ module.exports = {
 
   addComment: function(req, res, next) {
     const db = req.app.get("db");
-
     db
-      .addComment(req.body.id, req.body.body)
+      .addComment(req.session.user.userid, req.body.id, req.body.body)
       .then(response => {
         res.status(200).send(response);
       })
