@@ -4,7 +4,15 @@
   align-items: center;
   width: 100vw;
   height: 50px;
-  background: indianred;
+  /* background: indianred; */
+  background: white;
+  top: 0px;
+  position: sticky;
+}
+.topic-header-bar-main-div.shadow {
+  -webkit-box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 2px 4px -2px rgba(0, 0, 0, 0.75);
 }
 .topic-header-bar {
   display: flex;
@@ -14,6 +22,7 @@
   max-width: 1000px;
   height: 50px;
   background: palegreen;
+  position: absolute;
 }
 .topic-header-bar a {
   text-decoration: none;
@@ -28,11 +37,13 @@
   flex-flow: row nowrap;
 }
 .topic-header-grid {
+  background: lightcoral;
   /* grid-template-columns: repeat(14, 1fr); */
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  object-position: left;
 }
 .topic-header-grid.right {
   animation: TopicBarScrollRight 0.1s forwards;
@@ -45,13 +56,20 @@
   height: 21px;
   color: rgba(0, 0, 0, 0.54);
 }
+.search-and-icon {
+  display: flex;
+  align-items: center;
+}
+.book-and-note {
+  display: flex;
+}
 input[type="search"] {
   border: 0px;
   width: 0px;
   height: 16px;
   margin: 0;
   padding: 0;
-  /* animation: SearchDeexpand 0.25s; */
+  animation: SearchDeexpand 0.25s;
 }
 .search-field {
   display: flex;

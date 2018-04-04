@@ -16,6 +16,7 @@ class ExploreTopicsComponent extends React.Component {
                 name={val.name}
                 key={index}
                 img={val.image}
+                id={val.id}
                 className="topic-card"
               />
             );

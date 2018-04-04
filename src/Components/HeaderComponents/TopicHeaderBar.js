@@ -6,6 +6,14 @@ import { Link } from "react-router-dom";
 import LeftArrow from "react-icons/lib/ti/chevron-left";
 import RightArrow from "react-icons/lib/ti/chevron-right";
 
+document.addEventListener("sticky-change", e => {
+  const header = e.detail.target; // header became sticky or stopped sticking.
+  const sticking = e.detail.stuck; // true when header is sticky.
+  header.classList.toggle("shadow", sticking); // add drop shadow when sticking.
+
+  document.querySelector(".who-is-sticking").textContent = header.textContent;
+});
+
 class TopicHeaderBar extends React.Component {
   constructor() {
     super();
@@ -27,6 +35,7 @@ class TopicHeaderBar extends React.Component {
     const capitalizeAll = str => {
       return str.toUpperCase();
     };
+
     const categoryReel =
       this.props.categories.length > 0
         ? this.props.categories.map((val, index) => (
@@ -51,11 +60,11 @@ class TopicHeaderBar extends React.Component {
           />
           <div id="topic-header-grid" className="topic-header-grid">
             <Link to={"/"} className="topic-nav-link">
-              Home
+              HOME
             </Link>
             {categoryReel}
             <Link to={"/topics"} className="topic-nav-link">
-              More
+              MORE
             </Link>
           </div>
           <RightArrow
