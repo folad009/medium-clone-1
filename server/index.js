@@ -96,6 +96,8 @@ app.post("/api/addpost", postController.addPost);
 app.post("/api/follow/add", userController.follow);
 // ADDS COMMENT
 app.post("/api/addcomment", postController.addComment);
+
+
 // ADDS POST TO USER'S READING LIST
 app.post("/api/addreadinglist", userController.addToReadingList);
 
@@ -124,7 +126,7 @@ app.get(
   })
 );
 
-app.get("/me", function(req, res, next) {
+app.get("/me", function (req, res, next) {
   if (!req.user.id) {
     res.redirect("/login");
   } else {

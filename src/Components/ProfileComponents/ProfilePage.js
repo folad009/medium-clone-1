@@ -5,6 +5,7 @@ import { getUser } from "../../ducks/reducer";
 class ProfilePage extends React.Component {
   componentDidMount() {
     this.props.getUser();
+
   }
   render() {
     return (
