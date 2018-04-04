@@ -62,17 +62,16 @@ module.exports = {
   addPost: function(req, res, next) {
     const db = req.app.get("db");
 
-    console.log(req.body);
     if (req.body.categories === "") {
       req.body.categories = null;
     }
     db
-      .addPost(
+      .addPost([
         req.session.user.userid,
         req.body.title,
         req.body.body,
         req.body.categories
-      )
+      ])
       .then(response => {
         res.status(200).send(response);
       })

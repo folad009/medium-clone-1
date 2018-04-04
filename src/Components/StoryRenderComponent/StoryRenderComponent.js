@@ -11,7 +11,9 @@ class StoryRenderComponent extends Component {
         super()
 
         this.state = {
-            post: ""
+            post: "",
+            comment: "",
+            postComments: []
         }
     }
 
@@ -21,11 +23,29 @@ class StoryRenderComponent extends Component {
             this.setState({ post: r.data[0].body })
         }).catch(err => console.log(err))
 
+        axios.get(`/api/comments/${this.props.match.params.id}`).then(r => {
+            console.log(r.data)
+            this.setState({ postComments: r.data })
+        })
+
     }
 
     createMarkup(str) {
         return { __html: str };
     }
+
+    addcomment(id, body) {
+        let comment = {
+            id: id,
+            body: body
+        }
+        axios.post('/api/addcomment', comment).then(() => axios.get(`/api/comments/${this.props.match.params.id}`).then(r => {
+            console.log(r.data)
+            this.setState({ postComments: r.data })
+        })).catch(err => console.log(err))
+
+    }
+
     render() {
 
         let post;
@@ -33,11 +53,21 @@ class StoryRenderComponent extends Component {
             post = this.state.post
         }
 
+        let comments = this.state.postComments.map((item, i) => {
+            return <div>  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
+                {item.body}</div>
+        })
+
         return (
             <div className="story-render-component-main-div">
 
 
                 <div className="story-render-component-body" dangerouslySetInnerHTML={this.createMarkup(post)} />
+
+                <div> <input onChange={(e) => this.setState({ comment: e.target.value })} type="text" /> <button onClick={() => this.addcomment(this.props.match.params.id, this.state.comment)} >Submit</button>  </div>
+
+
+                <div>{comments}</div>
 
                 <div className="story-render-component-clap-section">
                     <div className="story-render-component-clap-section-text">
