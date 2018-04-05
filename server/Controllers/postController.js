@@ -37,7 +37,7 @@ module.exports = {
   },
 
 
-  getUsersPosts: function(req, res, next) {
+  getUsersPosts: function (req, res, next) {
     const db = req.app.get("db");
 
     db

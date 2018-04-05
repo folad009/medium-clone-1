@@ -9,6 +9,7 @@ function NewsHomepageColumnCard(props){
                 <p id="author-name">{`${props.articleAuthorFirstName} ${props.articleAuthorLastName}`}</p>
                 <p id="time-stamp">{props.articleDate}</p>
             </div>
+            <div></div>
             <div  style={{height:"auto",width:"150px", backgroundImage:`url(${props.articleImg})`,backgroundSize:'cover',backgroundPosition:'center'}}>
             </div>
         </div>
