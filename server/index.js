@@ -118,7 +118,10 @@ app.delete(
   "/api/readinglist/remove/:userid/:readinglistid",
   userController.deleteFromReadingList
 );
-app.delete("/api/userinterest", userController.removeUserInterest);
+app.delete(
+  "/api/userinterest/:userid/:category",
+  userController.removeUserInterest
+);
 
 // AUTHENTICATION
 app.get(

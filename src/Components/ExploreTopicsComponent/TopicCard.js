@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { addUserInterest, removeUserInterest } from "../../ducks/reducer";
 import Plus from "react-icons/lib/fa/plus";
+import Checkmark from "react-icons/lib/fa/check";
+import swal from "sweetalert";
 
 function TopicCard(props) {
   const add = interestid => {};
@@ -23,12 +25,18 @@ function TopicCard(props) {
       className="topic-add-button"
       onClick={() => props.removeUserInterest(props.user.id, props.id)}
     >
-      -
+      <Checkmark />
     </div>
   ) : (
     <div
       className="topic-add-button"
-      onClick={() => props.addUserInterest(props.user.id, props.id)}
+      onClick={() => {
+        if (!props.user.id) {
+          swal({ text: "Sign-in" });
+          return;
+        }
+        props.addUserInterest(props.user.id, props.id);
+      }}
     >
       <Plus />
     </div>

@@ -74,7 +74,7 @@ export function removeUserInterest(userid, category) {
   return {
     type: REMOVE_USER_INTEREST,
     payload: axios
-      .delete(`/api/userinterest`, { userid: userid, category: category })
+      .delete(`/api/userinterest/${userid}/${category}`)
       .then(response => response.data)
       .catch(() => [])
   };

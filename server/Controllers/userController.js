@@ -65,6 +65,8 @@ module.exports = {
   },
   addUserInterest: (req, res, next) => {
     const { body } = req;
+    console.log("add body", body);
+
     req.app
       .get("db")
       .addUserInterest([body.userid, body.category])
@@ -77,15 +79,15 @@ module.exports = {
       .catch(err => console.log(err));
   },
   removeUserInterest: (req, res, next) => {
-    const { body } = req;
-    console.log(body);
+    const { params } = req;
+    console.log("remove params", params);
     req.app
       .get("db")
-      .removeUserInterest([body.userid, body.category])
+      .removeUserInterest([params.userid, params.category])
       .then(response => {
         req.app
           .get("db")
-          .userInterests(body.userid)
+          .userInterests(params.userid)
           .then(response => res.status(200).send(response))
           .catch(err => console.log(err));
       })
