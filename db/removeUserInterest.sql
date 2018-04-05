@@ -1,0 +1,1 @@
+DELETE FROM userintrests WHERE userid = $1 AND category = $2;
