@@ -166,8 +166,7 @@
   padding: 10px;
   height: auto;
   min-width: 50%;
-  
-  
+
   /* margin-top: 100px; */
 }
 .story-render-component-body {
@@ -210,32 +209,6 @@
   align-items: center;
 }
 
-/*ExploreTopicsView Styles*/
-.explore-topics-view-main-div {
-  min-height: 100vh;
-  height: auto;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-.explore-topics-main-div h1 {
-  padding: 20px 0px;
-  margin: 0px 20px 20px 20px;
-  font-size: 20px;
-  line-height: 28px;
-}
-.topic-card-gallery {
-  max-width: 1000px;
-  display: flex;
-  flex-flow: row wrap;
-  /* grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px; */
-}
-.topic-card {
-  margin: 15px;
-}
 /* ProfilePageView Styles */
 .profile-page-view-main-div {
   min-height: 100vh;

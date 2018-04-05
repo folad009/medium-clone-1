@@ -1,8 +1,12 @@
 import React from "react";
 import "./ExploreTopic.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addUserInterest, removeUserInterest } from "../../ducks/reducer";
+import Plus from "react-icons/lib/fa/plus";
 
 function TopicCard(props) {
+  const add = interestid => {};
   const capitalizeFirstLetter = str => {
     if (str.split(" ").length === 2) {
       return str
@@ -12,22 +16,47 @@ function TopicCard(props) {
     }
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+  let topicButton = props.userInterests.find(
+    val => val.category == props.id
+  ) ? (
+    <div
+      className="topic-add-button"
+      onClick={() => props.removeUserInterest(props.user.id, props.id)}
+    >
+      -
+    </div>
+  ) : (
+    <div
+      className="topic-add-button"
+      onClick={() => props.addUserInterest(props.user.id, props.id)}
+    >
+      <Plus />
+    </div>
+  );
   return (
-    <Link to={`/topic/${props.name}`}>
-      <div className="topic-card">
-        <div className="card-header">
-          <h2>{capitalizeFirstLetter(props.name)}</h2>
-          <div className="topic-add-button">+</div>
-        </div>
+    <div className="topic-card">
+      <div className="card-header">
+        {console.log(props.userInterests)}
+        <h2>{capitalizeFirstLetter(props.name)}</h2>
+        {topicButton}
+      </div>
+      <Link to={`/topic/${props.name}`}>
         <div
           className="topic-card-img"
           style={{
             backgroundImage: `url(${props.img})`
           }}
         />
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 
-export default TopicCard;
+function mapStateToProps(state) {
+  return state;
+}
+
+export default connect(mapStateToProps, {
+  addUserInterest,
+  removeUserInterest
+})(TopicCard);

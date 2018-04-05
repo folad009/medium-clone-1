@@ -97,15 +97,7 @@ app.post("/api/follow/add", userController.follow);
 // ADDS COMMENT
 app.post("/api/addcomment", postController.addComment);
 // ADD USER INTEREST
-// app.post("/api/usertopic/:id", (req, res, next) => {
-//   const { user } = req.session.user;
-//   req.app
-//     .get("db")
-//     .addUserInterest(user.id, req.params.id)
-//     .then(response => {
-//       res.status(200).json(response);
-//     });
-// });
+app.post("/api/userinterest", userController.addUserInterest);
 
 // ADDS POST TO USER'S READING LIST
 app.post("/api/addreadinglist", userController.addToReadingList);
@@ -126,6 +118,7 @@ app.delete(
   "/api/readinglist/remove/:userid/:readinglistid",
   userController.deleteFromReadingList
 );
+app.delete("/api/userinterest", userController.removeUserInterest);
 
 // AUTHENTICATION
 app.get(
