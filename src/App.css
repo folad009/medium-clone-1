@@ -229,7 +229,6 @@ input{
   align-items: center;
   width: 100%;
   padding: 0px 20px 20px 20px;
-  background: teal;
 }
 .profile-page-header {
   padding: 20px;
@@ -518,6 +517,10 @@ input{
   margin: 10px 0 10px 0;
   height: 50px;
   width: 70%;
+}
+
+#profile-tab {
+  padding-top: 20px;
 }
 
 /* GENERIC TAGS */

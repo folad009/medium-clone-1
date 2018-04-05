@@ -31,7 +31,7 @@ class MainHeader extends Component {
       <ImageIcon />
     ) : (
       <a href={process.env.REACT_APP_LOGIN}>
-        <button>Login</button>
+        <button>Sign In</button>
       </a>
     );
     return (
@@ -42,23 +42,18 @@ class MainHeader extends Component {
           </div>
         </Link>
         <div className="main-header-icon-user-div">
-          <div className="search-and-icon">
-            <SearchIcon
-              className="story-header-icons"
-              // uncommenting this vvvvv this will enable an unfinished scroll out search bar function
-              onClick={() => this.focusMethod()}
-            />
-            <input
-              className="SearchBar"
-              id="SearchBar"
-              type="search"
-              placeholder="Search shMedium"
-            />
-          </div>
-          <div className="book-and-note">
-            <Bookmark className="story-header-icons" />
+          <SearchIcon className="story-header-icons" />
+          <input
+            className="SearchBar"
+            id="SearchBar"
+            type="search"
+            placeholder="Search shMedium"
+          />
+          {this.props.user.id ? (
             <Notification className="story-header-icons" />
-          </div>
+          ) : (
+            false
+          )}
           {loggedin}
         </div>
       </div>
