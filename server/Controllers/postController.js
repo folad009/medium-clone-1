@@ -36,6 +36,17 @@ module.exports = {
       .catch(res.status(400));
   },
 
+  getUsersPosts: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getPostsByUser([req.params.userid])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+
   getCategories: function(req, res, next) {
     const db = req.app.get("db");
 

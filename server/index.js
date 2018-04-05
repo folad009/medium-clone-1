@@ -58,10 +58,14 @@ passport.deserializeUser((profile, done) => {
 
 // GET
 
+// GETS PROFILE
+app.get("/api/profile/:id", userController.profile);
 // GETS ALL POSTS
 app.get("/api/posts", postController.getPosts);
 // GETS SINGLE POST
 app.get("/api/getpost/:id", postController.getPost);
+// GETS ALL POSTS BY SINGLE USER
+app.get("/api/userposts/:userid", postController.getUsersPosts);
 // GETS COMMENTS FOR POST
 app.get("/api/comments/:id", postController.getComments);
 //GET ALL CATEGORIES

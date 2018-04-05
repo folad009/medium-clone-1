@@ -31,7 +31,7 @@ class ImageIcon extends Component {
         </Menu.Item>
         <hr />
         <Menu.Item key="6">
-          <Link to={`/profile/${this.props.user.id}`}> Profile </Link>
+          <Link to={`/user/${this.props.user.id}`}> Profile </Link>
         </Menu.Item>
         <Menu.Item key="7">
           <Link to="/new-story"> Help </Link>
