@@ -115,6 +115,8 @@ app.post("/api/addreadinglist", userController.addToReadingList);
 // EDITS POST
 app.put("/api/editpost", postController.editPost);
 
+// ADD CLAPS TO POST RATING
+app.put("/api/clap/:id", postController.addClap);
 // DELETE
 
 // DELETES POST

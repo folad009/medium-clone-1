@@ -87,6 +87,15 @@ module.exports = {
       })
       .catch(res.status(400));
   },
+  //CHANGE CLAP RATING
+  addClap: function (req, res) {
+    const db = req.app.get("db");
+
+    db.addClap([req.body.claps, req.params.id]).then(result => {
+      res.status(200).send(result)
+    }).catch(err => console.log(err))
+
+  },
 
   addComment: function(req, res, next) {
     const db = req.app.get("db");
