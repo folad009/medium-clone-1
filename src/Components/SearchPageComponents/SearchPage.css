@@ -1,0 +1,39 @@
+.search-card {
+  height: 448px;
+  width: 600px;
+  background: khaki;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
+.search-card-title {
+  width: 600px;
+  height: 43px;
+  padding-top: 5px;
+  margin-bottom: 15px;
+  background: lime;
+}
+
+.search-card-content {
+  background: seagreen;
+  height: 313px;
+  width: 600px;
+}
+.search-card-image {
+  background: whitesmoke;
+  width: 600px;
+  height: 180px;
+}
+.search-card-inner-content {
+  padding-bottom: 5px;
+  margin-top: 20px;
+  width: 600px;
+  height: 288px;
+  background: rgba(202, 43, 80, 0.5);
+}
+
+.search-card-claps-and-responses {
+  padding-top: 10px;
+  width: 600px;
+  height: 28px;
+}
