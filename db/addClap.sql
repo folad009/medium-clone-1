@@ -1,0 +1,1 @@
+UPDATE posts SET rating = $1 WHERE id = $2 RETURNING *;

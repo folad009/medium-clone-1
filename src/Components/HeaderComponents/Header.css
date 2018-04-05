@@ -21,7 +21,7 @@
   width: fill;
   max-width: 1000px;
   height: 50px;
-  background: palegreen;
+  /* background: palegreen; */
   position: absolute;
 }
 .topic-header-bar a {
@@ -37,7 +37,7 @@
   flex-flow: row nowrap;
 }
 .topic-header-grid {
-  background: lightcoral;
+  /* background: lightcoral; */
   /* grid-template-columns: repeat(14, 1fr); */
   display: flex;
   justify-content: flex-start;
