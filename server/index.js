@@ -109,6 +109,9 @@ app.put("/api/editpost", postController.editPost);
 
 // ADD CLAPS TO POST RATING
 app.put("/api/clap/:id", postController.addClap);
+
+//ADD CLAPS TO COMMENTS
+app.put("/api/commentClap/:id", postController.addCommentClap);
 // DELETE
 
 // DELETES POST
@@ -133,7 +136,7 @@ app.get(
   })
 );
 
-app.get("/me", function(req, res, next) {
+app.get("/me", function (req, res, next) {
   if (!req.user.id) {
     res.redirect("/login");
   } else {
