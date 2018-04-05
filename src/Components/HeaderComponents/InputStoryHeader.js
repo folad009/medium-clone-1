@@ -8,8 +8,9 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { addPost } from "../../ducks/reducer";
-
+import { getUser } from "../../ducks/reducer";
 import { Link } from "react-router-dom";
+import ImageIcon from "./ImageIcon/ImageIcon";
 
 class InputStoryHeader extends Component {
   constructor() {
@@ -18,6 +19,10 @@ class InputStoryHeader extends Component {
     this.state = {
       categories: ""
     };
+  }
+
+  componentDidMount() {
+    this.props.getUser();
   }
 
   addPost(title, body, categories) {
@@ -31,6 +36,13 @@ class InputStoryHeader extends Component {
       .catch(err => console.log(err));
   }
   render() {
+    let loggedin = this.props.user.id ? (
+      <ImageIcon />
+    ) : (
+      <a href={process.env.REACT_APP_LOGIN}>
+        <button>Login</button>
+      </a>
+    );
     return (
       <div className="input-story-header-component-main-div">
         <div className="input-story-header-logo-left-div">
@@ -55,15 +67,7 @@ class InputStoryHeader extends Component {
           <Dots className="story-header-icons" />
           <Bookmark className="story-header-icons" />
           <Notification className="story-header-icons" />
-          <Link
-            to={
-              this.props.user.firstname
-                ? `/@${this.props.user.firstname}-${this.props.user.lastname}`
-                : "/"
-            }
-          >
-            <img className="user-image" src={this.props.user.avatar} />
-          </Link>
+          {loggedin}
         </div>
       </div>
     );
@@ -72,4 +76,6 @@ class InputStoryHeader extends Component {
 
 const mapStateToProps = state => state;
 
-export default withRouter(connect(mapStateToProps)(InputStoryHeader));
+export default withRouter(
+  connect(mapStateToProps, { getUser })(InputStoryHeader)
+);

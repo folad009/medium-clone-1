@@ -11,6 +11,16 @@ module.exports = {
       res.status(400).send("No user found");
     }
   },
+  profile: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .profile([req.params.id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
   getUserInterests: function(req, res, next) {
     const db = req.app.get("db");
 
