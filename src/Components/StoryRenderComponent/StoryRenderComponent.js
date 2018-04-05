@@ -88,6 +88,7 @@ class StoryRenderComponent extends Component {
             </div>
         })
         let claps
+
         if (this.state.claps) {
             claps = <Clap
                 count={0}
@@ -100,6 +101,9 @@ class StoryRenderComponent extends Component {
 
         return (
             <div className="story-render-component-main-div">
+
+
+
                 <span
                     onClick={() => this.addClap()} >
                     {claps}
