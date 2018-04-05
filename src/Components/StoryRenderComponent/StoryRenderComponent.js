@@ -89,10 +89,17 @@ class StoryRenderComponent extends Component {
         })
         let claps
 
-        if (this.state.claps) {
+        if (this.state.claps > 0) {
             claps = <Clap
                 count={0}
                 countTotal={this.state.claps}
+
+                isClicked={false}
+            />
+        } else if (this.state.claps === 0) {
+            claps = <Clap
+                count={0}
+                countTotal={0}
 
                 isClicked={false}
             />
@@ -109,7 +116,7 @@ class StoryRenderComponent extends Component {
                     {claps}
                 </span>
 
-                <div>Claps:{this.state.claps}  <button onClick={() => this.addClap()} >Clap</button> </div>
+
                 <div className="story-render-component-body" dangerouslySetInnerHTML={this.createMarkup(post)} />
 
                 <div> <input onChange={(e) => this.setState({ comment: e.target.value })} type="text" /> <button onClick={() => this.addcomment(this.props.match.params.id, this.state.comment)} >Submit</button>  </div>
