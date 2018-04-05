@@ -6,11 +6,10 @@ function NewsHomepageColumnCard(props){
             <div className="news-home-page-column-card-info">
                 <h1>{props.articleTitle}</h1>
                 <p>Using pytubes,numpy and other stuff</p>
-                <p>{`${props.articleFirstName} ${props.articleLastName}`}</p>
-                <p>{props.articleDate}</p>
+                <p id="author-name">{`${props.articleAuthorFirstName} ${props.articleAuthorLastName}`}</p>
+                <p id="time-stamp">{props.articleDate}</p>
             </div>
-            <div>
-                <img src={props.articleImg} className="news-home-page-column-card-image"/>
+            <div  style={{height:"auto",width:"150px", backgroundImage:`url(${props.articleImg})`,backgroundSize:'cover',backgroundPosition:'center'}}>
             </div>
         </div>
     )

@@ -15,7 +15,7 @@ class NewsHomePageColumnRender extends Component {
     }
 
     render() {
-
+        console.log(this.props)
         const postsList = this.props.posts.length > 0 ? this.props.posts.map((article, i) => {
             let title = <Link to={`/story-view/${article.id}`}> <div dangerouslySetInnerHTML={this.createMarkup(article.title)} /></Link>
 
