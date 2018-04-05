@@ -37,7 +37,7 @@ module.exports = {
   },
 
 
-  getUsersPosts: function(req, res, next) {
+  getUsersPosts: function (req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -48,7 +48,7 @@ module.exports = {
       .catch(res.status(400));
   },
 
-  getCategories: function(req, res, next) {
+
 
   getCategories: function (req, res, next) {
 
