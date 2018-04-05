@@ -19,6 +19,7 @@ export function getAllPosts() {
       .catch(() => [])
   };
 }
+
 export function getUser() {
   return {
     type: GET_USER,
@@ -38,6 +39,7 @@ export function getCategories() {
       .catch(() => [])
   };
 }
+
 export function logOut() {
   return {
     type: "LOGOUT",
