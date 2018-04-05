@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { getUser } from "../../ducks/reducer";
 import { withRouter } from "react-router-dom";
 import { Menu } from "antd";
-import LatestTab from "./LatestTab";
 import Moment from "react-moment";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.MenuItemGroup;
