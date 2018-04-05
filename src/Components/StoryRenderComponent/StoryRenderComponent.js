@@ -4,7 +4,8 @@ import { withRouter, Link } from "react-router-dom";
 import axios from 'axios';
 import ChatIcon from 'react-icons/lib/io/ios-chatbubble-outline';
 import TwitterIcon from "react-icons/lib/io/social-twitter-outline";
-import FacebookIcon from 'react-icons/lib/io/social-facebook-outline'
+import FacebookIcon from 'react-icons/lib/io/social-facebook-outline';
+import Clap from 'react-clap-button'
 
 class StoryRenderComponent extends Component {
     constructor() {
@@ -14,7 +15,7 @@ class StoryRenderComponent extends Component {
             post: "",
             comment: "",
             postComments: [],
-            claps: 0
+            claps: ""
         }
     }
 
@@ -57,6 +58,18 @@ class StoryRenderComponent extends Component {
         }).catch(err => console.log(err))
     }
 
+    addCommentClap(claps, id) {
+
+        claps += 1
+        let clap = { claps: claps, postid: this.props.match.params.id }
+
+        console.log(clap)
+
+        axios.put(`/api/commentClap/${id}`, clap).then((r) => {
+            this.setState({ postComments: r.data })
+        })
+    }
+
     render() {
 
         let post;
@@ -64,13 +77,37 @@ class StoryRenderComponent extends Component {
             post = this.state.post
         }
 
+        console.log(this.state.postComments)
+
         let comments = this.state.postComments.map((item, i) => {
             return <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
-                {item.body}</div>
+                {item.body}
+                <button onClick={() => {
+                    this.addCommentClap(item.claps, item.id)
+                }} >{item.claps}</button>
+            </div>
         })
+        let claps
+
+        if (this.state.claps) {
+            claps = <Clap
+                count={0}
+                countTotal={this.state.claps}
+
+                isClicked={false}
+            />
+        }
+        let num = this.state.claps;
 
         return (
             <div className="story-render-component-main-div">
+
+
+
+                <span
+                    onClick={() => this.addClap()} >
+                    {claps}
+                </span>
 
                 <div>Claps:{this.state.claps}  <button onClick={() => this.addClap()} >Clap</button> </div>
                 <div className="story-render-component-body" dangerouslySetInnerHTML={this.createMarkup(post)} />
