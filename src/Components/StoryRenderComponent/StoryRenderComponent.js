@@ -6,6 +6,7 @@ import ChatIcon from 'react-icons/lib/io/ios-chatbubble-outline';
 import TwitterIcon from "react-icons/lib/io/social-twitter-outline";
 import FacebookIcon from 'react-icons/lib/io/social-facebook-outline';
 import Clap from 'react-clap-button'
+import ClapComponent from 'react-clap';
 
 class StoryRenderComponent extends Component {
     constructor() {
@@ -60,11 +61,8 @@ class StoryRenderComponent extends Component {
 
     addCommentClap(claps, id) {
 
-        claps += 1
         let clap = { claps: claps, postid: this.props.match.params.id }
-
         console.log(clap)
-
         axios.put(`/api/commentClap/${id}`, clap).then((r) => {
             this.setState({ postComments: r.data })
         })
@@ -80,8 +78,16 @@ class StoryRenderComponent extends Component {
         console.log(this.state.postComments)
 
         let comments = this.state.postComments.map((item, i) => {
-            return <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
+            return
+            <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
                 {item.body}
+                <ClapComponent
+                    popupClapCount={item.claps}
+                    maxClapCount={50}
+                    onChange={(newClapCount, diff) => {
+                        this.addCommentClap(newClapCount, item.id)
+                    }}
+                />
                 <button onClick={() => {
                     this.addCommentClap(item.claps, item.id)
                 }} >{item.claps}</button>
