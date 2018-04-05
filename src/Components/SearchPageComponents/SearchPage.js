@@ -18,6 +18,7 @@ class SearchPage extends React.Component {
       .getAllPosts()
       .then(response => this.setState({ posts: this.props.posts }));
   }
+  filter() {}
   render() {
     let searchReel =
       this.state.posts.length > 0
