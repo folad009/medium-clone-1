@@ -72,6 +72,10 @@ module.exports = {
       .catch(res.status(400));
   },
 
+  getUserClapsOnComments(req, res) {
+
+  },
+
   // WILL ADD POST TO POST TABLE
 
   addPost: function (req, res, next) {

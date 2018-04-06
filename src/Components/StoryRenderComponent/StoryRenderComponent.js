@@ -75,15 +75,14 @@ class StoryRenderComponent extends Component {
             post = this.state.post
         }
 
-        console.log(this.state.postComments)
+
 
         let comments = this.state.postComments.map((item, i) => {
-            return
-            <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
+            return <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
                 {item.body}
                 <ClapComponent
                     popupClapCount={item.claps}
-                    maxClapCount={50}
+
                     onChange={(newClapCount, diff) => {
                         this.addCommentClap(newClapCount, item.id)
                     }}
@@ -114,8 +113,6 @@ class StoryRenderComponent extends Component {
 
         return (
             <div className="story-render-component-main-div">
-
-
 
                 <span
                     onClick={() => this.addClap()} >
