@@ -4,7 +4,7 @@ import Bookmark from "react-icons/lib/io/android-bookmark";
 import Notification from "react-icons/lib/io/android-notifications-none";
 import SearchIcon from "react-icons/lib/io/search";
 import logoLarge from "../../assets/mediumlogo.svg";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Header.css";
 import { connect } from "react-redux";
 import { getUser } from "../../ducks/reducer";
@@ -15,10 +15,25 @@ import ImageIcon from "./ImageIcon/ImageIcon";
 class MainHeader extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      userInput: ""
+    };
     this.focusMethod = this.focusMethod.bind(this);
   }
+  componentDidMount() {
+    var input = document.getElementById("SearchBar");
 
+    const that = this;
+    input.addEventListener("keyup", function(event) {
+      //Update userInput onchange of input searchbar value
+      that.setState({ userInput: event.target.value });
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        //Route to new search result page
+        that.props.history.push(`/search?q=${that.state.userInput}`);
+      }
+    });
+  }
   focusMethod() {
     if (document.getElementById("SearchBar").focus()) {
       return;
@@ -42,19 +57,39 @@ class MainHeader extends Component {
           </div>
         </Link>
         <div className="main-header-icon-user-div">
-          <SearchIcon className="story-header-icons" />
-          <input
-            className="SearchBar"
-            id="SearchBar"
-            type="search"
-            placeholder="Search shMedium"
-          />
-          {this.props.user.id ? (
-            <Notification className="story-header-icons" />
-          ) : (
-            false
-          )}
-          {loggedin}
+          <div className="search-and-icon">
+            <div>
+              <SearchIcon
+                className="story-header-icons"
+                onClick={
+                  this.state.userInput
+                    ? () => {
+                        this.props.history.push(
+                          `/search?q=${this.state.userInput}`
+                        );
+                      }
+                    : () => this.focusMethod()
+                }
+              />
+            </div>
+            <div>
+              <input
+                className="SearchBar"
+                id="SearchBar"
+                type="search"
+                name="SearchBar"
+                placeholder="Search shMedium"
+              />
+            </div>
+          </div>
+          <div className="book-and-note">
+            {this.props.user.id ? (
+              <Notification className="story-header-icons" />
+            ) : (
+              false
+            )}
+            {loggedin}
+          </div>
         </div>
       </div>
     );
@@ -64,4 +99,4 @@ class MainHeader extends Component {
 function mapStateToProps(state) {
   return state;
 }
-export default connect(mapStateToProps, { getUser })(MainHeader);
+export default withRouter(connect(mapStateToProps, { getUser })(MainHeader));
