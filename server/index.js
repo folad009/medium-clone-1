@@ -76,6 +76,8 @@ app.get("/api/category/:id", postController.getAllPostCategory);
 app.get("/api/interests/:userid", userController.getUserInterests);
 // GETS FOLLOWING
 app.get("/api/following/:id", userController.getFollowing);
+// GETS FOLLOWERS
+app.get("/api/followers/:id", userController.getFollowers);
 //GETS USER READING LIST
 app.get("/api/readinglist/:userid", userController.getReadingList);
 // CHECKS FOR A USER ON SESSION
@@ -110,6 +112,7 @@ app.post("/api/addreadinglist", userController.addToReadingList);
 
 // EDITS POST
 app.put("/api/editpost", postController.editPost);
+app.put("/api/editbio", userController.editBio);
 
 // ADD CLAPS TO POST RATING
 app.put("/api/clap/:id", postController.addClap);
@@ -140,7 +143,7 @@ app.get(
   })
 );
 
-app.get("/me", function (req, res, next) {
+app.get("/me", function(req, res, next) {
   if (!req.user.id) {
     res.redirect("/login");
   } else {

@@ -1,6 +1,6 @@
 module.exports = {
   // WILL RETRIEVE ALL POSTS
-  getPosts: function (req, res, next) {
+  getPosts: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -13,7 +13,7 @@ module.exports = {
 
   // WILL RETRIEVE SINGLE POST
 
-  getPost: function (req, res, next) {
+  getPost: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -25,7 +25,7 @@ module.exports = {
   },
 
   // WILL RETRIEVE POSTS FROM CORRESPONDING CATEGORY
-  getAllPostCategory: function (req, res, next) {
+  getAllPostCategory: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -36,8 +36,7 @@ module.exports = {
       .catch(res.status(400));
   },
 
-
-  getUsersPosts: function (req, res, next) {
+  getUsersPosts: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -48,10 +47,7 @@ module.exports = {
       .catch(res.status(400));
   },
 
-
-
-  getCategories: function (req, res, next) {
-
+  getCategories: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -62,7 +58,7 @@ module.exports = {
       .catch(res.status(400));
   },
 
-  getComments: function (req, res, next) {
+  getComments: function(req, res, next) {
     const db = req.app.get("db");
     db
       .getComments([req.params.id])
@@ -74,7 +70,7 @@ module.exports = {
 
   // WILL ADD POST TO POST TABLE
 
-  addPost: function (req, res, next) {
+  addPost: function(req, res, next) {
     const db = req.app.get("db");
 
     if (req.body.categories === "") {
@@ -92,7 +88,7 @@ module.exports = {
       })
       .catch(res.status(400));
   },
-  editPost: function (req, res, next) {
+  editPost: function(req, res, next) {
     const db = req.app.get("db");
 
     db
@@ -103,16 +99,18 @@ module.exports = {
       .catch(res.status(400));
   },
   //CHANGE CLAP RATING
-  addClap: function (req, res) {
+  addClap: function(req, res) {
     const db = req.app.get("db");
 
-    db.addClap([req.body.claps, req.params.id]).then(result => {
-      res.status(200).send(result)
-    }).catch(err => console.log(err))
-
+    db
+      .addClap([req.body.claps, req.params.id])
+      .then(result => {
+        res.status(200).send(result);
+      })
+      .catch(err => console.log(err));
   },
 
-  addComment: function (req, res, next) {
+  addComment: function(req, res, next) {
     const db = req.app.get("db");
     db
       .addComment(req.session.user.userid, req.body.id, req.body.body)
@@ -122,16 +120,17 @@ module.exports = {
       .catch(res.status(400));
   },
 
-  addCommentClap: function (req, res) {
+  addCommentClap: function(req, res) {
     const db = req.app.get("db");
 
-
-    db.addCommentClap([req.body.claps, req.params.id, req.body.postid]).then(r => {
-
-      res.status(200).send(r)
-    }).catch((err) => res.status(500).send(err))
+    db
+      .addCommentClap([req.body.claps, req.params.id, req.body.postid])
+      .then(r => {
+        res.status(200).send(r);
+      })
+      .catch(err => res.status(500).send(err));
   },
-  deletePost: function (req, res, next) {
+  deletePost: function(req, res, next) {
     const db = req.app.get("db");
 
     db
