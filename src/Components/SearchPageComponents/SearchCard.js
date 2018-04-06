@@ -42,19 +42,21 @@ class SearchCard extends React.Component {
           </div>
         </div>
         <div className="search-card-content">
-          <div className="search-card-inner-content">
-            <div
-              className="search-card-image"
-              style={{ backgroundImage: `url(${this.props.img})` }}
-            />
-            <h1 className="search-card-article-title">{this.props.title}</h1>
-            <h3 className="search-card-article-description">
-              {shortDescription}
-            </h3>
-          </div>
+          <Link to={`/story-view/${this.props.id}`}>
+            <div className="search-card-inner-content">
+              <div
+                className="search-card-image"
+                style={{ backgroundImage: `url(${this.props.img})` }}
+              />
+              <h1 className="search-card-article-title">{this.props.title}</h1>
+              <h3 className="search-card-article-description">
+                {shortDescription}
+              </h3>
+            </div>
+          </Link>
         </div>
         <div className="search-card-read-more">
-          <Link to={"/search?q=a"}>Read more...</Link>
+          <Link to={`/story-view/${this.props.id}`}>Read more...</Link>
         </div>
         <div className="search-card-claps-and-responses">
           <div className="search-card-claps">clap 35K</div>
