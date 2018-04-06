@@ -78,7 +78,7 @@ class StoryRenderComponent extends Component {
         console.log(this.state.postComments)
 
         let comments = this.state.postComments.map((item, i) => {
-            return
+            return(
             <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
                 {item.body}
                 <ClapComponent
@@ -92,6 +92,7 @@ class StoryRenderComponent extends Component {
                     this.addCommentClap(item.claps, item.id)
                 }} >{item.claps}</button>
             </div>
+            )
         })
         let claps
 
