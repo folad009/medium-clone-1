@@ -42,13 +42,18 @@ class MainHeader extends Component {
           </div>
         </Link>
         <div className="main-header-icon-user-div">
-          <SearchIcon className="story-header-icons" />
-          <input
-            className="SearchBar"
-            id="SearchBar"
-            type="search"
-            placeholder="Search shMedium"
+          <SearchIcon
+            className="story-header-icons"
+            onClick={() => this.focusMethod()}
           />
+          <div>
+            <input
+              className="SearchBar"
+              id="SearchBar"
+              type="search"
+              placeholder="Search shMedium"
+            />
+          </div>
           {this.props.user.id ? (
             <Notification className="story-header-icons" />
           ) : (
