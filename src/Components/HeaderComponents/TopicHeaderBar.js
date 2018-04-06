@@ -40,7 +40,7 @@ class TopicHeaderBar extends React.Component {
       this.props.categories.length > 0
         ? this.props.categories.map((val, index) => (
             <Link
-              to={`/topic/${val.name}`}
+              to={`/topic/${val.name}/${val.id}`}
               key={index}
               className="topic-nav-link"
             >

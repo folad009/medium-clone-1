@@ -62,8 +62,12 @@
 }
 .book-and-note {
   display: flex;
+  justify-content: space-between;
 }
-input[type="search"] {
+.book-and-note > * {
+  margin: 0px 5px;
+}
+input[name="SearchBar"] {
   border: 0px;
   width: 0px;
   height: 16px;
@@ -74,7 +78,7 @@ input[type="search"] {
 .search-field {
   display: flex;
 }
-input:focus {
+input[name="SearchBar"]:focus {
   width: 156px;
   animation: SearchExpand 0.25s;
 }
