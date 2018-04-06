@@ -17,10 +17,8 @@ input{
   width: 100vw;
   /* background-color: grey; */
 }
-
 /* Input Story View and Components Styles */
 /* ***************************************** */
-
 /* InputStoryHeader */
 .input-story-header-component-main-div {
   height: 10vh;
@@ -70,7 +68,6 @@ input{
   height: 70px;
   width: 70px;
 }
-
 /* InputBodyComponent */
 .input-body-component-main-div {
   height: auto;
@@ -92,7 +89,6 @@ input{
   border-top: solid 1px rgb(131, 131, 131);
   /* border-top-style: solid; */
 }
-
 .input-body-component-title {
   height: auto;
   min-height: 10vh;
@@ -109,7 +105,6 @@ input{
   padding: 10px;
   font-size: 1.5em;
 }
-
 *:focus {
   outline: none;
 }
@@ -131,11 +126,8 @@ input{
 .input-body-component-user-info-name > p {
   margin: 3px;
 }
-
 /* input story view */
-
 /* MainHeader Styles */
-
 .main-header-component-main-div {
   height: 10vh;
   width: 70%;
@@ -162,7 +154,6 @@ input{
   width: auto;
   /* background-color: aquamarine; */
 }
-
 /* Story render component styles */
 /* ************************************** */
 .story-render-component-main-div {
@@ -188,7 +179,6 @@ input{
   width:60%;
   /* background-color: blueviolet; */
 }
-
 .story-render-component-clap-section {
   width: 100%;
   background-color: #e8f3ec;
@@ -200,7 +190,6 @@ input{
   padding-top: 10px;
   align-items: center;
 }
-
 .story-render-component-clap-section-text {
   height: 100px;
   /* background-color: aqua; */
@@ -212,7 +201,6 @@ input{
   justify-content: flex-end;
   height: 50px;
 }
-
 /* StoryReadView Styles */
 .story-read-view-main-div {
   /* background-color: #bbb; */
@@ -223,8 +211,21 @@ input{
   flex-direction: column;
   align-items: center;
 }
-
 /* comment section styles */
+.comments-section-main-div {
+  /* background-color: aquamarine; */
+  height: auto;
+  width: 50%;
+}
+.main-comment-render-body-div {
+  height: auto;
+  min-height: 140px;
+  background-color: white;
+  margin: 10px 0px 10px 0px;
+  /* border:1px solid rgb(108, 108, 108); */
+}
+/* comment section styles */
+
 .comments-section-main-div{
   /* background-color: aquamarine; */
   height: auto;
@@ -299,7 +300,6 @@ input{
   flex-direction: column;
   align-items: center;
 }
-
 .profile-page-main-div {
   display: flex;
   flex-direction: column;
@@ -355,7 +355,6 @@ input{
   margin-right: 20px;
 }
 /* HomeView Styles */
-
 .hompage-view-temporary {
   height: 100vh;
   width: 100vw;
@@ -363,9 +362,7 @@ input{
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 /* Card Component Styles */
-
 .featured-large-card-main-div {
   /* background-color: blueviolet; */
   display: flex;
@@ -409,7 +406,6 @@ input{
   width: 100%;
   padding: 10px;
 }
-
 .featured-small-card-main-div > h4 {
   font-size: 17px;
   font-weight: 650;
@@ -418,7 +414,6 @@ input{
   font-size: 15px;
   color: rgb(160, 160, 160);
 }
-
 /* card containers style */
 .medium-card-container-main-div {
   height: 50%;
@@ -439,13 +434,11 @@ input{
   font-weight: 600;
   font-size: 19px;
 }
-
 .featured-medium-card-info > p {
   font-weight: 300;
   font-size: 15px;
   color: #bbb;
 }
-
 .small-card-container {
   border-top: 1px solid black;
   height: 50%;
@@ -455,7 +448,6 @@ input{
   flex-direction: column;
   margin: 10px;
 }
-
 .popular-network-container-main-div {
   width: 80%;
   min-height: 600px;
@@ -463,7 +455,6 @@ input{
   padding: 20px;
   position: static;
 }
-
 .news-home-page-column-card-main-div {
   margin: 10px;
   padding: 10px;
@@ -503,19 +494,20 @@ input{
   height: 100%;
   width: 150px;
 }
-
 .category-card-main-div {
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.24);
   /* background-color: blueviolet; */
-  height: 300px;
-  width: 500px;
+  height: 260px;
+  width: 490px;
   display: flex;
   flex-direction: row;
+  /* align-items: space-between;
+  justify-content: space-between; */
 }
 .category-card-image {
   background-color: black;
-  width: 40%;
-  height: 100%;
+  width: 200px;
+  height: 258px;
 }
 .category-card-right-div {
   /* background-color: bisque; */
@@ -524,7 +516,6 @@ input{
   display: flex;
   justify-content: space-between;
 }
-
 .category-card-info {
   display: flex;
   flex-direction: column;
@@ -537,9 +528,11 @@ input{
   justify-content: space-between;
   /* background-color: rgb(40, 65, 57); */
 }
+.category-card-info h1 {
+  font-size: 22px;
+}
 /* Featured Component Styles */
 /* ****************************** */
-
 .featured-component-main-div {
   height: 600px;
   width: 80%;
@@ -551,10 +544,8 @@ input{
   width: 60%;
   /* background-color: antiquewhite; */
 }
-
 /* HomePageView */
 /* ******************* */
-
 .hompage-view-main-div {
   display: flex;
   flex-direction: column;
@@ -562,10 +553,8 @@ input{
   width: 100vw;
   align-items: center;
 }
-
 /*  NewsHomePageColumnRender */
 /* ******************************* */
-
 .news-home-page-column-render-main-div {
   /* background-color: blue; */
   width: 60%;
@@ -575,7 +564,6 @@ input{
   flex-direction: row;
   justify-content: space-evenly;
 }
-
 .news-home-page-column-main-articles {
   width: 60%;
 }
@@ -584,14 +572,12 @@ input{
   /* background-color: bisque; */
   padding: 10px;
 }
-
 /* Category View */
 /* *************************** */
-
 .category-view-main-container {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  max-width: 1000px;
   align-items: center;
   /* background-color: blueviolet; */
   height: auto;
@@ -610,6 +596,7 @@ input{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
   margin: 10px 0 10px 0;
 }
 .related-topics {
@@ -617,13 +604,10 @@ input{
   height: 50px;
   width: 70%;
 }
-
 #profile-tab {
   padding-top: 20px;
 }
-
 /* GENERIC TAGS */
-
 /* Saved Article View */
 /* ************************* */
 .saved-article-list-view-main-div {
@@ -688,7 +672,6 @@ input{
   margin-top: 80px;
   width: 400px;
 }
-
 /* Search Page View */
 .search-page-view-main-div {
   display: flex;
