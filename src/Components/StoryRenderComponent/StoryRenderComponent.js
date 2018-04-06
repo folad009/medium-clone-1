@@ -16,14 +16,15 @@ class StoryRenderComponent extends Component {
             post: "",
             comment: "",
             postComments: [],
-            claps: ""
+            claps: "",
+            title:""
         }
     }
 
     componentDidMount() {
         axios.get(`/api/getpost/${this.props.match.params.id}`).then(r => {
-
-            this.setState({ post: r.data[0].body, claps: r.data[0].rating })
+            console.log("this is the post data",r)
+            this.setState({ post: r.data[0].body, claps: r.data[0].rating,title: r.data[0].title })
         }).catch(err => console.log(err))
 
         axios.get(`/api/comments/${this.props.match.params.id}`).then(r => {
@@ -91,13 +92,17 @@ class StoryRenderComponent extends Component {
                 {item.body}
                 </div>
                 <div className="clap-save-comment">
-                <ClapComponent
-                    popupClapCount={item.claps}
-                    maxClapCount={50}
-                    onChange={(newClapCount, diff) => {
-                        this.addCommentClap(newClapCount, item.id)
-                    }}
-                />
+                
+                <span onClick={() => this.addCommentClap()} > <Clap
+                count={0}
+                countTotal={0}
+
+                isClicked={false}
+            />   </span>
+              
+           
+
+                
                 </div>
             </div>
             )
@@ -133,8 +138,7 @@ class StoryRenderComponent extends Component {
                 <div>
                     <ClapComponent/>
                 </div>
-
-
+                <div className="story-render-component-title" dangerouslySetInnerHTML={this.createMarkup(this.state.title)} />
                 <div className="story-render-component-body" dangerouslySetInnerHTML={this.createMarkup(post)} />
 
                 <div className="story-render-component-clap-section">
