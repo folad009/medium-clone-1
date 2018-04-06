@@ -1,0 +1,1 @@
+SELECT u.id, u.firstname, u.lastname, u.avatar FROM users as U JOIN follow as f on u.id = f.followerid WHERE f.followedid = $1;

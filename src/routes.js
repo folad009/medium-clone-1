@@ -16,6 +16,6 @@ export default (
     <Route path="/topics" component={ExploreTopicsView} />
     <Route exact path="/" component={HomePageView} />
     <Route path="/topic/:topic" component={CategoryView} />
-    <Route path="/saved" component={SavedArticleListView}/>
+    <Route path="/saved" component={SavedArticleListView} />
   </Switch>
 );

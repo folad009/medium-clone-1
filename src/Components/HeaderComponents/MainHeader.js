@@ -26,12 +26,16 @@ class MainHeader extends Component {
     document.getElementById("SearchBar").focus();
     console.log(document.getElementById("SearchBar"));
   }
+
+  componentDidMount() {
+    this.props.getUser();
+  }
   render() {
     let loggedin = this.props.user.id ? (
       <ImageIcon />
     ) : (
       <a href={process.env.REACT_APP_LOGIN}>
-        <button>Sign In</button>
+        <button className="sign-in-btn">Sign In</button>
       </a>
     );
     return (
