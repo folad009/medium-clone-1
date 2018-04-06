@@ -10,17 +10,63 @@ class SearchPage extends React.Component {
     super();
     this.state = {
       posts: [],
-      userInput: ""
+      userInput: "",
+      filterString: ""
     };
   }
   componentDidMount() {
-    this.props
-      .getAllPosts()
-      .then(response => this.setState({ posts: this.props.posts }));
+    //Separate search term from query string
+    let queryArray = this.props.location.search.split("=");
+
+    //search filter function to find only posts which contain
+    const filter = function(posts, searchString) {
+      let searchTerms = searchString
+        .toLowerCase()
+        .split("%20")
+        .join(" ")
+        .split(" ");
+      let returnPosts = posts.filter(val => {
+        for (let i = 0; i < searchTerms.length; i++) {
+          if (
+            val.title.toLowerCase().includes(searchTerms[i]) ||
+            val.firstname.toLowerCase().includes(searchTerms[i]) ||
+            val.lastname.toLowerCase().includes(searchTerms[i])
+          ) {
+            return true;
+          }
+        }
+      });
+      return returnPosts;
+    };
+
+    this.props.getAllPosts().then(response => {
+      this.setState({ posts: filter(this.props.posts, queryArray[1]) });
+    });
+    this.setState({ userInput: queryArray[1], filterString: queryArray[1] });
+
+    //add event listener for the enter key on the search input bar
+    var input = document.getElementById("BigSearchBar");
+
+    const that = this;
+    input.addEventListener("keyup", function(event) {
+      //Update userInput onchange of input searchbar value
+      that.setState({ userInput: event.target.value });
+      event.preventDefault();
+      if (event.keyCode === 13) {
+        //Route to new search result page
+        that.props.history.push(`/search?q=${that.state.userInput}`);
+        let queryArray = that.props.location.search.split("=");
+        that.setState({
+          filterString: that.state.userInput,
+          posts: filter(that.props.posts, queryArray[1].split(" ").join("%20"))
+        });
+      }
+    });
   }
-  filter() {}
   render() {
     let searchReel =
+      this.state.filterString !== "" &&
+      this.props.location.search &&
       this.state.posts.length > 0
         ? this.state.posts.map((val, index) => (
             <SearchCard
@@ -34,11 +80,24 @@ class SearchPage extends React.Component {
             />
           ))
         : "";
+
     return (
       <div className="search-page-main-div">
         <h1>Search</h1>
 
-        {searchReel}
+        <input
+          autofocus="true"
+          defaultValue={this.props.location.search
+            .split("=")[1]
+            .split("%20")
+            .join(" ")}
+          placeholder={"Search schMedium"}
+          type="search"
+          name="BigSearchBar"
+          className="BigSearchBar"
+          id="BigSearchBar"
+        />
+        <div className="search-page-stories-div">{searchReel}</div>
         {console.log(this.props.location)}
       </div>
     );

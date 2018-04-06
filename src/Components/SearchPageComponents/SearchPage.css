@@ -1,3 +1,8 @@
+.search-page-main-div {
+  width: fill;
+  max-width: 1000px;
+}
+
 .search-card {
   width: 600px;
   /* background: khaki; */
@@ -85,4 +90,11 @@
   height: 28px;
   display: flex;
   justify-content: space-between;
+}
+input[name="BigSearchBar"] {
+  border-bottom: 1px rgba(0, 0, 0, 0.24) solid;
+  width: fill;
+  height: 80px;
+  max-width: 1000px;
+  font-size: 52px;
 }
