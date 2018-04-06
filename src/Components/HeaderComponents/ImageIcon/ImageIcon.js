@@ -13,31 +13,44 @@ class ImageIcon extends Component {
   render() {
     const menu = (
       <Menu>
-        <Menu.Item key="0">
+        <Menu.Item key="0" className="nav-item-dropdown">
           <Link to="/new-story"> New Story </Link>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item key="2" className="nav-item-dropdown">
           <Link to="/new-story"> Stories </Link>
         </Menu.Item>
-        <Menu.Item key="3">
+        <Menu.Item key="3" className="nav-item-dropdown">
           <Link to="/new-story"> Stats </Link>
         </Menu.Item>
-        <hr />
-        <Menu.Item key="4">
+        <hr style={{ opacity: 0.7 }} />
+        <Menu.Item key="4" className="nav-item-dropdown">
           <Link to="/new-story"> Bookmarks </Link>
         </Menu.Item>
-        <Menu.Item key="5">
+        <Menu.Item key="5" className="nav-item-dropdown">
           <Link to="/new-story"> Customize your interests </Link>
         </Menu.Item>
-        <hr />
-        <Menu.Item key="6">
+        <hr style={{ opacity: 0.7 }} />
+        <Menu.Item key="6" className="nav-item-dropdown">
           <Link to={`/user/${this.props.user.id}`}> Profile </Link>
         </Menu.Item>
-        <Menu.Item key="7">
+        <Menu.Item key="7" className="nav-item-dropdown">
           <Link to="/new-story"> Help </Link>
         </Menu.Item>
-        <Menu.Item key="8">
-          <button onClick={() => this.props.logOut()}>Sign Out </button>
+        <Menu.Item key="8" className="nav-item-dropdown">
+          <button
+            style={{
+              backgroundColor: "none",
+              color: "inherit",
+              border: "none",
+              padding: "0",
+              font: "inherit",
+              cursor: "pointer",
+              opacity: 0.7
+            }}
+            onClick={() => this.props.logOut()}
+          >
+            Sign Out{" "}
+          </button>
         </Menu.Item>
       </Menu>
     );
@@ -45,7 +58,11 @@ class ImageIcon extends Component {
     return (
       <div>
         <Dropdown overlay={menu} trigger={["click"]} placement="bottomCenter">
-          <img className="user-image" src={this.props.user.avatar} />
+          <img
+            className="user-image"
+            src={this.props.user.avatar}
+            style={{ cursor: "pointer" }}
+          />
         </Dropdown>
       </div>
     );
