@@ -16,7 +16,7 @@ export default (
     <Route path="/user/:id" component={ProfilePageView} />
     <Route path="/topics" component={ExploreTopicsView} />
     <Route exact path="/" component={HomePageView} />
-    <Route path="/topic/:topic" component={CategoryView} />
+    <Route path="/topic/:topic/:id" component={CategoryView} />
     <Route path="/saved" component={SavedArticleListView} />
     <Route path="/search" component={SearchPageView} />
   </Switch>

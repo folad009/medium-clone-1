@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import MainHeader from "../Components/HeaderComponents/MainHeader";
 import CategoryCard from "../Components/CardsComponents/CategoryCard";
+import { connect } from "react-redux";
+import { getAllPostCategory } from "../ducks/reducer";
 import { withRouter } from "react-router-dom";
 
 class CategoryView extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.getAllPostCategory(`${this.props.match.params.id}`);
+  }
   render() {
     const capitalizeFirstLetter = str => {
       if (str.split(" ").length === 2) {
@@ -15,6 +19,25 @@ class CategoryView extends Component {
       }
       return str.charAt(0).toUpperCase() + str.slice(1);
     };
+    let categoryReel =
+      this.props.posts.length > 0
+        ? this.props.posts.map((val, index) => {
+            console.log(val);
+            return (
+              <CategoryCard
+                id={val.id}
+                userid={val.userid}
+                title={val.title}
+                firstname={val.firstname}
+                lastname={val.lastname}
+                image={val.thumbnailimg}
+                userImage={val.avatar}
+                date={val.date}
+                rating={val.rating}
+              />
+            );
+          })
+        : "Loading ...";
     return (
       <div className="category-view-main-container">
         {console.log(this.props.match.params.topic)}
@@ -34,11 +57,16 @@ class CategoryView extends Component {
         </div>
         <div className="for-you-render">
           <h3 id="for-you-text">For You</h3>
-          <CategoryCard />
-          {/* map for article category list goes here*/}
+          <CategoryCard title={`story for members`} />
+          {categoryReel}
         </div>
       </div>
     );
   }
 }
-export default withRouter(CategoryView);
+function mapStateToProps(state) {
+  return state;
+}
+export default withRouter(
+  connect(mapStateToProps, { getAllPostCategory })(CategoryView)
+);

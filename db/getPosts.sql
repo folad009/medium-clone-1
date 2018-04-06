@@ -1,1 +1,1 @@
-SELECT p.id, p.title, p.body, p.thumbnailimg, p.date, u.firstname, u.lastname FROM posts as p JOIN users as u on p.userid = u.id;
+SELECT p.id, p.title, p.body, p.thumbnailimg, p.date, u.firstname, u.lastname, u.avatar, u.id FROM posts as p JOIN users as u on p.userid = u.id;
