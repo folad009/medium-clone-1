@@ -213,6 +213,61 @@ input{
   align-items: center;
 }
 
+/* comment section styles */
+.comments-section-main-div{
+  background-color: aquamarine;
+  height: auto;
+  width: 50%;
+
+}
+.main-comment-render-body-div{
+  height: auto;
+  min-height: 140px;
+  background-color: bisque;
+  margin: 10px 0px 10px 0px;
+  border:1px solid rgb(108, 108, 108);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comment-render-avatar-info-main-div{
+  background-color: aqua;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.comment-render-info{
+  margin: 10px;
+  height: 100%;
+}
+.clap-save-comment{
+  height: 200px;
+  display: flex;
+  align-content: flex-end;
+  background-color: rgb(131, 74, 4)
+}
+.comment-input-main-div{
+  background-color: blue;
+  height:auto ;
+  min-height:273px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgb(108, 108, 108);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.comment-section-input-user-info{
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items: center;
+}
+.comment-input{
+  min-height: 180px;
+  width: 100%;
+}
 /* ProfilePageView Styles */
 .profile-page-view-main-div {
   min-height: 100vh;
@@ -609,11 +664,6 @@ input{
 }
 #saved-article-search-input {
   margin-top: 80px;
-<<<<<<< HEAD
-  width:400px;
-}
-
-=======
   width: 400px;
 }
 
@@ -623,4 +673,5 @@ input{
   flex-flow: column;
   align-items: center;
 }
->>>>>>> master
+
+

@@ -79,8 +79,18 @@ class StoryRenderComponent extends Component {
 
         let comments = this.state.postComments.map((item, i) => {
             return(
-            <div key={i} >  <img style={{ height: "30px" }} src={item.avatar} alt="" />  {item.firstname} {item.lastname} <br />
+            <div key={i} className="main-comment-render-body-div">
+                <div className="comment-render-avatar-info-main-div">
+                    <img style={{ height: "50px",borderRadius:'50px',margin:'5px' }} src={item.avatar} alt="avatar" />
+                    <div id="comment-render-info"> 
+                        {item.firstname} {item.lastname}
+                        <p>timestamp</p>
+                    </div>
+                </div>
+                <div className="main-comment-render-text">
                 {item.body}
+                </div>
+                <div className="clap-save-comment">
                 <ClapComponent
                     popupClapCount={item.claps}
                     maxClapCount={50}
@@ -88,9 +98,7 @@ class StoryRenderComponent extends Component {
                         this.addCommentClap(newClapCount, item.id)
                     }}
                 />
-                <button onClick={() => {
-                    this.addCommentClap(item.claps, item.id)
-                }} >{item.claps}</button>
+                </div>
             </div>
             )
         })
@@ -122,14 +130,12 @@ class StoryRenderComponent extends Component {
                     onClick={() => this.addClap()} >
                     {claps}
                 </span>
+                <div>
+                    <ClapComponent/>
+                </div>
 
 
                 <div className="story-render-component-body" dangerouslySetInnerHTML={this.createMarkup(post)} />
-
-                <div> <input onChange={(e) => this.setState({ comment: e.target.value })} type="text" /> <button onClick={() => this.addcomment(this.props.match.params.id, this.state.comment)} >Submit</button>  </div>
-
-
-                <div>{comments}</div>
 
                 <div className="story-render-component-clap-section">
                     <div className="story-render-component-clap-section-text">
@@ -142,6 +148,19 @@ class StoryRenderComponent extends Component {
                         <p>3</p>
                         <TwitterIcon className="story-header-icons" />
                         <FacebookIcon className="story-header-icons" />
+                    </div>
+                    <div className="comments-section-main-div">
+                        <div className="comment-input-main-div">
+                        <div className="comment-section-input-user-info">
+                            <img className="user-image" />
+                            <h5>Juan Pecina</h5>
+                        </div>
+                         <textarea onChange={(e) => this.setState({ comment: e.target.value })} type="text" className="comment-input"/>
+                         <div>
+                         <button onClick={() => this.addcomment(this.props.match.params.id, this.state.comment)} >Submit</button>
+                         </div>
+                        </div>
+                        {comments}
                     </div>
                 </div>
             </div>
