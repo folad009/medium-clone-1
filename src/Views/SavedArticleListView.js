@@ -5,13 +5,14 @@ import {getReadingList} from '../ducks/reducer'
 
 class SavedArticleListView extends Component{
     componentDidMount(){
-        this.props.getReadingList(this.props.user.id).then(console.log("this is props",this.props.user.id))
+        this.props.getReadingList(this.props.user.id).then(console.log("this is props",this.props.readingList))
     }
     createMarkup(str) {
         return { __html: str };
       }
     
     render(){
+        console.log("this is props",this.props.readingList)
         function trimmedBody(str) {
             let trimmed = str.substring(0, 100);
             trimmed.length === 100 ? (trimmed += "...") : trimmed;
@@ -38,8 +39,8 @@ class SavedArticleListView extends Component{
                     <p>remove</p>
                     </div>
                     </div>
-                    <div>
-                        <img src="https://cdn-images-1.medium.com/max/2000/1*55ZkKbn9BzBKWs3tfe4xqw.jpeg" id="saved-article-image"/>
+                    <div style={{backgroundImage:`url(${article.thumbnailimg})`,backgroundSize:"cover"}} id="saved-article-image">
+                        
                     </div>
                     
                 </div>
