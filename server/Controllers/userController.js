@@ -2,9 +2,10 @@ module.exports = {
   // WILL CHECK FOR A USER ON SESSION
   getUser: function(req, res, next) {
     const db = req.app.get("db");
-
     if (req.session.user) {
+
       db.getUser().then(response => {
+
         res.status(200).send(response);
       });
     } else {
@@ -96,9 +97,8 @@ module.exports = {
 
   addToReadingList: function(req, res, next) {
     const db = req.app.get("db");
-
     db
-      .addToReadingList([req.body.userid, req.body.postid])
+      .addToReadingList([req.body.userid, req.body.id])
       .then(response => {
         res.status(200).send(response);
       })

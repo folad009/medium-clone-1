@@ -8,6 +8,8 @@ const cors = require("cors");
 const passport = require("passport");
 const strategy = require(`${__dirname}/strategy`);
 
+const createInitialSession = require('./session')
+
 // BRINGING IN CONTROLLERS
 const postController = require(`${__dirname}/Controllers/postController`);
 const userController = require(`${__dirname}/Controllers/userController`);
@@ -21,6 +23,7 @@ const port = 3005;
 const app = express();
 app.use(json());
 app.use(cors());
+
 
 // CONNECTING TO HEROKU DATABSE
 massive(process.env.CONNECTION_STRING)
@@ -39,7 +42,7 @@ app.use(
     cookie: { maxAge: 24 * 60 * 60 * 1000 }
   })
 );
-
+// app.use(createInitialSession)
 // INITIALIZING PASSPORT
 
 app.use(passport.initialize());
