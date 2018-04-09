@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import FromYourNetworkSmallCard from '../CardsComponents/FromYourNetworkCard';
 import {connect} from 'react-redux';
 import {getReadingList} from '../../ducks/reducer';
+import readingListImg from '../../assets/readingListImg.png'
 
 class PopularFromNetWorkContainer extends Component{
     componentDidMount(){
@@ -18,6 +19,10 @@ class PopularFromNetWorkContainer extends Component{
         
         return(
             <div className="popular-network-container-main-div">
+                <div className="reading-list-header">
+                    <h1>Reading List</h1>
+                    <img src={readingListImg} style={{height:'100%'}}/>
+                </div>
                 {savedList}
                 
             </div>
