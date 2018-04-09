@@ -589,6 +589,13 @@ input{
   display: flex;
   justify-content: space-between;
 }
+.category-view-header-and-button {
+  max-width: 1000px;
+  width: fill;
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+}
 .for-you-render {
   /* background-color: aquamarine; */
   width: 50%;
