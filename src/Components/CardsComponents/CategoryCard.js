@@ -30,7 +30,12 @@ function CategoryCard(props) {
       <Link to={`/story-view/${props.id}`}>
         <div
           className="category-card-image"
-          style={{ backgroundImage: `url(${props.image})` }}
+          style={{
+            backgroundImage: `url(${props.image})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}
         />
       </Link>
       <div className="category-card-right-div">
