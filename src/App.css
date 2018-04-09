@@ -449,7 +449,7 @@ input{
   margin: 10px;
 }
 .popular-network-container-main-div {
-  width: 80%;
+  width: 328px;
   min-height: 600px;
   background-color: rgb(237, 237, 237);
   padding: 20px;
@@ -577,7 +577,7 @@ input{
 .category-view-main-container {
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
+  width: 100vw;
   align-items: center;
   /* background-color: blueviolet; */
   height: auto;
@@ -591,13 +591,17 @@ input{
 }
 .for-you-render {
   /* background-color: aquamarine; */
-  min-width: 70%;
+  width: 50%;
   min-height: 600px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 10px 0 10px 0;
+}
+.card-render-category-section{
+  height: auto;
+  width:50%;
 }
 .related-topics {
   margin: 10px 0 10px 0;

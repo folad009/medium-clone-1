@@ -55,10 +55,13 @@ class CategoryView extends Component {
           <h6>Related topics</h6>
           <h6>Creativity,Media,Music,Film,Art</h6>
         </div>
+        <h3 id="for-you-text">For You</h3>
         <div className="for-you-render">
-          <h3 id="for-you-text">For You</h3>
+          
+          
           <CategoryCard title={`story for members`} />
           {categoryReel}
+  
         </div>
       </div>
     );
