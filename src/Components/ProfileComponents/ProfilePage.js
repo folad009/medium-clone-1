@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 import { getUser } from "../../ducks/reducer";
 import { withRouter } from "react-router-dom";
 import { Menu } from "antd";
-import Moment from "react-moment";
 import TabHeading from "./../subcomponents/TabHeading";
-import PopOver from "./../subcomponents/Popover";
+import Latest from "./Latest";
+import Following from "./Following";
+import Followers from "./Followers";
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.MenuItemGroup;
@@ -20,9 +21,9 @@ class ProfilePage extends React.Component {
       following: {},
       followers: {},
       posts: [],
-      currentTab: "TabHeading1",
       disabled: true,
-      editbio: ""
+      editbio: "",
+      selectedtab: "TabHeading1"
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -31,6 +32,7 @@ class ProfilePage extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.cancel = this.cancel.bind(this);
     this.submitNewBio = this.submitNewBio.bind(this);
+    this.changeTab = this.changeTab.bind(this);
   }
 
   componentDidMount() {
@@ -68,10 +70,6 @@ class ProfilePage extends React.Component {
 
   handleClick(val) {
     this.setState({ currentTab: val });
-    console.log(this.state);
-  }
-  createMarkup(str) {
-    return { __html: str };
   }
 
   followUser(followerID, followedID) {
@@ -94,18 +92,63 @@ class ProfilePage extends React.Component {
       .catch(() => []);
   }
 
+  changeTab(val) {
+    this.setState({ selectedtab: `${val}` });
+  }
+
   render() {
-    function trimmedBody(str) {
-      let trimmed = str.substring(0, 100);
-      trimmed.length === 100 ? (trimmed += "...") : trimmed;
-      return trimmed;
+    let latest;
+    this.state.posts.length > 0
+      ? (latest = (
+          <Latest user={this.state.userprofile} posts={this.state.posts} />
+        ))
+      : (latest = <h1>No posts made yet.</h1>);
+
+    let following;
+    this.state.following.length > 0
+      ? (following = (
+          <Following
+            user={this.state.userprofile}
+            following={this.state.following}
+          />
+        ))
+      : (following = "You are following anyone");
+
+    let followers =
+      this.state.followers.length > 0
+        ? (followers = (
+            <Followers
+              user={this.state.userprofile}
+              followers={this.state.followers}
+            />
+          ))
+        : (followers = "You have no followers");
+
+    let selected;
+
+    if (this.state.selectedtab === "TabHeading1") {
+      selected = latest;
+    }
+
+    if (this.state.selectedtab === "following") {
+      selected = following;
+    }
+
+    if (this.state.selectedtab === "followers") {
+      selected = followers;
     }
 
     return (
       <div className="profile-page-main-div">
         <div className="profile-page-header">
           <div className="hero-profile">
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%"
+              }}
+            >
               <h1>
                 {this.state.userprofile.firstname
                   ? `${this.state.userprofile.firstname} ${
@@ -116,10 +159,19 @@ class ProfilePage extends React.Component {
 
               {this.state.userprofile.bio ? (
                 <input
+                  className="userbio"
+                  type="text"
                   placeholder={this.state.userprofile.bio}
                   value={this.state.editbio}
                   disabled={this.state.disabled}
                   onChange={e => this.handleChange(e.target.value)}
+                  style={{
+                    fontSize: "16px",
+                    width: "100%",
+                    height: "15vh",
+                    textOverflow: "visible",
+                    marginRight: "10px"
+                  }}
                 />
               ) : (
                 false
@@ -141,10 +193,15 @@ class ProfilePage extends React.Component {
             <h5
               style={{ marginRight: "15px", fontSize: ".95em", opacity: ".54" }}
               id="follwing"
+              onClick={() => this.changeTab("following")}
             >
               {this.state.following.length} Following
             </h5>
-            <h5 style={{ fontSize: ".95em", opacity: ".54" }} id="followers">
+            <h5
+              style={{ fontSize: ".95em", opacity: ".54" }}
+              id="followers"
+              onClick={() => this.changeTab("followers")}
+            >
               {this.state.followers.length} Followers
             </h5>
           </div>
@@ -190,100 +247,22 @@ class ProfilePage extends React.Component {
           )}
         </div>
         <div
-          style={{ marginTop: "120px", cursor: "pointer" }}
-          onClick={e => this.handleClick(e.target.id)}
+          style={{
+            marginTop: "180px",
+            cursor: "pointer",
+            width: "80%",
+            fontSize: "16px",
+            textAlign: "left",
+            paddingLeft: "30px"
+          }}
+          onClick={e => this.changeTab(e.target.id)}
         >
-          <TabHeading tabs={["Latest", "Claps"]} styles="text-align-left" />
+          <TabHeading
+            tabs={["Profile", "Claps"]}
+            styles="text-align-left profile-tabs"
+          />
         </div>
-
-        <div id="profile-tab" style={{ width: "40%" }}>
-          {this.state.posts.length > 0 ? (
-            this.state.posts.map((item, i) => {
-              return (
-                <div
-                  className="single-story"
-                  key={i}
-                  style={{
-                    border: "solid #efefef 1px",
-                    textAlign: "center",
-                    marginBottom: "20px"
-                  }}
-                >
-                  <div className="profile-story-icon">
-                    <img
-                      className="user-image"
-                      src={this.state.userprofile.avatar}
-                    />
-                    <div className="profile-story-name-and-date">
-                      <PopOver
-                        user={item}
-                        name={`${this.state.userprofile.firstname} ${
-                          this.state.userprofile.lastname
-                        }`}
-                      >
-                        <h3>{`${this.state.userprofile.firstname} ${
-                          this.state.userprofile.lastname
-                        }`}</h3>
-                      </PopOver>
-                      <Moment format="MMM DD">{item.date}</Moment>
-                    </div>
-                  </div>
-                  <h2
-                    dangerouslySetInnerHTML={this.createMarkup(item.title)}
-                    style={{
-                      marginTop: "20px",
-                      marginLeft: "10px",
-                      textAlign: "left"
-                    }}
-                  />
-                  {item.thumbnailimg ? (
-                    <img
-                      src={item.thumbnailimg}
-                      alt="article thumbnail"
-                      style={{ width: "97%", height: "25vh" }}
-                    />
-                  ) : (
-                    false
-                  )}
-
-                  <p
-                    dangerouslySetInnerHTML={this.createMarkup(
-                      trimmedBody(item.body)
-                    )}
-                    style={{
-                      fontSize: "1.2em",
-                      lineHeight: "30px",
-                      textAlign: "left",
-                      marginLeft: "10px",
-                      marginTop: "10px",
-                      fontWeight: "600"
-                    }}
-                  />
-                  {item.body.length > 305 ? (
-                    <p
-                      style={{
-                        fontSize: ".9em",
-                        textAlign: "left",
-                        marginLeft: "10px"
-                      }}
-                    >
-                      Read more...
-                    </p>
-                  ) : (
-                    false
-                  )}
-                  <h4 style={{ textAlign: "left", marginLeft: "10px" }}>
-                    {item.rating}
-                  </h4>
-                </div>
-              );
-            })
-          ) : (
-            <h1 style={{ paddingTop: "20px" }}>
-              "You have not made any posts yet."
-            </h1>
-          )}
-        </div>
+        {selected}
       </div>
     );
   }

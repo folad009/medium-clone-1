@@ -1,0 +1,1 @@
+Delete from follow WHERE id = $1;

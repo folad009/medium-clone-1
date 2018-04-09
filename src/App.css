@@ -305,7 +305,7 @@ input{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 60%;
   padding: 0px 20px 20px 20px;
 }
 .profile-page-header {
@@ -614,8 +614,8 @@ input{
   height: 50px;
   width: 70%;
 }
-#profile-tab {
-  padding-top: 20px;
+.profile-tab {
+  padding-top: 30px;
 }
 /* GENERIC TAGS */
 /* Saved Article View */
@@ -697,6 +697,7 @@ input{
 }
 .profile-story-icon {
   display: flex;
+  align-items: left;
   margin-top: 20px;
   margin-left: 10px;
 }
@@ -756,4 +757,16 @@ input{
   align-items: center;
 }
 
+<<<<<<< HEAD
+.userbio:-moz-placeholder {
+  font-size: 20px;
+}
 
+.profile-tabs {
+  font-size: 16px;
+  opacity: 0.54;
+  border-bottom: none;
+}
+=======
+
+>>>>>>> master

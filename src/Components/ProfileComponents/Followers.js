@@ -1,27 +1,14 @@
-import React from "react";
-import axios from "axios";
+import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PopOver from "./../subcomponents/Popover";
 
-function Following(props) {
-  let followingOrNot = "Following";
-  function unfollow(id) {
-    if (followingOrNot === "Following") {
-      axios
-        .delete(`/api/unfollow/${id}`)
-        .then(resposne => {
-          console.log(resposne);
-        })
-        .catch(() => []);
-      followingOrNot = "Follow";
-    }
-  }
+function Followers(props) {
   return (
     <div className="profile-tab" style={{ width: "80%" }}>
-      <h2>{`${props.user.firstname} ${props.user.lastname} folllows`}</h2>
-
-      {props.following.length > 0 ? (
-        props.following.map((item, i) => {
+      {" "}
+      <h2>{`${props.user.firstname} ${props.user.lastname} is followed by`}</h2>
+      {props.followers.length > 0 ? (
+        props.followers.map((item, i) => {
           return (
             <div
               key={i}
@@ -59,27 +46,15 @@ function Following(props) {
                   </PopOver>
                 </Link>
                 <p style={{ textAlign: "left" }}> {item.bio}</p>
-                <button
-                  onClick={() => unfollow(item.followid)}
-                  style={{
-                    marginTop: "10px",
-                    color: "#03a87c",
-                    border: "none",
-                    backgroundColor: "inherit",
-                    cursor: "pointer"
-                  }}
-                >
-                  {followingOrNot}
-                </button>
               </div>
             </div>
           );
         })
       ) : (
-        <h1>You aren't following anybody.</h1>
+        <h1>You have no Followers</h1>
       )}
     </div>
   );
 }
 
-export default withRouter(Following);
+export default withRouter(Followers);

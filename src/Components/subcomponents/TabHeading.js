@@ -35,7 +35,7 @@ class TabHeading extends React.Component {
       }
       return (
         <div
-          className="tab-heading-tab"
+          className={`tab-heading-tab ${this.props.styles}`}
           id={`TabHeading${index + 1}`}
           onClick={e => this.handleClick(e)}
         >
