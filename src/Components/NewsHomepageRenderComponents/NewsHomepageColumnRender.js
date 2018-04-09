@@ -3,16 +3,23 @@ import NewsHomepageColumnCard from "../CardsComponents/MainNewsColumnCard";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllPosts } from "../../ducks/reducer";
+import {addToReadingList} from "../../ducks/reducer";
 import PopularFromNetWorkContainer from "../CardContainers/PopularFromNetwork";
 
 class NewsHomePageColumnRender extends Component {
+  constructor(){
+    super();
+    this.addToReadingList = this.addToReadingList.bind(this)
+  }
   componentDidMount() {
     this.props.getAllPosts();
   }
   createMarkup(str) {
     return { __html: str };
   }
-
+  addToReadingList(userid,id){
+    this.props.addToReadingList(userid,id)
+  }
   render() {
     const postsList =
       this.props.posts.length > 0 ? (
@@ -31,6 +38,9 @@ class NewsHomePageColumnRender extends Component {
               articleAuthorFirstName={article.firstname}
               articleAuthorLastName={article.lastname}
               articleImg={article.thumbnailimg}
+              addToReadingList={this.addToReadingList}
+              articleId={article.id}
+              userid={this.props.user.id}
             />
           );
         })
@@ -49,6 +59,6 @@ class NewsHomePageColumnRender extends Component {
   }
 }
 const mapStateToProps = state => state;
-export default connect(mapStateToProps, { getAllPosts })(
+export default connect(mapStateToProps, { getAllPosts,addToReadingList })(
   NewsHomePageColumnRender
 );
