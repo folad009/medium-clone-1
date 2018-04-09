@@ -12,6 +12,7 @@ const REMOVE_USER_INTEREST = "REMOVE_USER_INTEREST";
 const GET_ALL_POST_CATEGORY = "GET_ALL_POST_CATEGORY";
 const ADD_TO_READING_LIST = "ADD_TO_READING_LIST";
 const GET_READING_LIST = "GET_READING_LIST";
+const DELETE_FROM_READING_LIST = "DELETE_FROM_READING_LIST";
 
 export function getAllPosts() {
   return {
@@ -107,6 +108,17 @@ export function addToReadingList(userid, id){
     .catch(()=>[])
   }
 }
+export function deleteFromReadingList(userid,readinglistid){
+  return {
+    type: DELETE_FROM_READING_LIST,
+    payload: axios
+    .delete(`/api/readinglist/remove/${userid}/${readinglistid}`)
+    .then(response => {
+      return response.data;
+  })
+    .catch(()=>[])
+}
+} 
 
 export function getReadingList(userid){
   return {

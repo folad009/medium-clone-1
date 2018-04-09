@@ -53,7 +53,7 @@ class SavedArticleListView extends Component{
                 <div className="saved-article-header-and-tabs">
                     <h1>Reading List</h1>
                     <div id="saved-archived">
-                        <p>saved (2)</p>
+                        <p>saved ({this.props.readingList.length})</p>
                         <p>archived (8)</p>
 
                     </div>
