@@ -61,6 +61,7 @@ class CategoryView extends Component {
         <div className="for-you-render">
           <CategoryCard title={`story for members`} />
           {categoryReel}
+  
         </div>
       </div>
     );
