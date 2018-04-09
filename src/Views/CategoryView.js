@@ -43,24 +43,27 @@ class CategoryView extends Component {
       <div className="category-view-main-container">
         {console.log(this.props.match.params.topic)}
         <MainHeader />
-        <div className="category-view-title-follow">
-          <div>
-            <div className="category-view-header-and-button">
+        <div className="category-view-header">
+          <div className="category-view-title-follow">
+            <div className="category-view-header-description">
               <h1>{capitalizeFirstLetter(this.props.match.params.topic)}</h1>
-              <button>Follow</button>
+              <h4>High,Low,and sideways.</h4>
             </div>
-            <h4>High,Low,and sideways.</h4>
+            <div className="category-view-follow-button">Follow</div>
           </div>
-          <div />
+          <div className="related-topics">
+            <h6 className="category-view-related-topics">Related topics</h6>
+            <h6 className="related-topics-links">
+              Creativity, Media, Music, Film, Art
+            </h6>
+          </div>
         </div>
-        <div className="related-topics">
-          <h6>Related topics</h6>
-          <h6>Creativity,Media,Music,Film,Art</h6>
-        </div>
-        <TabHeading tabs={["For You"]} />
         <div className="for-you-render">
-          <CategoryCard title={`story for members`} />
-          {categoryReel}
+          <TabHeading tabs={["For You"]} />
+          <div className="for-you-reel">
+            <CategoryCard title={`story for members`} />
+            {categoryReel}
+          </div>
         </div>
       </div>
     );
