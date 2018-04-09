@@ -9,7 +9,9 @@ function NewsHomepageColumnCard(props){
                 <p id="author-name">{`${props.articleAuthorFirstName} ${props.articleAuthorLastName}`}</p>
                 <p id="time-stamp">{props.articleDate}</p>
             </div>
-            <div></div>
+            <div>
+                <button onClick={() => props.addToReadingList(props.userid,props.articleId)}>Save</button>
+            </div>
             <div  style={{height:"auto",width:"150px", backgroundImage:`url(${props.articleImg})`,backgroundSize:'cover',backgroundPosition:'center'}}>
             </div>
         </div>
