@@ -17,14 +17,16 @@ class SearchPage extends React.Component {
   componentDidMount() {
     //Separate search term from query string
     let queryArray = this.props.location.search.split("=");
-
+    let that = this;
     //search filter function to find only posts which contain
     const filter = function(posts, searchString) {
-      let searchTerms = searchString
-        .toLowerCase()
-        .split("%20")
-        .join(" ")
-        .split(" ");
+      let searchTerms = that.props.location.search
+        ? searchString
+            .toLowerCase()
+            .split("%20")
+            .join(" ")
+            .split(" ")
+        : false;
       let returnPosts = posts.filter(val => {
         for (let i = 0; i < searchTerms.length; i++) {
           if (
@@ -47,7 +49,6 @@ class SearchPage extends React.Component {
     //add event listener for the enter key on the search input bar
     var input = document.getElementById("BigSearchBar");
 
-    const that = this;
     input.addEventListener("keyup", function(event) {
       //Update userInput onchange of input searchbar value
       that.setState({ userInput: event.target.value });
@@ -87,10 +88,14 @@ class SearchPage extends React.Component {
 
         <input
           autofocus="true"
-          defaultValue={this.props.location.search
-            .split("=")[1]
-            .split("%20")
-            .join(" ")}
+          defaultValue={
+            this.props.location.search
+              ? this.props.location.search
+                  .split("=")[1]
+                  .split("%20")
+                  .join(" ")
+              : "Search schMedium"
+          }
           placeholder={"Search schMedium"}
           type="search"
           name="BigSearchBar"
