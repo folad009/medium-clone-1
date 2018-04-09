@@ -21,8 +21,8 @@ class MainHeader extends Component {
     this.focusMethod = this.focusMethod.bind(this);
   }
   componentDidMount() {
+    this.props.getUser();
     var input = document.getElementById("SearchBar");
-
     const that = this;
     input.addEventListener("keyup", function(event) {
       //Update userInput onchange of input searchbar value
@@ -39,11 +39,6 @@ class MainHeader extends Component {
       return;
     }
     document.getElementById("SearchBar").focus();
-    console.log(document.getElementById("SearchBar"));
-  }
-
-  componentDidMount() {
-    this.props.getUser();
   }
   render() {
     let loggedin = this.props.user.id ? (
