@@ -48,7 +48,7 @@ function TopicCard(props) {
         <h2>{capitalizeFirstLetter(props.name)}</h2>
         {topicButton}
       </div>
-      <Link to={`/topic/${props.name}`}>
+      <Link to={`/topic/${props.name}/${props.id}`}>
         <div
           className="topic-card-img"
           style={{

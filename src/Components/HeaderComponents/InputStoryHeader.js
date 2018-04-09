@@ -25,8 +25,8 @@ class InputStoryHeader extends Component {
     this.props.getUser();
   }
 
-  addPost(title, body, categories) {
-    let post = { title, body, categories };
+  addPost(title, body, categories, img) {
+    let post = { title, body, categories, img };
 
     axios
       .post("/api/addpost", post)
@@ -39,10 +39,10 @@ class InputStoryHeader extends Component {
     let loggedin = this.props.user.id ? (
       <ImageIcon />
     ) : (
-      <a href={process.env.REACT_APP_LOGIN}>
-        <button>Login</button>
-      </a>
-    );
+        <a href={process.env.REACT_APP_LOGIN}>
+          <button>Login</button>
+        </a>
+      );
     return (
       <div className="input-story-header-component-main-div">
         <div className="input-story-header-logo-left-div">
@@ -58,7 +58,8 @@ class InputStoryHeader extends Component {
               this.addPost(
                 this.props.title,
                 this.props.body,
-                this.state.categories
+                this.state.categories,
+                this.props.img
               )
             }
           >

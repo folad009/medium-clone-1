@@ -9,6 +9,7 @@ const LOGOUT = "LOGOUT";
 const GET_USER_INTERESTS = "GET_USER_INTERESTS";
 const ADD_USER_INTEREST = "ADD_USER_INTEREST";
 const REMOVE_USER_INTEREST = "REMOVE_USER_INTEREST";
+const GET_ALL_POST_CATEGORY = "GET_ALL_POST_CATEGORY";
 
 export function getAllPosts() {
   return {
@@ -81,6 +82,17 @@ export function removeUserInterest(userid, category) {
       .catch(() => [])
   };
 }
+export function getAllPostCategory(categoryId) {
+  return {
+    type: GET_ALL_POST_CATEGORY,
+    payload: axios
+      .get(`/api/category/${categoryId}`)
+      .then(response => {
+        return response.data;
+      })
+      .catch(() => [])
+  };
+}
 
 const initialState = {
   user: {},
@@ -91,6 +103,15 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case `${GET_ALL_POST_CATEGORY}_PENDING`:
+      return Object.assign({}, state, { isLoading: true });
+    case `${GET_ALL_POST_CATEGORY}_FULFILLED`:
+      return Object.assign({}, state, {
+        isLoading: false,
+        posts: action.payload
+      });
+    case `${GET_ALL_POST_CATEGORY}_REJECTED`:
+      return Object.assign({}, state, { isLoading: false, didErr: true });
     case `${REMOVE_USER_INTEREST}_PENDING`:
       return Object.assign({}, state, { isLoading: true });
     case `${REMOVE_USER_INTEREST}_FULFILLED`:

@@ -36,7 +36,6 @@ module.exports = {
       .catch(res.status(400));
   },
 
-
   getUsersPosts: function (req, res, next) {
     const db = req.app.get("db");
 
@@ -48,10 +47,7 @@ module.exports = {
       .catch(res.status(400));
   },
 
-
-
   getCategories: function (req, res, next) {
-
     const db = req.app.get("db");
 
     db
@@ -89,7 +85,8 @@ module.exports = {
         req.session.user.userid,
         req.body.title,
         req.body.body,
-        req.body.categories
+        req.body.categories,
+        req.body.img
       ])
       .then(response => {
         res.status(200).send(response);
@@ -110,10 +107,12 @@ module.exports = {
   addClap: function (req, res) {
     const db = req.app.get("db");
 
-    db.addClap([req.body.claps, req.params.id]).then(result => {
-      res.status(200).send(result)
-    }).catch(err => console.log(err))
-
+    db
+      .addClap([req.body.claps, req.params.id])
+      .then(result => {
+        res.status(200).send(result);
+      })
+      .catch(err => console.log(err));
   },
 
   addComment: function (req, res, next) {
@@ -129,11 +128,12 @@ module.exports = {
   addCommentClap: function (req, res) {
     const db = req.app.get("db");
 
-
-    db.addCommentClap([req.body.claps, req.params.id, req.body.postid]).then(r => {
-
-      res.status(200).send(r)
-    }).catch((err) => res.status(500).send(err))
+    db
+      .addCommentClap([req.body.claps, req.params.id, req.body.postid])
+      .then(r => {
+        res.status(200).send(r);
+      })
+      .catch(err => res.status(500).send(err));
   },
   deletePost: function (req, res, next) {
     const db = req.app.get("db");

@@ -41,6 +41,17 @@ module.exports = {
       })
       .catch(res.status(400));
   },
+  getFollowers: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getFollowers([req.params.id])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+
   follow: function(req, res, next) {
     const db = req.app.get("db");
 
@@ -51,7 +62,16 @@ module.exports = {
       })
       .catch(res.status(400));
   },
+  editBio: function(req, res, next) {
+    const db = req.app.get("db");
 
+    db
+      .editBio([req.body.id, req.body.bio])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
   getReadingList: function(req, res, next) {
     const db = req.app.get("db");
 
