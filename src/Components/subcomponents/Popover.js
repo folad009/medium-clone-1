@@ -3,22 +3,32 @@ import { Popover } from "antd";
 
 function PopOver(props) {
   const content = (
-    <div style={{ width: "50%", textAlign: "left" }}>
-      <h2>{`${props.user.firstname} ${props.user.lastname}`}</h2>
-      <img
-        style={{
-          height: "60px",
-          width: "60px",
-          backgroundColor: "#bbb",
-          borderBottomLeftRadius: "50%",
-          borderTopLeftRadius: "50%",
-          borderBottomRightRadius: "50%",
-          borderTopRightRadius: "50%",
-          display: "inline-block"
-        }}
-        src={props.user.avatar}
-      />
-      <p style={{ fontSize: ".8em" }}>{props.user.bio}</p>
+    <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div style={{ width: "80%" }}>
+          <h2>{`${props.user.firstname} ${props.user.lastname}`}</h2>
+          <p style={{ fontSize: ".8em", textAlign: "left" }}>
+            {props.user.bio}
+          </p>
+        </div>
+        <img
+          style={{
+            height: "60px",
+            width: "60px",
+            backgroundColor: "#bbb",
+            borderBottomLeftRadius: "50%",
+            borderTopLeftRadius: "50%",
+            borderBottomRightRadius: "50%",
+            borderTopRightRadius: "50%",
+            display: "inline-block"
+          }}
+          src={props.user.avatar}
+        />
+        <hr />
+      </div>
+      <button style={{ marginLeft: "70%" }} className="profile-follow-btn">
+        Follow
+      </button>
     </div>
   );
   return (
