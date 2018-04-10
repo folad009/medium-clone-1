@@ -16,18 +16,16 @@ class ImageIcon extends Component {
         <Menu.Item key="0" className="nav-item-dropdown">
           <Link to="/new-story"> New Story </Link>
         </Menu.Item>
-        <Menu.Item key="2" className="nav-item-dropdown">
-          <Link to="/new-story"> Stories </Link>
-        </Menu.Item>
+
         <Menu.Item key="3" className="nav-item-dropdown">
           <Link to="/new-story"> Stats </Link>
         </Menu.Item>
         <hr style={{ opacity: 0.7 }} />
         <Menu.Item key="4" className="nav-item-dropdown">
-          <Link to="/new-story"> Bookmarks </Link>
+          <Link to="/saved"> Bookmarks </Link>
         </Menu.Item>
         <Menu.Item key="5" className="nav-item-dropdown">
-          <Link to="/new-story"> Customize your interests </Link>
+          <Link to="/topics"> Customize your interests </Link>
         </Menu.Item>
         <hr style={{ opacity: 0.7 }} />
         <Menu.Item key="6" className="nav-item-dropdown">
