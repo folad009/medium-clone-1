@@ -61,6 +61,17 @@ module.exports = {
       })
       .catch(res.status(400));
   },
+
+  unfollow: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .unfollowUser(req.params.id)
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
   editBio: function(req, res, next) {
     const db = req.app.get("db");
 

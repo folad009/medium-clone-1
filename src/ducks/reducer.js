@@ -11,6 +11,8 @@ const ADD_USER_INTEREST = "ADD_USER_INTEREST";
 const REMOVE_USER_INTEREST = "REMOVE_USER_INTEREST";
 const GET_ALL_POST_CATEGORY = "GET_ALL_POST_CATEGORY";
 const ADD_TO_READING_LIST = "ADD_TO_READING_LIST";
+const GET_READING_LIST = "GET_READING_LIST";
+const DELETE_FROM_READING_LIST = "DELETE_FROM_READING_LIST";
 
 export function getAllPosts() {
   return {
@@ -101,6 +103,29 @@ export function addToReadingList(userid, id) {
       .post(`http://localhost:3005/api/addreadinglist`, { userid, id })
       .then(response => {
         console.log("this is the response:", response.data);
+        return response.data;
+      })
+      .catch(() => [])
+  };
+}
+export function deleteFromReadingList(userid, readinglistid) {
+  return {
+    type: DELETE_FROM_READING_LIST,
+    payload: axios
+      .delete(`/api/readinglist/remove/${userid}/${readinglistid}`)
+      .then(response => {
+        return response.data;
+      })
+      .catch(() => [])
+  };
+}
+
+export function getReadingList(userid) {
+  return {
+    type: GET_READING_LIST,
+    payload: axios
+      .get(`/api/readinglist/${userid}`)
+      .then(response => {
         return response.data;
       })
       .catch(() => [])
@@ -199,6 +224,14 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { isLoading: true });
 
     case `${ADD_TO_READING_LIST}_FULFILLED`:
+      return Object.assign({}, state, {});
+    case `${GET_READING_LIST}_REJECTED`:
+      return Object.assign({}, state, { isLoading: false, didErr: true });
+
+    case `${GET_READING_LIST}_PENDING`:
+      return Object.assign({}, state, { isLoading: true });
+
+    case `${GET_READING_LIST}_FULFILLED`:
       return Object.assign({}, state, {
         readingList: action.payload
       });

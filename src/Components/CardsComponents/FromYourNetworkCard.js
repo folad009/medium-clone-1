@@ -6,7 +6,7 @@ function FromYourNetworkSmallCard(props){
                <div>
                     <img className="user-image"/>
                     <h4>
-                    Introducing Diya — Timeline Animation directly in Sketch
+                    {props.articleTitle}
                     </h4>    
                 </div>
                     <p>Apr 3rd</p>
