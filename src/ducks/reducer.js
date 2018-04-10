@@ -10,7 +10,7 @@ const GET_USER_INTERESTS = "GET_USER_INTERESTS";
 const ADD_USER_INTEREST = "ADD_USER_INTEREST";
 const REMOVE_USER_INTEREST = "REMOVE_USER_INTEREST";
 const GET_ALL_POST_CATEGORY = "GET_ALL_POST_CATEGORY";
-const ADD_TO_READING_LIST = "ADD_TO_READING_LIST"
+const ADD_TO_READING_LIST = "ADD_TO_READING_LIST";
 
 export function getAllPosts() {
   return {
@@ -94,26 +94,25 @@ export function getAllPostCategory(categoryId) {
       .catch(() => [])
   };
 }
-export function addToReadingList(userid, id){
-  return{
+export function addToReadingList(userid, id) {
+  return {
     type: ADD_TO_READING_LIST,
     payload: axios
-    .post(`http://localhost:3005/api/addreadinglist`,{ userid , id })
-    .then(response => {
-      console.log("this is the response:",response.data)
-      return response.data;
-    })
-    .catch(()=>[])
-  }
+      .post(`http://localhost:3005/api/addreadinglist`, { userid, id })
+      .then(response => {
+        console.log("this is the response:", response.data);
+        return response.data;
+      })
+      .catch(() => [])
+  };
 }
-
 
 const initialState = {
   user: {},
   userInterests: [],
   categories: [],
   posts: [],
-  readingList:[]
+  readingList: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -189,7 +188,9 @@ export default function reducer(state = initialState, action) {
 
     case `${LOGOUT}_FULFILLED`:
       return Object.assign({}, state, {
-        user: {}
+        user: {},
+        userInterests: [],
+        readingList: []
       });
     case `${ADD_TO_READING_LIST}_REJECTED`:
       return Object.assign({}, state, { isLoading: false, didErr: true });
@@ -200,7 +201,7 @@ export default function reducer(state = initialState, action) {
     case `${ADD_TO_READING_LIST}_FULFILLED`:
       return Object.assign({}, state, {
         readingList: action.payload
-      }); 
+      });
 
     default:
       return state;

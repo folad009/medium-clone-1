@@ -502,6 +502,7 @@ input {
   flex-direction: row;
   /* align-items: space-between;
   justify-content: space-between; */
+  margin-bottom: 20px;
 }
 .category-card-image {
   background-color: black;
@@ -599,12 +600,44 @@ input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.24);
 }
 .category-view-follow-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   align-self: flex-start;
   width: 75px;
   height: 37px;
   padding: 0px 16px;
   border: 1px solid #03a87c;
   border-radius: 4px;
+  color: #03a87c;
+  font-size: 16px;
+  line-height: 37px;
+  cursor: pointer;
+}
+.category-view-unfollow-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  width: 95px;
+  height: 37px;
+  padding: 0px 16px;
+  border: 1px solid #03a87c;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  line-height: 37px;
+  background-color: #03a87c;
+}
+.category-card-bookmark-button {
+  cursor: pointer;
+}
+.related-topics-links a {
+  color: rgba(0, 0, 0, 0.54);
+}
+.category-view-follow-button:hover {
+  cursor: pointer;
 }
 .category-view-header-description h1 {
   margin: 0px 0px 0px 0px;
