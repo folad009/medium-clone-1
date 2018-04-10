@@ -17,7 +17,8 @@ class StoryRenderComponent extends Component {
       comment: "",
       postComments: [],
       claps: "",
-      img: []
+      img: [],
+      title:""
     };
   }
 
@@ -25,7 +26,7 @@ class StoryRenderComponent extends Component {
     axios
       .get(`/api/getpost/${this.props.match.params.id}`)
       .then(r => {
-        this.setState({ post: r.data[0].body, claps: r.data[0].rating, img: r.data[0].thumbnailimg });
+        this.setState({ post: r.data[0].body, claps: r.data[0].rating, img: r.data[0].thumbnailimg,title:r.data[0].title });
       })
       .catch(err => console.log(err));
 
@@ -111,19 +112,17 @@ class StoryRenderComponent extends Component {
           <div className="main-comment-render-text">
             {item.body}
           </div>
-          <div className="clap-save-comment">
 
-            <span onClick={() => this.addCommentClap()} > <Clap
+            {/*<span onClick={() => this.addCommentClap()} style={{height:'100px',width:'100px',backgroundColor:'blue'}}> <Clap
               count={0}
               countTotal={0}
 
               isClicked={false}
-            />   </span>
+      />   </span>*/}
 
 
 
 
-          </div>
         </div>
       )
     })
@@ -148,33 +147,16 @@ class StoryRenderComponent extends Component {
 
 
     return (
+
       <div className="story-render-component-main-div">
-        <span onClick={() => this.addClap()}>{claps}</span>
+        
+        <div className="story-render-component-title" dangerouslySetInnerHTML={this.createMarkup(this.state.title)}/>
         {this.state.img && <img src={this.state.img} alt="" />}
         <div
           className="story-render-component-body"
           dangerouslySetInnerHTML={this.createMarkup(post)}
         />
-        
-
-        <div>
-          {" "}
-          <input
-            onChange={e => this.setState({ comment: e.target.value })}
-            type="text"
-          />{" "}
-          <button
-            onClick={() =>
-              this.addcomment(this.props.match.params.id, this.state.comment)
-            }
-          >
-            Submit
-          </button>{" "}
-        </div>
-
-        
-
-        <div className="story-render-component-clap-section">
+       <div className="story-render-component-clap-section">
           <div className="story-render-component-clap-section-text">
             <h4>One clap, two clap, three clap, forty?</h4>
             <p>
@@ -183,14 +165,42 @@ class StoryRenderComponent extends Component {
             </p>
           </div>
           <div className="story-render-component-clap-section-icons-div">
-            <img />
+          <span onClick={() => this.addCommentClap()} style={{height:'100px',width:'100px',backgroundColor:'blue'}}> <Clap
+          count={0}
+          countTotal={0}
+
+          isClicked={false}
+        />   </span>
             <ChatIcon className="story-header-icons" />
             <p>3</p>
             <TwitterIcon className="story-header-icons" />
             <FacebookIcon className="story-header-icons" />
           </div>
+        
+          
         </div>
-        <div>{comments}</div>
+        <div className="comment-input-main-div">
+            <div className="comment-section-input-user-info">
+              <img className="user-image"/>
+              <h5>Juan Pecina</h5>
+            </div>
+          <textarea
+            onChange={e => this.setState({ comment: e.target.value })}
+            type="text"
+            className="comment-input"
+          />
+
+          <div className="publish-comment">
+          <button
+            onClick={() =>
+              this.addcomment(this.props.match.params.id, this.state.comment)
+            }
+          >
+            Publish
+          </button>
+          </div>
+        </div>
+        <div className="comments-section-main-div">{comments}</div>
       </div>
     );
   }

@@ -3,9 +3,7 @@ module.exports = {
   getUser: function(req, res, next) {
     const db = req.app.get("db");
     if (req.session.user) {
-
       db.getUser().then(response => {
-
         res.status(200).send(response);
       });
     } else {
@@ -138,7 +136,7 @@ module.exports = {
     const db = req.app.get("db");
 
     db
-      .removeFromReadingList([req.params.readinglistid, req.params.userid])
+      .removeFromReadingList([req.params.userid, req.params.readinglistid])
       .then(response => {
         res.status(200).send(response);
       })
