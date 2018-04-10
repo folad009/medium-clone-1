@@ -534,9 +534,9 @@ input {
 /* ****************************** */
 .featured-component-main-div {
   height: 600px;
-  width: 80%;
+  width: fill;
   display: flex;
-  margin-top: 30px;
+  margin: 12px 36px 40px 36px;
   /* background-color: rgb(205, 68, 68); */
 }
 .featured-component-right-div {

@@ -1,0 +1,1 @@
+SELECT fa.id, fa.postid, p.title, p.userid, p.body, p.thumbnailimg, u.firstname, u.lastname  FROM featured_articles AS fa JOIN posts AS p ON fa.postid = p.id JOIN users as u ON p.userid = u.id;
