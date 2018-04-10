@@ -14,14 +14,13 @@ require('medium-editor/dist/css/medium-editor.css');
 require('medium-editor/dist/css/themes/default.css');
 
 
-
 class InputBodyComponent extends Component {
   constructor() {
     super();
     this.state = {
       title: "",
       body: "",
-      categories: "",
+      categories: [],
       username: '',
       avatar: '',
       isUploading: false,
@@ -31,6 +30,13 @@ class InputBodyComponent extends Component {
   }
   componentDidMount() {
 
+  }
+
+  addCategory(str) {
+    console.log("cats", this.state.categories)
+    let cats = this.state.categories;
+    cats.push(str)
+    this.setState({ categories: cats })
   }
 
   handleChangeUsername = (event) => this.setState({ username: event.target.value });
@@ -59,13 +65,23 @@ class InputBodyComponent extends Component {
   };
 
   render() {
-    console.log(this.state.body, this.state.title);
+    let categoryReel = this.props.categories.map((item, i) => {
+      if(this.state.categories.includes(item.name)){
+        return <div className="cat-button-selected">{item.name.toUpperCase()}</div>
+      }
+      return (
+        <div className="cat-selector-button-div" onClick={() => this.addCategory(item.name)} >
+       {item.name.toUpperCase()}
+        </div>
+      )
+    })
+    console.log(this.state);
     return (
       <div>
 
         {this.state.avatarURL}
 
-        <InputStoryHeader img={this.state.avatarURL} title={this.state.title} body={this.state.body} />
+        <InputStoryHeader img={this.state.avatarURL} title={this.state.title} body={this.state.body} cats={this.state.categories} />
         <div className="input-body-component-main-div">
           <div className="input-body-component-user-info">
             {this.props.user.id ? (
@@ -125,6 +141,11 @@ class InputBodyComponent extends Component {
               }
             }}
           />
+        </div>
+        <div className="category-selector-body">
+          <div className="category-selector-main-div">
+            {categoryReel}
+          </div>
         </div>
       </div>
     );
