@@ -48,6 +48,8 @@ class InputStoryHeader extends Component {
   }
   render() {
 
+    console.log(this.props.categories)
+
     let categoryReel = this.props.categories.map((item, i) => {
       return <p className="topic-nav-link" onClick={() => this.addCategory(item.name)} > {item.name.toUpperCase()}</p>
     })
@@ -92,7 +94,7 @@ class InputStoryHeader extends Component {
                 this.addPost(
                   this.props.title,
                   this.props.body,
-                  this.state.categories,
+                  this.props.cats,
                   this.props.img
                 )
               }
