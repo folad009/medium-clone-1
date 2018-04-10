@@ -1,5 +1,5 @@
 .featured-view-main-div {
-  background: yellowgreen;
+  /* background: yellowgreen; */
   margin: 12px auto 40px auto;
 }
 .big-picture-text {
@@ -8,7 +8,7 @@
 .big-picture-text-tab {
   display: flex;
   width: fill;
-  background: royalblue;
+  /* background: royalblue; */
   padding-bottom: 16px;
 }
 .big-picture-text-tab h4 {
@@ -72,7 +72,7 @@
 }
 .big-picture {
   display: grid;
-  background: khaki;
+  /* background: khaki; */
   grid-template-rows: 192px 356px;
   grid-template-columns: repeat(7, 1fr);
   grid-row: 1/-1;
@@ -84,7 +84,7 @@
   background-position: center;
 }
 .big-picture-text {
-  background: orchid;
+  /* background: orchid; */
 }
 .grid-0a {
   grid-area: 2 / 1 / -1 / -1;
@@ -93,7 +93,7 @@
   grid-area: 1 / span 6 / span 1 / -1;
 }
 .small-picture {
-  background: salmon;
+  /* background: salmon; */
   grid-column: span 3;
   grid-row: span 5;
 }
@@ -107,7 +107,7 @@
   height: 48%;
 }
 .story-reel {
-  background: blueviolet;
+  /* background: blueviolet; */
 }
 .grid-d {
   grid-column: span 6;
