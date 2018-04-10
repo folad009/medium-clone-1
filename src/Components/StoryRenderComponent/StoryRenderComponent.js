@@ -7,6 +7,7 @@ import TwitterIcon from "react-icons/lib/io/social-twitter-outline";
 import FacebookIcon from 'react-icons/lib/io/social-facebook-outline';
 import Clap from 'react-clap-button'
 import ClapComponent from 'react-clap';
+import IoThumbsup from 'react-icons/lib/io/thumbsup'
 
 class StoryRenderComponent extends Component {
   constructor() {
@@ -17,7 +18,8 @@ class StoryRenderComponent extends Component {
       comment: "",
       postComments: [],
       claps: "",
-      img: []
+      img: [],
+      title: ""
     };
   }
 
@@ -25,7 +27,7 @@ class StoryRenderComponent extends Component {
     axios
       .get(`/api/getpost/${this.props.match.params.id}`)
       .then(r => {
-        this.setState({ post: r.data[0].body, claps: r.data[0].rating, img: r.data[0].thumbnailimg });
+        this.setState({ post: r.data[0].body, claps: r.data[0].rating, img: r.data[0].thumbnailimg, title: r.data[0].title });
       })
       .catch(err => console.log(err));
 
@@ -82,9 +84,14 @@ class StoryRenderComponent extends Component {
 
   addCommentClap(claps, id) {
 
-    let clap = { claps: claps, postid: this.props.match.params.id }
-    console.log(clap)
+    let newClap = claps += 1
+
+    let clap = { claps: newClap, id: id }
+
+
     axios.put(`/api/commentClap/${id}`, clap).then((r) => {
+
+      console.log(r.data)
       this.setState({ postComments: r.data })
     })
   }
@@ -99,7 +106,9 @@ class StoryRenderComponent extends Component {
     console.log(this.state.postComments)
 
     let comments = this.state.postComments.map((item, i) => {
+      console.log(item)
       return (
+
         <div key={i} className="main-comment-render-body-div">
           <div className="comment-render-avatar-info-main-div">
             <img style={{ height: "50px", borderRadius: '50px', margin: '5px' }} src={item.avatar} alt="avatar" />
@@ -111,19 +120,12 @@ class StoryRenderComponent extends Component {
           <div className="main-comment-render-text">
             {item.body}
           </div>
-          <div className="clap-save-comment">
 
-            <span onClick={() => this.addCommentClap()} > <Clap
-              count={0}
-              countTotal={0}
-
-              isClicked={false}
-            />   </span>
+          <span>  <IoThumbsup onClick={() => this.addCommentClap(item.claps, item.id)} />  {item.claps}  </span>
 
 
 
 
-          </div>
         </div>
       )
     })
@@ -148,32 +150,15 @@ class StoryRenderComponent extends Component {
 
 
     return (
-      <div className="story-render-component-main-div">
-        <span onClick={() => this.addClap()}>{claps}</span>
 
+      <div className="story-render-component-main-div">
+
+        <div className="story-render-component-title" dangerouslySetInnerHTML={this.createMarkup(this.state.title)} />
+        {this.state.img && <img src={this.state.img} alt="" />}
         <div
           className="story-render-component-body"
           dangerouslySetInnerHTML={this.createMarkup(post)}
         />
-        {this.state.img && <img src={this.state.img} alt="" />}
-
-        <div>
-          {" "}
-          <input
-            onChange={e => this.setState({ comment: e.target.value })}
-            type="text"
-          />{" "}
-          <button
-            onClick={() =>
-              this.addcomment(this.props.match.params.id, this.state.comment)
-            }
-          >
-            Submit
-          </button>{" "}
-        </div>
-
-        <div>{comments}</div>
-
         <div className="story-render-component-clap-section">
           <div className="story-render-component-clap-section-text">
             <h4>One clap, two clap, three clap, forty?</h4>
@@ -183,13 +168,42 @@ class StoryRenderComponent extends Component {
             </p>
           </div>
           <div className="story-render-component-clap-section-icons-div">
-            <img />
+            <span onClick={() => this.addCommentClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> <Clap
+              count={0}
+              countTotal={0}
+
+              isClicked={false}
+            />   </span>
             <ChatIcon className="story-header-icons" />
             <p>3</p>
             <TwitterIcon className="story-header-icons" />
             <FacebookIcon className="story-header-icons" />
           </div>
+
+
         </div>
+        <div className="comment-input-main-div">
+          <div className="comment-section-input-user-info">
+            <img className="user-image" />
+            <h5>Juan Pecina</h5>
+          </div>
+          <textarea
+            onChange={e => this.setState({ comment: e.target.value })}
+            type="text"
+            className="comment-input"
+          />
+
+          <div className="publish-comment">
+            <button
+              onClick={() =>
+                this.addcomment(this.props.match.params.id, this.state.comment)
+              }
+            >
+              Publish
+          </button>
+          </div>
+        </div>
+        <div className="comments-section-main-div">{comments}</div>
       </div>
     );
   }

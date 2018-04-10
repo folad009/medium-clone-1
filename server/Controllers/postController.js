@@ -135,6 +135,7 @@ module.exports = {
     db
       .addCommentClap([req.body.claps, req.params.id, req.body.postid])
       .then(r => {
+        console.log(r)
         res.status(200).send(r);
       })
       .catch(err => res.status(500).send(err));
