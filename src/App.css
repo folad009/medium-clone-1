@@ -181,7 +181,7 @@ input {
 }
 .story-render-component-clap-section {
   width: 100%;
-  background-color: #e8f3ec;
+  background-color: #0a4b22;
   /* margin-top: 10px; */
   border-top: solid 1px black;
   display: flex;
@@ -263,6 +263,8 @@ input {
   /* background-color: rgb(131, 74, 4) */
 }
 .comment-input-main-div {
+  width: 50%;
+  min-width: 800px;
   /* background-color: blue; */
   height: auto;
   min-height: 273px;
