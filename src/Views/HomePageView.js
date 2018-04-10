@@ -17,8 +17,8 @@ class HomePageView extends React.Component {
     return (
       <div className="hompage-view-main-div">
         <div className="temp-nav">
-          <Link to="/topics">Topics</Link>
-          <button onClick={() => console.log(this.props.user)} />
+
+
         </div>
         <MainHeader />
         <TopicHeaderBar className="sticky" />
