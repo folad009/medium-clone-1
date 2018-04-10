@@ -8,7 +8,7 @@ const cors = require("cors");
 const passport = require("passport");
 const strategy = require(`${__dirname}/strategy`);
 
-const createInitialSession = require('./session')
+const createInitialSession = require("./session");
 
 // BRINGING IN CONTROLLERS
 const postController = require(`${__dirname}/Controllers/postController`);
@@ -23,7 +23,6 @@ const port = 3005;
 const app = express();
 app.use(json());
 app.use(cors());
-
 
 // CONNECTING TO HEROKU DATABSE
 massive(process.env.CONNECTION_STRING)
@@ -83,6 +82,7 @@ app.get("/api/following/:id", userController.getFollowing);
 app.get("/api/followers/:id", userController.getFollowers);
 //GETS USER READING LIST
 app.get("/api/readinglist/:userid", userController.getReadingList);
+app.get("/api/featured", postController.getFeaturedPosts);
 // CHECKS FOR A USER ON SESSION
 app.get("/api/user", (req, res, next) => {
   if (req.session.user) {
