@@ -150,12 +150,12 @@ class StoryRenderComponent extends Component {
     return (
       <div className="story-render-component-main-div">
         <span onClick={() => this.addClap()}>{claps}</span>
-
+        {this.state.img && <img src={this.state.img} alt="" />}
         <div
           className="story-render-component-body"
           dangerouslySetInnerHTML={this.createMarkup(post)}
         />
-        {this.state.img && <img src={this.state.img} alt="" />}
+        
 
         <div>
           {" "}
@@ -172,7 +172,7 @@ class StoryRenderComponent extends Component {
           </button>{" "}
         </div>
 
-        <div>{comments}</div>
+        
 
         <div className="story-render-component-clap-section">
           <div className="story-render-component-clap-section-text">
@@ -190,6 +190,7 @@ class StoryRenderComponent extends Component {
             <FacebookIcon className="story-header-icons" />
           </div>
         </div>
+        <div>{comments}</div>
       </div>
     );
   }
