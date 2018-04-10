@@ -131,10 +131,13 @@ app.delete(
   "/api/readinglist/remove/:userid/:readinglistid",
   userController.deleteFromReadingList
 );
+// REMOVES CATEGORY FROM USER'S INTERESTS
 app.delete(
   "/api/userinterest/:userid/:category",
   userController.removeUserInterest
 );
+// UNFOLLOWS USER
+app.delete("/api/unfollow/:id", userController.unfollow);
 
 // AUTHENTICATION
 app.get(
