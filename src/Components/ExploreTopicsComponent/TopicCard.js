@@ -8,7 +8,6 @@ import Checkmark from "react-icons/lib/fa/check";
 import swal from "sweetalert";
 
 function TopicCard(props) {
-  const add = interestid => {};
   const capitalizeFirstLetter = str => {
     if (str.split(" ").length === 2) {
       return str

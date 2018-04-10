@@ -1,6 +1,7 @@
 .tab-heading-main-div {
   display: flex;
   max-width: 1000px;
+  width: fill;
   height: 46px;
   /* background: saddlebrown; */
   border-bottom: 1px rgba(0, 0, 0, 0.24) solid;
@@ -22,5 +23,6 @@
   font-weight: 500;
 }
 .tab-heading-tab.active {
+  color: black;
   border-bottom: 1px rgba(0, 0, 0, 0.84) solid;
 }
