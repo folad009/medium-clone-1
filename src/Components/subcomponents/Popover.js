@@ -7,7 +7,7 @@ function PopOver(props) {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ width: "80%" }}>
           <h2>{`${props.user.firstname} ${props.user.lastname}`}</h2>
-          <p style={{ fontSize: ".8em", textAlign: "left" }}>
+          <p style={{ fontSize: ".9em", textAlign: "left" }}>
             {props.user.bio}
           </p>
         </div>
