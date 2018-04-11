@@ -1,3 +1,17 @@
+let categories = {
+  art: 1,
+  food: 2,
+  music: 3,
+  sports: 4,
+  crime: 5,
+  business: 6,
+  technology: 7,
+  space: 8,
+  health: 9,
+  fitness: 10,
+  politics: 11
+};
+
 module.exports = {
   // WILL RETRIEVE ALL POSTS
   getPosts: function(req, res, next) {
@@ -80,7 +94,16 @@ module.exports = {
 
   addPost: function(req, res, next) {
     const db = req.app.get("db");
-
+    let split = req.body.categories.split(",");
+    function sortcat(postid, arr) {
+      for (let i = 0; i < split.length; i++) {
+        for (let cat in categories) {
+          if (cat === arr[i]) {
+            db.addPostCategory([postid, categories[cat]]);
+          }
+        }
+      }
+    }
     if (req.body.categories === "") {
       req.body.categories = null;
     }
@@ -93,6 +116,7 @@ module.exports = {
         req.body.img
       ])
       .then(response => {
+        sortcat(response[0].id, split);
         res.status(200).send(response);
       })
       .catch(res.status(400));
@@ -135,7 +159,7 @@ module.exports = {
     db
       .addCommentClap([req.body.claps, req.params.id, req.body.postid])
       .then(r => {
-        console.log(r)
+        console.log(r);
         res.status(200).send(r);
       })
       .catch(err => res.status(500).send(err));

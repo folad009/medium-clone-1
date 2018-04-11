@@ -108,7 +108,7 @@ class ProfilePage extends React.Component {
     this.state.following.length > 0
       ? (following = (
           <Following
-            user={this.state.userprofile}
+            profile={this.state.userprofile}
             following={this.state.following}
           />
         ))

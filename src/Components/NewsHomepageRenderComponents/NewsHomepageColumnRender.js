@@ -3,13 +3,13 @@ import NewsHomepageColumnCard from "../CardsComponents/MainNewsColumnCard";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getAllPosts } from "../../ducks/reducer";
-import {addToReadingList} from "../../ducks/reducer";
+import { addToReadingList } from "../../ducks/reducer";
 import PopularFromNetWorkContainer from "../CardContainers/PopularFromNetwork";
 
 class NewsHomePageColumnRender extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.addToReadingList = this.addToReadingList.bind(this)
+    this.addToReadingList = this.addToReadingList.bind(this);
   }
   componentDidMount() {
     this.props.getAllPosts();
@@ -17,8 +17,8 @@ class NewsHomePageColumnRender extends Component {
   createMarkup(str) {
     return { __html: str };
   }
-  addToReadingList(userid,id){
-    this.props.addToReadingList(userid,id)
+  addToReadingList(userid, id) {
+    this.props.addToReadingList(userid, id);
   }
   render() {
     const postsList =
@@ -37,6 +37,8 @@ class NewsHomePageColumnRender extends Component {
               articleDate={article.date}
               articleAuthorFirstName={article.firstname}
               articleAuthorLastName={article.lastname}
+              articleAuthorAvatar={article.avatar}
+              articleAuthorBio={article.bio}
               articleImg={article.thumbnailimg}
               addToReadingList={this.addToReadingList}
               articleId={article.id}
@@ -59,6 +61,6 @@ class NewsHomePageColumnRender extends Component {
   }
 }
 const mapStateToProps = state => state;
-export default connect(mapStateToProps, { getAllPosts,addToReadingList })(
+export default connect(mapStateToProps, { getAllPosts, addToReadingList })(
   NewsHomePageColumnRender
 );

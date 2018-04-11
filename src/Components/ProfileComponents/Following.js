@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import PopOver from "./../subcomponents/Popover";
+import { connect } from "react-redux";
 
 function Following(props) {
   let followingOrNot = "Following";
@@ -18,8 +19,8 @@ function Following(props) {
   }
   return (
     <div className="profile-tab" style={{ width: "80%" }}>
-      <h2>{`${props.user.firstname} ${props.user.lastname} folllows`}</h2>
-
+      <h2>{`${props.profile.firstname} ${props.profile.lastname} folllows`}</h2>
+      {console.log(props)}
       {props.following.length > 0 ? (
         props.following.map((item, i) => {
           return (
@@ -55,7 +56,9 @@ function Following(props) {
                     user={item}
                     name={`${item.firstname} ${item.lastname}`}
                   >
-                    <h3>{`${props.user.firstname} ${props.user.lastname}`}</h3>
+                    <h3>{`${props.profile.firstname} ${
+                      props.profile.lastname
+                    }`}</h3>
                   </PopOver>
                 </Link>
                 <p style={{ textAlign: "left" }}> {item.bio}</p>
@@ -82,4 +85,6 @@ function Following(props) {
   );
 }
 
-export default withRouter(Following);
+const mapStateToProps = state => state;
+
+export default withRouter(connect(mapStateToProps)(Following));

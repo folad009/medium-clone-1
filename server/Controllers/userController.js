@@ -38,7 +38,7 @@ module.exports = {
       .then(response => {
         res.status(200).send(response);
       })
-      .catch(res.status(400));
+      .catch(res.status(400).send(["Not Following Anyone"]));
   },
   getFollowers: function(req, res, next) {
     const db = req.app.get("db");
