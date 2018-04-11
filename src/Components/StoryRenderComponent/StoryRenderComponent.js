@@ -180,6 +180,7 @@ class StoryRenderComponent extends Component {
           dangerouslySetInnerHTML={this.createMarkup(post)}
         />
         <div className="story-render-component-clap-section">
+        <div className="story-render-claps-section">
           <div className="story-render-component-clap-section-text">
             <h4>One clap, two clap, three clap, forty?</h4>
             <p>
@@ -188,21 +189,21 @@ class StoryRenderComponent extends Component {
             </p>
           </div>
           <div className="story-render-component-clap-section-icons-div">
-            <span onClick={() => this.addClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> <Clap
+            <span onClick={() => this.addClap()}> <Clap
               count={0}
               countTotal={0}
 
               isClicked={false}
             />   </span>
-            <ChatIcon className="story-header-icons" />
-            <p>3</p>
-            <TwitterIcon className="story-header-icons" />
-            <FacebookIcon className="story-header-icons" />
+            <div id="story-render-icons">
+              <ChatIcon className="story-header-icons" />
+              <p>3</p>
+              <TwitterIcon className="story-header-icons" />
+              <FacebookIcon className="story-header-icons" />
+            </div>
           </div>
-
-
-        </div>
-        <div className="comment-input-main-div">
+          </div>
+      <div className="comment-input-main-div">
           <div className="comment-section-input-user-info">
             <img className="user-image" />
             <h5>Juan Pecina</h5>
@@ -214,7 +215,7 @@ class StoryRenderComponent extends Component {
           />
 
           <div className="publish-comment">
-            <button
+            <button className="publish-comment-button"
               onClick={() =>
                 this.addcomment(this.props.match.params.id, this.state.comment)
               }
@@ -224,6 +225,9 @@ class StoryRenderComponent extends Component {
           </div>
         </div>
         <div className="comments-section-main-div">{comments}</div>
+
+        </div>
+        
       </div>
     );
   }
