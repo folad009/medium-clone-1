@@ -108,6 +108,10 @@ app.post("/api/addcomment", postController.addComment);
 // ADD USER INTEREST
 app.post("/api/userinterest", userController.addUserInterest);
 
+// POST USER CLAPS
+
+app.post("/api/userclap", postController.addUserClap);
+
 // ADDS POST TO USER'S READING LIST
 app.post("/api/addreadinglist", userController.addToReadingList);
 
@@ -149,7 +153,7 @@ app.get(
   })
 );
 
-app.get("/me", function(req, res, next) {
+app.get("/me", function (req, res, next) {
   if (!req.user.id) {
     res.redirect("/login");
   } else {
