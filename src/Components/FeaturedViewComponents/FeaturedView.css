@@ -2,6 +2,9 @@
   /* background: yellowgreen; */
   margin: 12px auto 40px auto;
 }
+.featured-view-main-div p {
+  color: rgba(0, 0, 0, 0.54);
+}
 .big-picture-text {
   padding-bottom: 24px;
 }
@@ -10,6 +13,74 @@
   width: fill;
   /* background: royalblue; */
   padding-bottom: 16px;
+}
+.featured-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px !important;
+  font-size: 24px !important;
+  line-height: 28px !important;
+  letter-spacing: -0.42px !important;
+  color: rgba(0, 0, 0, 0.84) !important;
+  font-weight: 500;
+}
+.featured-card-title p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 8px !important;
+  font-size: 24px !important;
+  line-height: 28px !important;
+  letter-spacing: -0.42px !important;
+  color: rgba(0, 0, 0, 0.84) !important;
+  font-weight: 500;
+}
+.featured-small-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 21px !important;
+  line-height: 24px !important;
+  letter-spacing: -0.29px !important;
+  color: rgba(0, 0, 0, 0.84) !important;
+  font-weight: 500;
+}
+.featured-small-card-title p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 21px !important;
+  line-height: 24px !important;
+  letter-spacing: -0.29px !important;
+  color: rgba(0, 0, 0, 0.84) !important;
+}
+.featured-tiny-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  font-size: 18px !important;
+  line-height: 20px !important;
+  letter-spacing: -0.17px !important;
+  color: rgba(0, 0, 0, 0.84) !important;
+}
+.featured-tiny-card-title p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 40px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 18px !important;
+  line-height: 20px !important;
+  letter-spacing: -0.17px !important;
+  color: rgba(0, 0, 0, 0.84) !important;
+}
+.featured-card-text {
+}
+.featured-card-text p {
 }
 .big-picture-text-tab h4 {
   margin: 0;
@@ -107,7 +178,27 @@
   height: 48%;
 }
 .story-reel {
+  border-top: 1.5px solid rgba(0, 0, 0);
   /* background: blueviolet; */
+}
+.featured-extra-link {
+  padding: 12px 0px;
+}
+.featured-extra-link h4 {
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: -0.17px;
+  color: rgba(0, 0, 0, 0.84);
+}
+.featured-extra-link h6 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 300;
+}
+.tiny-faded-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+  width: 60px;
 }
 .grid-d {
   grid-column: span 6;
