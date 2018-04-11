@@ -247,6 +247,7 @@ input {
   flex-direction: row;
   justify-content: space-between;
   height: 100px;
+  align-items: center;
 }
 #story-render-icons{
   width: 100px;
@@ -269,6 +270,12 @@ input {
   /* background-color: aquamarine; */
   height: auto;
   width: 50%;
+}
+.publish-comment-button{
+  padding: 7px 18px 7px 18px;
+  border-radius: 5px;
+  color: #03a87c;
+  border-color: #03a87c;
 }
 .main-comment-render-body-div {
   height: auto;
@@ -318,6 +325,7 @@ input {
 .comment-input-main-div {
   width: 50%;
   min-width: 800px;
+  padding: 10px;
   /* background-color: blue; */
   height: auto;
   min-height: 273px;

@@ -189,7 +189,7 @@ class StoryRenderComponent extends Component {
             </p>
           </div>
           <div className="story-render-component-clap-section-icons-div">
-            <span onClick={() => this.addClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> <Clap
+            <span onClick={() => this.addClap()}> <Clap
               count={0}
               countTotal={0}
 
@@ -215,7 +215,7 @@ class StoryRenderComponent extends Component {
           />
 
           <div className="publish-comment">
-            <button
+            <button className="publish-comment-button"
               onClick={() =>
                 this.addcomment(this.props.match.params.id, this.state.comment)
               }
