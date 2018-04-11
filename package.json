@@ -8,6 +8,7 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
+    "enzyme": "^3.3.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "firebase": "^4.12.1",
@@ -38,7 +39,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3005"
