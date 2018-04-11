@@ -934,3 +934,6 @@ input {
   justify-content: space-between;
   width: 70%;
 }
+.user-info-from-network > h4 {
+  margin-top: 20px;
+}
