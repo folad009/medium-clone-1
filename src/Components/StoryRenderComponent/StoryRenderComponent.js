@@ -188,12 +188,7 @@ class StoryRenderComponent extends Component {
             </p>
           </div>
           <div className="story-render-component-clap-section-icons-div">
-            <span onClick={() => this.addClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> <Clap
-              count={0}
-              countTotal={0}
-
-              isClicked={false}
-            />   </span>
+            <span onClick={() => this.addClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> {claps}  </span>
             <ChatIcon className="story-header-icons" />
             <p>3</p>
             <TwitterIcon className="story-header-icons" />
