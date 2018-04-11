@@ -21,6 +21,7 @@ class NewsHomePageColumnRender extends Component {
     this.props.addToReadingList(userid,id)
   }
   render() {
+    console.log(this.props.posts)
     const postsList =
       this.props.posts.length > 0 ? (
         this.props.posts.map((article, i) => {
@@ -30,7 +31,12 @@ class NewsHomePageColumnRender extends Component {
               <div dangerouslySetInnerHTML={this.createMarkup(article.title)} />
             </Link>
           );
-
+          function trimmedBody(str) {
+            let trimmed = str.substring(0, 100);
+            trimmed.length === 100 ? (trimmed += "...") : trimmed;
+            return trimmed;
+          }
+          const trimmedArticle = trimmedBody(article.body)
           return (
             <NewsHomepageColumnCard
               articleTitle={title}
@@ -41,6 +47,8 @@ class NewsHomePageColumnRender extends Component {
               addToReadingList={this.addToReadingList}
               articleId={article.id}
               userid={this.props.user.id}
+              body={trimmedArticle}
+              
             />
           );
         })
