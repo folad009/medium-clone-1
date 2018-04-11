@@ -8,6 +8,7 @@ import ProfilePageView from "./Views/ProfilePageView";
 import CategoryView from "./Views/CategoryView";
 import SavedArticleListView from "./Views/SavedArticleListView";
 import SearchPageView from "./Views/SearchPageView";
+import FeaturedView from "./Views/FeaturedView";
 
 export default (
   <Switch>
@@ -19,5 +20,6 @@ export default (
     <Route path="/topic/:topic/:id" component={CategoryView} />
     <Route path="/saved" component={SavedArticleListView} />
     <Route path="/search" component={SearchPageView} />
+    <Route path="/featured" component={FeaturedView} />
   </Switch>
 );

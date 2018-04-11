@@ -11,13 +11,16 @@ import { addPost } from "../../ducks/reducer";
 import { getUser } from "../../ducks/reducer";
 import { Link } from "react-router-dom";
 import ImageIcon from "./ImageIcon/ImageIcon";
+import { Menu, Dropdown, Icon } from "antd";
+import "antd/dist/antd.css";
+
 
 class InputStoryHeader extends Component {
   constructor() {
     super();
 
     this.state = {
-      categories: ""
+      categories: []
     };
   }
 
@@ -25,8 +28,16 @@ class InputStoryHeader extends Component {
     this.props.getUser();
   }
 
+  addCategory(str) {
+    let cats = this.state.categories;
+    cats.push(str)
+    this.setState({ categories: cats })
+  }
+
   addPost(title, body, categories, img) {
-    let post = { title, body, categories, img };
+
+    let cats = categories.join(",")
+    let post = { title, body, categories: cats, img };
 
     axios
       .post("/api/addpost", post)
@@ -36,6 +47,18 @@ class InputStoryHeader extends Component {
       .catch(err => console.log(err));
   }
   render() {
+
+    console.log(this.props.categories)
+
+    let categoryReel = this.props.categories.map((item, i) => {
+      return <p className="topic-nav-link" onClick={() => this.addCategory(item.name)} > {item.name.toUpperCase()}</p>
+    })
+
+    const menu = <Menu>
+      <Menu.Item className="nav-item-dropdown" key="0" >Publish</Menu.Item>
+
+    </Menu>
+
     let loggedin = this.props.user.id ? (
       <ImageIcon />
     ) : (
@@ -44,32 +67,58 @@ class InputStoryHeader extends Component {
         </a>
       );
     return (
-      <div className="input-story-header-component-main-div">
-        <div className="input-story-header-logo-left-div">
-          <Link to="/">
-            <img src={Logo} className="logo-small" />
-          </Link>
-          <p>Save</p>
-        </div>
-        <div className="story-header-right-side-div">
-          <p>Share</p>
-          <p
-            onClick={() =>
-              this.addPost(
-                this.props.title,
-                this.props.body,
-                this.state.categories,
-                this.props.img
-              )
-            }
-          >
-            Publish
+      <div>
+
+
+        <div className="input-story-header-component-main-div">
+          <div className="input-story-header-logo-left-div">
+            <Link to="/">
+              <img src={Logo} className="logo-small" />
+            </Link>
+            <p>Save</p>
+          </div>
+          <div className="story-header-right-side-div">
+            <p>Share</p>
+
+
+
+
+            <Dropdown overlay={menu} trigger={["click"]} placement="bottomCenter">
+              <p style={{ cursor: "pointer" }} >Publish</p>
+            </Dropdown>
+
+
+
+            <p
+              onClick={() =>
+                this.addPost(
+                  this.props.title,
+                  this.props.body,
+                  this.props.cats,
+                  this.props.img
+                )
+              }
+            >
+              Publish
           </p>
-          <Dots className="story-header-icons" />
-          <Bookmark className="story-header-icons" />
-          <Notification className="story-header-icons" />
-          {loggedin}
+            <Dots className="story-header-icons" />
+            <Bookmark className="story-header-icons" />
+            <Notification className="story-header-icons" />
+            {loggedin}
+          </div>
+
         </div>
+
+        <div className="topic-header-bar-main-div" >
+
+          <div className="topic-header-bar">
+            <div id="topic-header-grid" className="topic-header-grid">
+              {categoryReel}
+            </div>
+
+          </div>
+        </div>
+
       </div>
     );
   }
