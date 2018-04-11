@@ -86,7 +86,7 @@ class StoryRenderComponent extends Component {
 
     let newClap = claps += 1
 
-    let clap = { claps: newClap, id: id }
+    let clap = { claps: newClap, id: id, postid: this.props.match.params.id }
 
 
     axios.put(`/api/commentClap/${id}`, clap).then((r) => {

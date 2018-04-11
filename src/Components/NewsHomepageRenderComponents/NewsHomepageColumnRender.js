@@ -26,9 +26,9 @@ class NewsHomePageColumnRender extends Component {
       this.props.posts.length > 0 ? (
         this.props.posts.map((article, i) => {
           let title = (
-            <Link to={`/story-view/${article.id}`}>
+            <Link to={`/story-view/${article.id}`} style={{color:'black'}}>
               {" "}
-              <div dangerouslySetInnerHTML={this.createMarkup(article.title)} />
+              <div dangerouslySetInnerHTML={this.createMarkup(article.title)} id="title-column-render" />
             </Link>
           );
           function trimmedBody(str) {

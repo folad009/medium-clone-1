@@ -15,6 +15,7 @@ class HomePageView extends React.Component {
     this.props.getUser();
   }
   render() {
+    let topicHeaderBar = <TopicHeaderBar />;
     return (
       <div className="hompage-view-main-div">
         <div className="temp-nav" />
@@ -22,6 +23,7 @@ class HomePageView extends React.Component {
         <TopicHeaderBar className="sticky" />
         <FeaturedView />
         <NewsHomePageColumnRender />
+        {console.log(<TopicHeaderBar />)}
       </div>
     );
   }
