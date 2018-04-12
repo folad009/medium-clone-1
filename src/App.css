@@ -344,7 +344,7 @@ input {
   height: 50px;
   width: 15%;
   align-items: center;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 .comment-input {
   min-height: 180px;
@@ -950,6 +950,13 @@ input {
 .popular-network-container-main-div {
   position: sticky;
   top: 50px;
+}
+.article-index {
+  font-size: 28px;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @media (max-width: 1200px) {
   .popular-network-container-main-div {

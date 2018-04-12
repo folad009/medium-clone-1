@@ -11,31 +11,42 @@ import SavedBookmark from "react-icons/lib/fa/bookmark";
 import swal from "sweetalert";
 
 class CategoryCard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      saved: false,
+      saved: this.props.saved,
       changed: false
     };
-    this.createMarkup = this.createMarkup.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
-    if (this.props.user.id) {
-      this.props.getReadingList(this.props.user.id).then(response => {
-        if (this.props.readingList.some(val => val.id === this.props.id)) {
-          this.setState({ saved: true, changed: false });
-        }
-      });
-    }
+    // if (this.props.user.id) {
+    //   this.props.getReadingList(this.props.user.id).then(response => {
+    //     if (this.props.readingList.some(val => val.id === this.props.id)) {
+    //       this.setState({ saved: true, changed: false });
+    //     }
+    //   });
+    // }
+    console.log(this.props.saved);
   }
   componentWillUnmount() {
-    if (this.state.changed === true) {
-      this.state.saved
-        ? this.props.addToReadingList(this.props.user.id, this.props.id)
-        : this.props.deleteFromReadingList(this.props.user.id, this.props.id);
+    // if (this.state.changed === true) {
+    //   this.state.saved
+    //     ? this.props.addToReadingList(this.props.user.id, this.props.id)
+    //     : this.props.deleteFromReadingList(this.props.user.id, this.props.id);
+    // }
+  }
+  handleClick() {
+    if (this.props.saved) {
+      this.props
+        .deleteFromReadingList(this.props.user.id, this.props.id)
+        .then(response => this.props.getReadingList(this.props.user.id));
+    } else {
+      this.props
+        .addToReadingList(this.props.user.id, this.props.id)
+        .then(response => this.props.getReadingList(this.props.user.id));
     }
   }
-
   render() {
     function createMarkup(str) {
       return { __html: str };
@@ -93,14 +104,11 @@ class CategoryCard extends React.Component {
               <div
                 onClick={() =>
                   this.props.user.id
-                    ? this.setState({
-                        saved: !this.state.saved,
-                        changed: !this.state.changed
-                      })
+                    ? this.handleClick()
                     : swal({ text: "Sign in to add items to reading list" })
                 }
               >
-                {this.state.saved ? (
+                {this.props.saved ? (
                   <SavedBookmark
                     size={22}
                     className="category-card-bookmark-button"

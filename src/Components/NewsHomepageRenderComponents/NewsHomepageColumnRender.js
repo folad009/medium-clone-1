@@ -2,33 +2,46 @@ import React, { Component } from "react";
 import NewsHomepageColumnCard from "../CardsComponents/MainNewsColumnCard";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAllPosts } from "../../ducks/reducer";
-import {addToReadingList} from "../../ducks/reducer";
+import {
+  getAllPosts,
+  addToReadingList,
+  getReadingList,
+  deleteFromReadingList
+} from "../../ducks/reducer";
 import PopularFromNetWorkContainer from "../CardContainers/PopularFromNetwork";
 
 class NewsHomePageColumnRender extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.addToReadingList = this.addToReadingList.bind(this)
+    this.addToReadingList = this.addToReadingList.bind(this);
   }
   componentDidMount() {
-    this.props.getAllPosts();
+    this.props
+      .getAllPosts()
+      .then(response =>
+        this.props
+          .getReadingList(this.props.user.id)
+          .then(response => console.log("success"))
+      );
   }
   createMarkup(str) {
     return { __html: str };
   }
-  addToReadingList(userid,id){
-    this.props.addToReadingList(userid,id)
+  addToReadingList(userid, id) {
+    this.props.addToReadingList(userid, id);
   }
   render() {
-    console.log(this.props.posts)
+    console.log(this.props.posts);
     const postsList =
       this.props.posts.length > 0 ? (
         this.props.posts.map((article, i) => {
           let title = (
-            <Link to={`/story-view/${article.id}`} style={{color:'black'}}>
+            <Link to={`/story-view/${article.id}`} style={{ color: "black" }}>
               {" "}
-              <div dangerouslySetInnerHTML={this.createMarkup(article.title)} id="title-column-render" />
+              <div
+                dangerouslySetInnerHTML={this.createMarkup(article.title)}
+                id="title-column-render"
+              />
             </Link>
           );
           function trimmedBody(str) {
@@ -36,7 +49,11 @@ class NewsHomePageColumnRender extends Component {
             trimmed.length === 100 ? (trimmed += "...") : trimmed;
             return trimmed;
           }
-          const trimmedArticle = trimmedBody(article.body)
+          const trimmedArticle = trimmedBody(article.body);
+          let saved = false;
+          if (this.props.readingList.find(val => val.id === article.id)) {
+            saved = true;
+          }
           return (
             <NewsHomepageColumnCard
               articleTitle={title}
@@ -46,9 +63,9 @@ class NewsHomePageColumnRender extends Component {
               articleImg={article.thumbnailimg}
               addToReadingList={this.addToReadingList}
               articleId={article.id}
-              userid={this.props.user.id}
+              userid={article.userid}
               body={trimmedArticle}
-              
+              saved={saved}
             />
           );
         })
@@ -67,7 +84,9 @@ class NewsHomePageColumnRender extends Component {
   }
 }
 const mapStateToProps = state => state;
-export default connect(mapStateToProps, { getAllPosts,addToReadingList })(
-  NewsHomePageColumnRender
-);
-
+export default connect(mapStateToProps, {
+  getAllPosts,
+  addToReadingList,
+  getReadingList,
+  deleteFromReadingList
+})(NewsHomePageColumnRender);
