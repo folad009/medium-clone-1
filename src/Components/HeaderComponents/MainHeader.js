@@ -52,11 +52,20 @@ class MainHeader extends Component {
     );
     return (
       <div className="main-header-component-main-div">
-        <Link to="/">
-          <div className="main-header-logo-div">
-            <img src={logoLarge} className="logo-large" />
-          </div>
+      <div style={{height:'100%',width:'20%',display:'flex',alignItems:'center'}}>
+      <Link to="/new-story" style={{color:'#018f69'}}>
+        Write Story
         </Link>
+      </div>
+
+        
+          <div className="main-header-logo-div">
+          <Link to="/">
+            <img src={logoLarge} className="logo-large" />
+          </Link>
+          </div>
+        
+
         <div className="main-header-icon-user-div">
           <div className="search-and-icon">
             <div>

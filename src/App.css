@@ -183,8 +183,10 @@ input {
 }
 .main-header-logo-div {
   /* background-color: aquamarine; */
-  width: 80%;
+  /* width: 80%; */
+  height: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 .logo-large {
@@ -640,7 +642,7 @@ input {
   justify-content: space-evenly;
 }
 .news-home-page-column-main-articles {
-  width: 530px;
+  width: 670px;
 }
 .news-home-page-column-main-from-network-div {
   width: 30%;

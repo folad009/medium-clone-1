@@ -3,6 +3,9 @@ import PopOver from "./../subcomponents/Popover";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
+
+
+
 function Latest(props) {
   function trimmedBody(str) {
     let trimmed = str.substring(0, 100);

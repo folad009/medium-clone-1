@@ -49,7 +49,7 @@ class NewsHomepageColumnCard extends React.Component {
         </div>
         {this.props.saved ? (
           <div id="save-icon-column-home">
-            <SavedBookmark
+            <SavedBookmark 
               onClick={() =>
                 this.props
                   .deleteFromReadingList(
@@ -60,12 +60,12 @@ class NewsHomepageColumnCard extends React.Component {
                     this.props.getReadingList(this.props.user.id)
                   )
               }
-              style={{ height: "40px", width: "40px" }}
+              style={{ height: "25px", width: "25px" }}
             />
           </div>
         ) : (
           <div id="save-icon-column-home">
-            <Bookmark
+            <Bookmark 
               onClick={() => {
                 if (!this.props.user.id) {
                   swal({
@@ -80,7 +80,7 @@ class NewsHomepageColumnCard extends React.Component {
                     });
                 }
               }}
-              style={{ height: "40px", width: "40px" }}
+              style={{ height: "25px", width: "25px" }}
             />
           </div>
         )}

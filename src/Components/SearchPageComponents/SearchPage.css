@@ -4,12 +4,8 @@
 }
 
 .search-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   width: 600px;
-  background: khaki;
-  /* min-height: 700px; */
+  /* background: khaki; */
   height: auto;
   padding-top: 20px;
   padding-bottom: 25px;
@@ -21,7 +17,7 @@
   height: auto;
   padding-top: 5px;
   margin-bottom: 15px;
-  background: lime;
+  /* background: lime; */
   display: flex;
   align-items: center;
 }
@@ -38,17 +34,17 @@
   color: rgba(0, 0, 0, 0.54);
 }
 .search-card-face-icon {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: darkblue;
+  /* background: darkblue; */
 }
 .search-card-content {
-  background: seagreen;
+  /* background: seagreen; */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 313px;
+  height: auto;
   width: 600px;
 }
 .search-card-image {
@@ -69,14 +65,14 @@
 .search-card-article-title {
   margin: 31px 0px 0px -1px;
   padding-top: 5px;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 31.2px;
   letter-spacing: -0.45px;
   color: rgba(0, 0, 0, 0.84);
 }
 .search-card-article-description {
   margin: 5px 0px 7px -1px;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 29.28px;
   letter-spacing: -0.288px;
   color: rgba(0, 0, 0, 0.54);
