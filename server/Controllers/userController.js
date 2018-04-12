@@ -136,7 +136,7 @@ module.exports = {
     const db = req.app.get("db");
 
     db
-      .removeFromReadingList([req.params.userid, req.params.readinglistid])
+      .removeFromReadingList([req.params.userid, req.params.postid])
       .then(response => {
         res.status(200).send(response);
       })
