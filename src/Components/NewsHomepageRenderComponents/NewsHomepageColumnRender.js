@@ -31,7 +31,6 @@ class NewsHomePageColumnRender extends Component {
     this.props.addToReadingList(userid, id);
   }
   render() {
-    console.log(this.props.posts);
     const postsList =
       this.props.posts.length > 0 ? (
         this.props.posts.map((article, i) => {
@@ -60,6 +59,8 @@ class NewsHomePageColumnRender extends Component {
               articleDate={article.date}
               articleAuthorFirstName={article.firstname}
               articleAuthorLastName={article.lastname}
+              articleAuthorAvatar={article.avatar}
+              articleAuthorBio={article.bio}
               articleImg={article.thumbnailimg}
               addToReadingList={this.addToReadingList}
               articleId={article.id}

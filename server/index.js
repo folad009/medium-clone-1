@@ -80,9 +80,11 @@ app.get("/api/interests/:userid", userController.getUserInterests);
 app.get("/api/following/:id", userController.getFollowing);
 // GETS FOLLOWERS
 app.get("/api/followers/:id", userController.getFollowers);
-//GETS USER READING LIST
+// GETS USER READING LIST
 app.get("/api/readinglist/:userid", userController.getReadingList);
 app.get("/api/featured", postController.getFeaturedPosts);
+// GETS USER CLAPS
+app.get("/api/userclaps/:id", userController.getUserClaps);
 // CHECKS FOR A USER ON SESSION
 app.get("/api/user", (req, res, next) => {
   if (req.session.user) {

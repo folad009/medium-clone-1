@@ -11,6 +11,7 @@ import {
 } from "../../ducks/reducer";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import PopOver from "./../subcomponents/Popover";
 
 class NewsHomepageColumnCard extends React.Component {
   constructor() {
@@ -26,10 +27,21 @@ class NewsHomepageColumnCard extends React.Component {
         <div className="news-home-page-column-card-info">
           <h1>{this.props.articleTitle}</h1>
           <p dangerouslySetInnerHTML={createMarkup(this.props.body)} />
-          <Link to={`/user/${this.props.userid}`}>
-            <p id="author-name">{`${this.props.articleAuthorFirstName} ${
-              this.props.articleAuthorLastName
-            }`}</p>
+          <Link
+            to={`/user/${this.props.userid}`}
+            style={{ color: "black", opacity: ".56" }}
+          >
+            <PopOver
+              activeUser={this.props.user}
+              user={this.props}
+              name={`${this.props.articleAuthorFirstName} ${
+                this.props.articleAuthorLastName
+              }`}
+            >
+              <p id="author-name">{`${this.props.articleAuthorFirstName} ${
+                this.props.articleAuthorLastName
+              }`}</p>
+            </PopOver>
           </Link>
           <p id="time-stamp">
             <Moment format="MMM DD">{this.props.articleDate}</Moment>
