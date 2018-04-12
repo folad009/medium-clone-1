@@ -138,7 +138,7 @@ class FeaturedView extends React.Component {
                   className="featured-small-card-title"
                   dangerouslySetInnerHTML={this.createMarkup(posts[2].title)}
                 />
-                <div
+                <div 
                   className="featured-card-text"
                   dangerouslySetInnerHTML={this.createMarkup(
                     shortenDescription(posts[2].body)
