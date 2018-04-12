@@ -70,3 +70,4 @@ const mapStateToProps = state => state;
 export default connect(mapStateToProps, { getAllPosts,addToReadingList })(
   NewsHomePageColumnRender
 );
+

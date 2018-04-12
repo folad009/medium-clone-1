@@ -70,17 +70,18 @@ class SearchPage extends React.Component {
   }
 
   render() {
-
+    
     let searchReel =
       this.state.filterString !== "" &&
         this.props.location.search &&
         this.state.posts.length > 0
         ? this.state.posts.map((val, index) => {
-          let title = <div dangerouslySetInnerHTML={this.createMarkup(val.title)} />
+          
+
           return <SearchCard
             authorName={`${val.firstname} ${val.lastname}`}
             body={val.body}
-            title={title}
+            title={val.title}
             img={val.thumbnailimg}
             date={val.date}
             key={index}
