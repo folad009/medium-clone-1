@@ -9,6 +9,7 @@ import {
 import Bookmark from "react-icons/lib/fa/bookmark-o";
 import SavedBookmark from "react-icons/lib/fa/bookmark";
 import swal from "sweetalert";
+import PopOver from "./../subcomponents/Popover";
 
 class CategoryCard extends React.Component {
   constructor(props) {
@@ -99,7 +100,13 @@ class CategoryCard extends React.Component {
                 />
               </Link>
               <Link to={`/user/${this.props.userid}`}>
-                <h6>{`${this.props.firstname} ${this.props.lastname}`}</h6>
+                <PopOver
+                  bio={this.props.posts.bio}
+                  user={this.props}
+                  name={`${this.props.firstname} ${this.props.lastname}`}
+                >
+                  <h6>{`${this.props.firstname} ${this.props.lastname}`}</h6>
+                </PopOver>
               </Link>
               <div
                 onClick={() =>

@@ -4,6 +4,7 @@ import { Popover } from "antd";
 function PopOver(props) {
   const content = (
     <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+      {console.log(props.user)}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ width: "80%" }}>
           {props.user.articleAuthorFirstName ? (
@@ -18,9 +19,14 @@ function PopOver(props) {
               {props.user.articleAuthorBio}
             </p>
           ) : (
+            false
+          )}
+          {props.user.bio ? (
             <p style={{ fontSize: ".9em", textAlign: "left" }}>
               {props.user.bio}
             </p>
+          ) : (
+            false
           )}
         </div>
         {props.user.articleAuthorAvatar ? (
@@ -38,6 +44,9 @@ function PopOver(props) {
             src={props.user.articleAuthorAvatar}
           />
         ) : (
+          false
+        )}
+        {props.user.avatar ? (
           <img
             style={{
               height: "60px",
@@ -51,13 +60,29 @@ function PopOver(props) {
             }}
             src={props.user.avatar}
           />
+        ) : (
+          false
+        )}
+        {props.user.userImage ? (
+          <img
+            style={{
+              height: "60px",
+              width: "60px",
+              backgroundColor: "#bbb",
+              borderBottomLeftRadius: "50%",
+              borderTopLeftRadius: "50%",
+              borderBottomRightRadius: "50%",
+              borderTopRightRadius: "50%",
+              display: "inline-block"
+            }}
+            src={props.user.userImage}
+          />
+        ) : (
+          false
         )}
 
         <hr />
       </div>
-      <button style={{ marginLeft: "70%" }} className="profile-follow-btn">
-        Follow
-      </button>
     </div>
   );
   return (
