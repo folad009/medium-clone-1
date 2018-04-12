@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Moment from "react-moment";
+
 
 class SearchCard extends React.Component {
+  
   render() {
+    console.log("this is props",this.props)
     let shortenDescription = function(str) {
       let periodIndex = str
         .split("")
@@ -33,20 +37,25 @@ function createMarkup(str) {
   }
     return (
       <div className="search-card">
+      <Link to={`/user/${this.props.userid}`}>
         <div className="search-card-title">
-          <div className="search-card-face-icon" />
+        
+          <img src={this.props.avatar} className="search-card-face-icon" />
+        
           <div className="search-card-title-header">
             <div>
               <h4 className="search-card-title-name">
                 {this.props.authorName}
               </h4>
             </div>
-            <p className="search-card-time-stamp">{this.props.date}}</p>
-          </div>
+              <Moment format="MMM DD">{this.props.date}</Moment>
+            </div>
         </div>
+        </Link>
         <div className="search-card-content">
-          <Link to={`/story-view/${this.props.id}`}>
+          
             <div className="search-card-inner-content">
+            <Link to={`/story-view/${this.props.id}`}>
               <div
                 className="search-card-image"
                 style={{ backgroundImage: `url(${this.props.img})` }}
@@ -54,16 +63,17 @@ function createMarkup(str) {
               <h1 className="search-card-article-title" dangerouslySetInnerHTML={createMarkup(this.props.title)}></h1>
               <h3 className="search-card-article-description" dangerouslySetInnerHTML={createMarkup(shortDescription)}>
               </h3>
+             </Link>
             </div>
-          </Link>
+         
         </div>
         <div className="search-card-read-more">
           <Link to={`/story-view/${this.props.id}`}>Read more...</Link>
         </div>
         <div className="search-card-claps-and-responses">
-          <div className="search-card-claps">clap 35K</div>
+          <div className="search-card-claps"> claps {this.props.clapsNum} </div>
           <div className="search-card-response-and-save">
-            665 responses save
+            {this.props.commentNum} responses 
           </div>
         </div>
       </div>

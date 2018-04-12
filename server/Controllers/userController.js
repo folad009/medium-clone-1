@@ -136,7 +136,17 @@ module.exports = {
     const db = req.app.get("db");
 
     db
-      .removeFromReadingList([req.params.userid, req.params.readinglistid])
+      .removeFromReadingList([req.params.userid, req.params.postid])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+  getUserClaps: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getUserClaps([req.params.id])
       .then(response => {
         res.status(200).send(response);
       })

@@ -37,12 +37,18 @@ function Followers(props) {
                   margin: "10px 10px 10px 10px"
                 }}
               >
-                <Link to={`/user/${item.id}`}>
+                <Link
+                  to={`/user/${item.id}`}
+                  style={{ color: "black" }}
+                  onClick={() => window.location.reload()}
+                >
                   <PopOver
                     user={item}
                     name={`${item.firstname} ${item.lastname}`}
                   >
-                    <h3>{`${props.user.firstname} ${props.user.lastname}`}</h3>
+                    <h3 style={{ color: "black" }}>{`${props.user.firstname} ${
+                      props.user.lastname
+                    }`}</h3>
                   </PopOver>
                 </Link>
                 <p style={{ textAlign: "left" }}> {item.bio}</p>

@@ -1,30 +1,56 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addToReadingList } from "../../ducks/reducer";
+import {
+  addToReadingList,
+  deleteFromReadingList,
+  getReadingList
+} from "../../ducks/reducer";
 import Bookmark from "react-icons/lib/fa/bookmark-o";
 import SavedBookmark from "react-icons/lib/fa/bookmark";
 import swal from "sweetalert";
 
 class CategoryCard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      saved: false
+      saved: this.props.saved,
+      changed: false
     };
-    this.createMarkup = this.createMarkup.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+  }
+  componentDidMount() {
+    // if (this.props.user.id) {
+    //   this.props.getReadingList(this.props.user.id).then(response => {
+    //     if (this.props.readingList.some(val => val.id === this.props.id)) {
+    //       this.setState({ saved: true, changed: false });
+    //     }
+    //   });
+    // }
+    console.log(this.props.saved);
   }
   componentWillUnmount() {
-    this.state.saved
-      ? this.props.addToReadingList(this.props.user.id, this.props.id)
-      : false;
+    // if (this.state.changed === true) {
+    //   this.state.saved
+    //     ? this.props.addToReadingList(this.props.user.id, this.props.id)
+    //     : this.props.deleteFromReadingList(this.props.user.id, this.props.id);
+    // }
   }
-  createMarkup(str) {
-    return { __html: str };
+  handleClick() {
+    if (this.props.saved) {
+      this.props
+        .deleteFromReadingList(this.props.user.id, this.props.id)
+        .then(response => this.props.getReadingList(this.props.user.id));
+    } else {
+      this.props
+        .addToReadingList(this.props.user.id, this.props.id)
+        .then(response => this.props.getReadingList(this.props.user.id));
+    }
   }
-  
   render() {
-    
+    function createMarkup(str) {
+      return { __html: str };
+    }
     let shortenDescription = function(str) {
       let newStr = str
         .split("")
@@ -40,7 +66,7 @@ class CategoryCard extends React.Component {
         }
       }
     };
-    
+
     let shorterDescription = shortenDescription(this.props.body);
     return (
       <div className="category-card-main-div">
@@ -57,11 +83,10 @@ class CategoryCard extends React.Component {
         </Link>
         <div className="category-card-right-div">
           <div className="category-card-info">
-            <h5>story for members</h5>
             <Link to={`/story-view/${this.props.id}`}>
-              <h1 dangerouslySetInnerHTML={this.createMarkup(this.props.title)}></h1>
+              <h1 dangerouslySetInnerHTML={createMarkup(this.props.title)} />
             </Link>
-            <p dangerouslySetInnerHTML={this.createMarkup(shorterDescription)}></p>
+            <p dangerouslySetInnerHTML={createMarkup(shorterDescription)} />
             <div className="category-card-user-info-save">
               <Link to={`/user/${this.props.userid}`}>
                 <div
@@ -79,11 +104,11 @@ class CategoryCard extends React.Component {
               <div
                 onClick={() =>
                   this.props.user.id
-                    ? this.setState({ saved: !this.state.saved })
+                    ? this.handleClick()
                     : swal({ text: "Sign in to add items to reading list" })
                 }
               >
-                {this.state.saved ? (
+                {this.props.saved ? (
                   <SavedBookmark
                     size={22}
                     className="category-card-bookmark-button"
@@ -109,4 +134,8 @@ function mapStateToProps(state) {
   return state;
 }
 
-export default connect(mapStateToProps, { addToReadingList })(CategoryCard);
+export default connect(mapStateToProps, {
+  addToReadingList,
+  deleteFromReadingList,
+  getReadingList
+})(CategoryCard);

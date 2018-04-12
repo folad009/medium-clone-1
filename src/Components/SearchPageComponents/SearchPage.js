@@ -70,13 +70,13 @@ class SearchPage extends React.Component {
   }
 
   render() {
-    
+     console.log("this is val",this.state.posts)
     let searchReel =
       this.state.filterString !== "" &&
         this.props.location.search &&
         this.state.posts.length > 0
         ? this.state.posts.map((val, index) => {
-          
+         
 
           return <SearchCard
             authorName={`${val.firstname} ${val.lastname}`}
@@ -86,6 +86,10 @@ class SearchPage extends React.Component {
             date={val.date}
             key={index}
             id={val.id}
+            avatar={val.avatar}
+            userid={val.userid}
+            commentNum={val.numofcomments}
+            clapsNum={val.rating}
           />
         }
         )

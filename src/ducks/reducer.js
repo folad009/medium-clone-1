@@ -3,6 +3,7 @@ import axios from "axios";
 const TEST = "TEST";
 const GET_ALL_POSTS = "GET_ALL_POSTS";
 const GET_USER = "GET_USER";
+const GET_USER_FOLLOWING = "GET_USER_FOLLOWING";
 const POST = "POST";
 const GET_CATEGORIES = "GET_CATEGORIES";
 const LOGOUT = "LOGOUT";
@@ -33,6 +34,17 @@ export function getUser() {
       .catch(() => [])
   };
 }
+
+export function getUserFollowing(id) {
+  return {
+    type: GET_USER_FOLLOWING,
+    payload: axios
+      .get(`/api/following/${id}`)
+      .then(response => console.log(response.data[0]))
+      .catch(() => [])
+  };
+}
+
 export function getCategories() {
   return {
     type: GET_CATEGORIES,
@@ -108,11 +120,11 @@ export function addToReadingList(userid, id) {
       .catch(() => [])
   };
 }
-export function deleteFromReadingList(userid, readinglistid) {
+export function deleteFromReadingList(userid, postid) {
   return {
     type: DELETE_FROM_READING_LIST,
     payload: axios
-      .delete(`/api/readinglist/remove/${userid}/${readinglistid}`)
+      .delete(`/api/readinglist/remove/${userid}/${postid}`)
       .then(response => {
         return response.data;
       })
@@ -134,6 +146,7 @@ export function getReadingList(userid) {
 
 const initialState = {
   user: {},
+  userFollowing: [],
   userInterests: [],
   categories: [],
   posts: [],
@@ -194,6 +207,15 @@ export default function reducer(state = initialState, action) {
         isLoading: false,
         user: action.payload
       });
+    case `${GET_USER_FOLLOWING}_REJECTED`:
+      return Object.assign({}, state, { isLoading: false, didErr: true });
+    case `${GET_USER_FOLLOWING}_PENDING`:
+      return Object.assign({}, state, { isLoading: true });
+    case `${GET_USER_FOLLOWING}_FULFILLED`:
+      return Object.assign({}, state, {
+        isLoading: false,
+        userFollowing: action.payload
+      });
     case `${GET_USER}_REJECTED`:
       return Object.assign({}, state, { isLoading: false, didErr: true });
     case `${GET_ALL_POSTS}_PENDING`:
@@ -232,9 +254,7 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { isLoading: true });
 
     case `${GET_READING_LIST}_FULFILLED`:
-      return Object.assign({}, state, {
-        readingList: action.payload
-      });
+      return Object.assign({}, state, { readingList: action.payload });
 
     default:
       return state;

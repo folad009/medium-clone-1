@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'NoeBoldItalic';
+  src: local('Fonts'), url(../../assets/fonts/noe-display-bold-italic.ttf) format('ttf');
+}
+@font-face{
+  font-family: 'NoeRegular';
+  src: local('fonts',url(../../assets/fonts/noe-display-regular.ttf)format('ttf'))
+}
 .featured-view-main-div {
   /* background: yellowgreen; */
   margin: 12px auto 40px auto;
@@ -15,9 +23,8 @@
   padding-bottom: 16px;
 }
 .featured-card-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-family: NoeBoldItalic;
+  /* font-family:Arial, Helvetica, sans-serif; */
   margin-bottom: 8px !important;
   font-size: 24px !important;
   line-height: 28px !important;
@@ -26,9 +33,6 @@
   font-weight: 500;
 }
 .featured-card-title p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   margin-bottom: 8px !important;
   font-size: 24px !important;
   line-height: 28px !important;
@@ -37,9 +41,8 @@
   font-weight: 500;
 }
 .featured-small-card-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-family: NoeBoldItalic;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 21px !important;
   line-height: 24px !important;
   letter-spacing: -0.29px !important;
@@ -47,9 +50,6 @@
   font-weight: 500;
 }
 .featured-small-card-title p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-weight: 500;
   font-size: 21px !important;
   line-height: 24px !important;
@@ -57,9 +57,8 @@
   color: rgba(0, 0, 0, 0.84) !important;
 }
 .featured-tiny-card-title {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-family: NoeBoldItalic;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-weight: 500;
   font-size: 18px !important;
   line-height: 20px !important;
@@ -67,9 +66,6 @@
   color: rgba(0, 0, 0, 0.84) !important;
 }
 .featured-tiny-card-title p {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   max-height: 40px;
   margin: 0;
   font-weight: 500;
@@ -79,6 +75,8 @@
   color: rgba(0, 0, 0, 0.84) !important;
 }
 .featured-card-text {
+  font-family: NoeRegular;
+  /* font-family: Arial, Helvetica, sans-serif; */
 }
 .featured-card-text p {
 }
@@ -196,6 +194,7 @@
   line-height: 20px;
   font-weight: 300;
 }
+
 .tiny-faded-border {
   border-bottom: 1px solid rgba(0, 0, 0, 0.24);
   width: 60px;

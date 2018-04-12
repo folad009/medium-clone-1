@@ -7,7 +7,7 @@ import logoLarge from "../../assets/mediumlogolarge.svg";
 import { Link, withRouter } from "react-router-dom";
 import "./Header.css";
 import { connect } from "react-redux";
-import { getUser } from "../../ducks/reducer";
+import { getUser, getUserFollowing } from "../../ducks/reducer";
 import ImageIcon from "./ImageIcon/ImageIcon";
 
 //Connected with Redux
@@ -16,7 +16,8 @@ class MainHeader extends Component {
   constructor() {
     super();
     this.state = {
-      userInput: ""
+      userInput: "",
+      following: []
     };
     this.focusMethod = this.focusMethod.bind(this);
   }
@@ -34,6 +35,7 @@ class MainHeader extends Component {
       }
     });
   }
+
   focusMethod() {
     if (document.getElementById("SearchBar").focus()) {
       return;
@@ -50,11 +52,20 @@ class MainHeader extends Component {
     );
     return (
       <div className="main-header-component-main-div">
-        <Link to="/">
-          <div className="main-header-logo-div">
-            <img src={logoLarge} className="logo-large" />
-          </div>
+      <div style={{height:'100%',width:'20%',display:'flex',alignItems:'center'}}>
+      <Link to="/new-story" style={{color:'#018f69'}}>
+        Write Story
         </Link>
+      </div>
+
+        
+          <div className="main-header-logo-div">
+          <Link to="/">
+            <img src={logoLarge} className="logo-large" />
+          </Link>
+          </div>
+        
+
         <div className="main-header-icon-user-div">
           <div className="search-and-icon">
             <div>
@@ -98,4 +109,6 @@ class MainHeader extends Component {
 function mapStateToProps(state) {
   return state;
 }
-export default withRouter(connect(mapStateToProps, { getUser })(MainHeader));
+export default withRouter(
+  connect(mapStateToProps, { getUser, getUserFollowing })(MainHeader)
+);
