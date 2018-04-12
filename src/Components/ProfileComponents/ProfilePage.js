@@ -24,12 +24,15 @@ class ProfilePage extends React.Component {
       posts: [],
       clappedPosts: [],
       disabled: true,
+      follow: false,
       editbio: "",
-      selectedtab: "TabHeading1"
+      selectedtab: "TabHeading1",
+      isFollowing: false
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.followUser = this.followUser.bind(this);
+    this.unFollowUser = this.unFollowUser.bind(this);
     this.allowEdit = this.allowEdit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.cancel = this.cancel.bind(this);
@@ -82,10 +85,24 @@ class ProfilePage extends React.Component {
   }
 
   followUser(followerID, followedID) {
-    axios.post("/api/follow/add", {
-      followerID: followerID,
-      followedID: followedID
-    });
+    axios
+      .post("/api/follow/add", {
+        followerID: followerID,
+        followedID: followedID
+      })
+      .then(respone => {
+        window.location.reload();
+      })
+      .catch(() => []);
+  }
+
+  unFollowUser(followerID, followedID) {
+    axios
+      .delete(`/api/unfollow/${followerID}/${followedID}`)
+      .then(response => {
+        window.location.reload();
+      })
+      .catch(() => []);
   }
 
   submitNewBio(id, bio) {
@@ -159,6 +176,53 @@ class ProfilePage extends React.Component {
       selected = clappedPosts;
     }
 
+    let isFollowing = function(arr, id) {
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].id == id) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    let followBtn;
+
+    if (
+      this.state.userprofile.id !== this.props.user.id &&
+      isFollowing(this.state.followers, this.props.user.id) === false
+    ) {
+      followBtn = (
+        <button
+          onClick={() =>
+            this.followUser(this.props.user.id, this.state.userprofile.id)
+          }
+          button
+          className="profile-follow-btn"
+        >
+          Follow
+        </button>
+      );
+    } else if (
+      this.state.userprofile.id !== this.props.user.id &&
+      isFollowing(this.state.followers, this.props.user.id)
+    ) {
+      followBtn = (
+        <button
+          onClick={() =>
+            this.unFollowUser(this.props.user.id, this.state.userprofile.id)
+          }
+          button
+          className="profile-follow-btn"
+        >
+          Unfollow
+        </button>
+      );
+    } else if (
+      this.state.userprofile.id === this.props.user.id ||
+      this.props.user.id === undefined
+    ) {
+      followBtn = false;
+    }
     return (
       <div className="profile-page-main-div">
         <div className="profile-page-header">
@@ -226,6 +290,7 @@ class ProfilePage extends React.Component {
               {this.state.followers.length} Followers
             </h5>
           </div>
+
           {this.props.user.id === this.state.userprofile.id ? (
             <button
               onClick={() => this.allowEdit()}
@@ -235,17 +300,11 @@ class ProfilePage extends React.Component {
               Edit
             </button>
           ) : (
-            <button
-              onClick={() =>
-                this.followUser(this.props.user.id, this.state.userprofile.id)
-              }
-              button
-              className="profile-follow-btn"
-            >
-              Follow
-            </button>
+            false
           )}
-
+          {followBtn}
+          {console.log(this.props.user)}
+          {console.log(this.state)}
           {this.state.disabled === false ? (
             <div>
               <button

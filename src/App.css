@@ -265,10 +265,10 @@ input {
   padding: 10px;
 }
 .story-render-component-title {
-  margin-top: 100px;
+  
   font-size: 50px;
   font-weight: 600;
-  margin-bottom: 50px;
+  
 }
 .story-render-component-body {
   font-size: 21px;
@@ -295,9 +295,9 @@ input {
   /* background-color: bisque; */
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   height: 100px;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 #story-render-icons {
   width: 100px;
@@ -305,6 +305,32 @@ input {
   flex-direction: row;
   align-items: center;
 }
+
+.story-render-user-bar{
+display: flex;
+height:80px;
+
+}
+.story-render-user-bar-image{
+  height:50px;
+  border-radius:50px;
+
+}
+.story-render-user-bar-info{
+display:flex;
+flex-direction: column;
+}
+.userBar{
+  display: flex;
+
+  width:600px;
+}
+
+
+
+
+
+
 /* StoryReadView Styles */
 .story-read-view-main-div {
   /* background-color: #bbb; */
@@ -392,11 +418,11 @@ input {
 }
 .comment-section-input-user-info {
   display: flex;
-  flex-direction: row;
+  
   height: 50px;
-  width: 15%;
+  width: 30%;
   align-items: center;
-  justify-content: space-evenly;
+  
 }
 .comment-input {
   min-height: 180px;

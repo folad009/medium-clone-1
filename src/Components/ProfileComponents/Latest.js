@@ -3,9 +3,6 @@ import PopOver from "./../subcomponents/Popover";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
 
-
-
-
 function Latest(props) {
   function trimmedBody(str) {
     let trimmed = str.substring(0, 100);
@@ -53,16 +50,16 @@ function Latest(props) {
                   }}
                 />
               </Link>
-              {item.thumbnailimg ? (
-                <img
-                  src={item.thumbnailimg}
-                  alt="article thumbnail"
-                  style={{ width: "800px", height: "275px" }}
-                />
-              ) : (
-                false
-              )}
-
+              <div
+                style={{
+                  backgroundImage: `url(${item.thumbnailimg})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  width: "95%",
+                  height: "200px",
+                  margin: "auto"
+                }}
+              />
               <p
                 dangerouslySetInnerHTML={createMarkup(trimmedBody(item.body))}
                 style={{

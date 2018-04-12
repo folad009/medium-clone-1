@@ -1,1 +1,1 @@
-Delete from follow WHERE id = $1;
+Delete from follow WHERE followerid = $1 AND followedid = $2;
