@@ -17,6 +17,7 @@ class CategoryCard extends React.Component {
       saved: false,
       changed: false
     };
+    this.createMarkup = this.createMarkup.bind(this);
   }
   componentDidMount() {
     if (this.props.user.id) {
@@ -34,6 +35,7 @@ class CategoryCard extends React.Component {
         : this.props.deleteFromReadingList(this.props.user.id, this.props.id);
     }
   }
+
   render() {
     function createMarkup(str) {
       return { __html: str };
@@ -53,6 +55,7 @@ class CategoryCard extends React.Component {
         }
       }
     };
+
     let shorterDescription = shortenDescription(this.props.body);
     return (
       <div className="category-card-main-div">
