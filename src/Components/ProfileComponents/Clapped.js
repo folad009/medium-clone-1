@@ -28,15 +28,15 @@ function Clapped(props) {
               }}
             >
               <div className="profile-story-icon">
-                <img className="user-image" src={props.user.avatar} />
+                <img className="user-image" src={item.avatar} />
                 <div className="profile-story-name-and-date">
                   {console.log(props)}
-                  {console.log(item)}
+                  {console.log(item.firstname)}
                   <PopOver
                     user={item}
-                    name={`${props.user.firstname} ${props.user.lastname}`}
+                    name={`${item.firstname} ${item.lastname}`}
                   >
-                    <h3>{`${props.user.firstname} ${props.user.lastname}`}</h3>
+                    <h3>{`${item.firstname} ${item.lastname}`}</h3>
                   </PopOver>
                   <Moment format="MMM DD">{item.date}</Moment>
                 </div>
@@ -49,15 +49,16 @@ function Clapped(props) {
                   textAlign: "left"
                 }}
               />
-              {item.thumbnailimg ? (
-                <img
-                  src={item.thumbnailimg}
-                  alt="article thumbnail"
-                  style={{ width: "97%", height: "25vh" }}
-                />
-              ) : (
-                false
-              )}
+              <div
+                style={{
+                  backgroundImage: `url(${item.thumbnailimg})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  width: "95%",
+                  height: "200px",
+                  margin: "auto"
+                }}
+              />
 
               <p
                 dangerouslySetInnerHTML={createMarkup(trimmedBody(item.body))}
