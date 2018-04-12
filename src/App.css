@@ -1001,3 +1001,8 @@ input {
     display: none;
   }
 }
+@media (max-width: 680px) {
+  .news-home-page-column-card-image {
+    display: none;
+  }
+}
