@@ -66,16 +66,15 @@ class InputBodyComponent extends Component {
 
   render() {
     let categoryReel = this.props.categories.map((item, i) => {
-      if(this.state.categories.includes(item.name)){
+      if (this.state.categories.includes(item.name)) {
         return <div className="cat-button-selected">{item.name.toUpperCase()}</div>
       }
       return (
         <div className="cat-selector-button-div" onClick={() => this.addCategory(item.name)} >
-       {item.name.toUpperCase()}
+          {item.name.toUpperCase()}
         </div>
       )
     })
-    console.log(this.state);
     return (
       <div>
 
