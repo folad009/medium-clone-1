@@ -8,6 +8,7 @@ import FacebookIcon from 'react-icons/lib/io/social-facebook-outline';
 import Clap from 'react-clap-button'
 import ClapComponent from 'react-clap';
 import IoThumbsup from 'react-icons/lib/io/thumbsup'
+import { connect } from "react-redux";
 
 class StoryRenderComponent extends Component {
   constructor() {
@@ -19,7 +20,9 @@ class StoryRenderComponent extends Component {
       postComments: [],
       claps: "",
       img: [],
-      title: ""
+      title: "",
+      userclaps: [],
+      id: ''
     };
   }
 
@@ -27,12 +30,20 @@ class StoryRenderComponent extends Component {
     axios
       .get(`/api/getpost/${this.props.match.params.id}`)
       .then(r => {
-        this.setState({ post: r.data[0].body, claps: r.data[0].rating, img: r.data[0].thumbnailimg, title: r.data[0].title });
+        console.log(r.data[0].id)
+
+        if (!r.data[0].claps) {
+          this.setState({ userclaps: [], post: r.data[0].body, claps: r.data[0].rating, img: r.data[0].thumbnailimg, title: r.data[0].title, id: r.data[0].id })
+        } else {
+          this.setState({ post: r.data[0].body, claps: r.data[0].rating, img: r.data[0].thumbnailimg, title: r.data[0].title, userclaps: r.data[0].claps, id: r.data[0].id });
+        }
+
+
       })
       .catch(err => console.log(err));
 
     axios.get(`/api/comments/${this.props.match.params.id}`).then(r => {
-      console.log(r.data);
+
       this.setState({ postComments: r.data });
     });
   }
@@ -66,13 +77,22 @@ class StoryRenderComponent extends Component {
       body: body
     }
     axios.post('/api/addcomment', comment).then(() => axios.get(`/api/comments/${this.props.match.params.id}`).then(r => {
-      console.log(r.data)
+
       this.setState({ postComments: r.data })
     })).catch(err => console.log(err))
 
   }
 
   addClap() {
+
+    let clap = { id: this.state.id }
+
+    if (this.state.userclaps.indexOf(this.props.user.userid)) {
+      axios.post("/api/userclap", clap).then((r) => {
+        this.setState({ userclaps: r.data })
+      }).catch(err => console.log(err))
+
+    }
 
     let newClaps = this.state.claps += 1;
     let claps = { claps: newClaps }
@@ -86,7 +106,7 @@ class StoryRenderComponent extends Component {
 
     let newClap = claps += 1
 
-    let clap = { claps: newClap, id: id }
+    let clap = { claps: newClap, id: id, postid: this.props.match.params.id }
 
 
     axios.put(`/api/commentClap/${id}`, clap).then((r) => {
@@ -160,6 +180,7 @@ class StoryRenderComponent extends Component {
           dangerouslySetInnerHTML={this.createMarkup(post)}
         />
         <div className="story-render-component-clap-section">
+        <div className="story-render-claps-section">
           <div className="story-render-component-clap-section-text">
             <h4>One clap, two clap, three clap, forty?</h4>
             <p>
@@ -168,21 +189,21 @@ class StoryRenderComponent extends Component {
             </p>
           </div>
           <div className="story-render-component-clap-section-icons-div">
-            <span onClick={() => this.addCommentClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> <Clap
+            <span onClick={() => this.addClap()}> <Clap
               count={0}
               countTotal={0}
 
               isClicked={false}
             />   </span>
-            <ChatIcon className="story-header-icons" />
-            <p>3</p>
-            <TwitterIcon className="story-header-icons" />
-            <FacebookIcon className="story-header-icons" />
+            <div id="story-render-icons">
+              <ChatIcon className="story-header-icons" />
+              <p>3</p>
+              <TwitterIcon className="story-header-icons" />
+              <FacebookIcon className="story-header-icons" />
+            </div>
           </div>
-
-
-        </div>
-        <div className="comment-input-main-div">
+          </div>
+      <div className="comment-input-main-div">
           <div className="comment-section-input-user-info">
             <img className="user-image" />
             <h5>Juan Pecina</h5>
@@ -194,7 +215,7 @@ class StoryRenderComponent extends Component {
           />
 
           <div className="publish-comment">
-            <button
+            <button className="publish-comment-button"
               onClick={() =>
                 this.addcomment(this.props.match.params.id, this.state.comment)
               }
@@ -204,8 +225,15 @@ class StoryRenderComponent extends Component {
           </div>
         </div>
         <div className="comments-section-main-div">{comments}</div>
+
+        </div>
+        
       </div>
     );
   }
 }
-export default withRouter(StoryRenderComponent);
+
+function mapStateToProps(state) {
+  return state;
+}
+export default withRouter(connect(mapStateToProps)(StoryRenderComponent));

@@ -19,13 +19,13 @@ class SearchPage extends React.Component {
     let queryArray = this.props.location.search.split("=");
     let that = this;
     //search filter function to find only posts which contain
-    const filter = function(posts, searchString) {
+    const filter = function (posts, searchString) {
       let searchTerms = that.props.location.search
         ? searchString
-            .toLowerCase()
-            .split("%20")
-            .join(" ")
-            .split(" ")
+          .toLowerCase()
+          .split("%20")
+          .join(" ")
+          .split(" ")
         : false;
       let returnPosts = posts.filter(val => {
         for (let i = 0; i < searchTerms.length; i++) {
@@ -49,7 +49,7 @@ class SearchPage extends React.Component {
     //add event listener for the enter key on the search input bar
     var input = document.getElementById("BigSearchBar");
 
-    input.addEventListener("keyup", function(event) {
+    input.addEventListener("keyup", function (event) {
       //Update userInput onchange of input searchbar value
       that.setState({ userInput: event.target.value });
       event.preventDefault();
@@ -64,22 +64,30 @@ class SearchPage extends React.Component {
       }
     });
   }
+
+  createMarkup(str) {
+    return { __html: str };
+  }
+
   render() {
+
     let searchReel =
       this.state.filterString !== "" &&
-      this.props.location.search &&
-      this.state.posts.length > 0
-        ? this.state.posts.map((val, index) => (
-            <SearchCard
-              authorName={`${val.firstname} ${val.lastname}`}
-              body={val.body}
-              title={val.title}
-              img={val.thumbnailimg}
-              date={val.date}
-              key={index}
-              id={val.id}
-            />
-          ))
+        this.props.location.search &&
+        this.state.posts.length > 0
+        ? this.state.posts.map((val, index) => {
+          let title = <div dangerouslySetInnerHTML={this.createMarkup(val.title)} />
+          return <SearchCard
+            authorName={`${val.firstname} ${val.lastname}`}
+            body={val.body}
+            title={title}
+            img={val.thumbnailimg}
+            date={val.date}
+            key={index}
+            id={val.id}
+          />
+        }
+        )
         : "";
 
     return (
@@ -91,9 +99,9 @@ class SearchPage extends React.Component {
           defaultValue={
             this.props.location.search
               ? this.props.location.search
-                  .split("=")[1]
-                  .split("%20")
-                  .join(" ")
+                .split("=")[1]
+                .split("%20")
+                .join(" ")
               : "Search schMedium"
           }
           placeholder={"Search schMedium"}

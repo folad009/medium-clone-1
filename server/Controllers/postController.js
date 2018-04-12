@@ -143,6 +143,17 @@ module.exports = {
       .catch(err => console.log(err));
   },
 
+  addUserClap: function(req, res) {
+    const db = req.app.get("db");
+
+    db
+      .addUserClap([req.session.user.userid, req.body.id])
+      .then(results => {
+        res.status(200).send(results);
+      })
+      .catch(err => console.log(err));
+  },
+
   addComment: function(req, res, next) {
     const db = req.app.get("db");
     db
@@ -159,7 +170,6 @@ module.exports = {
     db
       .addCommentClap([req.body.claps, req.params.id, req.body.postid])
       .then(r => {
-        console.log(r);
         res.status(200).send(r);
       })
       .catch(err => res.status(500).send(err));

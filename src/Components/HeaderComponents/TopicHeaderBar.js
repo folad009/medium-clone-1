@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import LeftArrow from "react-icons/lib/ti/chevron-left";
 import RightArrow from "react-icons/lib/ti/chevron-right";
 
-document.addEventListener("sticky-change", e => {
-  const header = e.detail.target; // header became sticky or stopped sticking.
-  const sticking = e.detail.stuck; // true when header is sticky.
-  header.classList.toggle("shadow", sticking); // add drop shadow when sticking.
+// document.addEventListener("sticky-change", e => {
+//   const header = e.detail.target; // header became sticky or stopped sticking.
+//   const sticking = e.detail.stuck; // true when header is sticky.
+//   header.classList.toggle("shadow", sticking); // add drop shadow when sticking.
 
-  document.querySelector(".who-is-sticking").textContent = header.textContent;
-});
+//   document.querySelector(".who-is-sticking").textContent = header.textContent;
+// });
 
 class TopicHeaderBar extends React.Component {
   constructor() {
