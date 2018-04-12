@@ -205,19 +205,18 @@ input {
 
   /* margin-top: 100px; */
 }
-.story-render-claps-section{
+.story-render-claps-section {
   /* background-color: steelblue; */
   width: 600px;
   height: 180px;
   border-top: 1px solid rgb(106, 106, 106);
   padding: 10px;
-  
 }
 .story-render-component-title {
   margin-top: 100px;
   font-size: 50px;
   font-weight: 600;
-  margin-bottom:50px;
+  margin-bottom: 50px;
 }
 .story-render-component-body {
   font-size: 21px;
@@ -238,7 +237,6 @@ input {
   align-items: center;
 }
 .story-render-component-clap-section-text {
-
   /* background-color: aqua; */
 }
 .story-render-component-clap-section-icons-div {
@@ -249,7 +247,7 @@ input {
   height: 100px;
   align-items: center;
 }
-#story-render-icons{
+#story-render-icons {
   width: 100px;
   display: flex;
   flex-direction: row;
@@ -271,7 +269,7 @@ input {
   height: auto;
   width: 50%;
 }
-.publish-comment-button{
+.publish-comment-button {
   padding: 7px 18px 7px 18px;
   border-radius: 5px;
   color: #03a87c;
@@ -510,7 +508,7 @@ input {
   margin: 10px;
 }
 .popular-network-container-main-div {
-  position:sticky; 
+  position: sticky;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -533,10 +531,10 @@ input {
   flex-direction: row;
   justify-content: space-between;
 }
-.save-icon-column-home{
+.save-icon-column-home {
   height: 100%;
   position: absolute;
-  bottom: 0
+  bottom: 0;
 }
 
 .news-home-page-column-card-info {
@@ -919,14 +917,14 @@ input {
 }
 
 .profile-tabs {
-  font-size: 16px;
+  font-size: 14px;
   opacity: 0.54;
-  border-bottom: none;
+  margin-top: 12px;
 }
-.news-home-page-column-card-info > Link {
-  color:black !important;
+.news-home-page-column-card-info > link {
+  color: black !important;
 }
-.from-network-small-card-main-div{
+.from-network-small-card-main-div {
   /* background-color: #e90a0a; */
   height: 115px;
   width: 280px;
@@ -936,7 +934,7 @@ input {
   align-items: center;
   margin-top: 5px;
 }
-.user-info-from-network{
+.user-info-from-network {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

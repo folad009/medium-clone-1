@@ -38,7 +38,7 @@ module.exports = {
       .then(response => {
         res.status(200).send(response);
       })
-      .catch(res.status(400).send(["Not Following Anyone"]));
+      .catch(res.status(400));
   },
   getFollowers: function(req, res, next) {
     const db = req.app.get("db");
@@ -137,6 +137,16 @@ module.exports = {
 
     db
       .removeFromReadingList([req.params.userid, req.params.readinglistid])
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(res.status(400));
+  },
+  getUserClaps: function(req, res, next) {
+    const db = req.app.get("db");
+
+    db
+      .getUserClaps([req.params.id])
       .then(response => {
         res.status(200).send(response);
       })

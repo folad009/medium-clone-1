@@ -20,7 +20,6 @@ function Following(props) {
   return (
     <div className="profile-tab" style={{ width: "80%" }}>
       <h2>{`${props.profile.firstname} ${props.profile.lastname} folllows`}</h2>
-      {console.log(props)}
       {props.following.length > 0 ? (
         props.following.map((item, i) => {
           return (
@@ -51,7 +50,11 @@ function Following(props) {
                   margin: "10px 10px 10px 10px"
                 }}
               >
-                <Link to={`/user/${item.id}`} style={{ color: "black" }}>
+                <Link
+                  to={`/user/${item.id}`}
+                  style={{ color: "black" }}
+                  onClick={() => window.location.reload()}
+                >
                   <PopOver
                     user={item}
                     name={`${item.firstname} ${item.lastname}`}

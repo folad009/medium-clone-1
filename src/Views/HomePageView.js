@@ -23,7 +23,6 @@ class HomePageView extends React.Component {
         <TopicHeaderBar className="sticky" />
         <FeaturedView />
         <NewsHomePageColumnRender />
-        {console.log(<TopicHeaderBar />)}
       </div>
     );
   }

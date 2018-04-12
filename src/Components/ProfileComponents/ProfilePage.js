@@ -8,6 +8,7 @@ import TabHeading from "./../subcomponents/TabHeading";
 import Latest from "./Latest";
 import Following from "./Following";
 import Followers from "./Followers";
+import Clapped from "./Clapped";
 
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.MenuItemGroup;
@@ -21,6 +22,7 @@ class ProfilePage extends React.Component {
       following: {},
       followers: {},
       posts: [],
+      clappedPosts: [],
       disabled: true,
       editbio: "",
       selectedtab: "TabHeading1"
@@ -53,6 +55,13 @@ class ProfilePage extends React.Component {
     axios
       .get(`/api/followers/${this.props.match.params.id}`)
       .then(response => this.setState({ followers: response.data }))
+      .catch(() => []);
+
+    axios
+      .get(`/api/userclaps/${this.props.match.params.id}`)
+      .then(response => {
+        this.setState({ clappedPosts: response.data });
+      })
       .catch(() => []);
   }
 
@@ -124,6 +133,15 @@ class ProfilePage extends React.Component {
           ))
         : (followers = "You have no followers");
 
+    let clappedPosts;
+    this.state.clappedPosts.length > 0
+      ? (clappedPosts = (
+          <Clapped
+            user={this.state.userprofile}
+            claps={this.state.clappedPosts}
+          />
+        ))
+      : (clappedPosts = "You haven't clapped any posts");
     let selected;
 
     if (this.state.selectedtab === "TabHeading1") {
@@ -136,6 +154,9 @@ class ProfilePage extends React.Component {
 
     if (this.state.selectedtab === "followers") {
       selected = followers;
+    }
+    if (this.state.selectedtab === "TabHeading2") {
+      selected = clappedPosts;
     }
 
     return (
@@ -257,10 +278,12 @@ class ProfilePage extends React.Component {
           }}
           onClick={e => this.changeTab(e.target.id)}
         >
-          <TabHeading
-            tabs={["Profile", "Claps"]}
-            styles="text-align-left profile-tabs"
-          />
+          <div style={{ width: "80%", marginTop: "50px" }}>
+            <TabHeading
+              tabs={["Latest", "Claps"]}
+              styles="text-align-left profile-tabs"
+            />
+          </div>
         </div>
         {selected}
       </div>

@@ -52,7 +52,6 @@ class MainHeader extends Component {
     );
     return (
       <div className="main-header-component-main-div">
-        {console.log(this.props)}
         <Link to="/">
           <div className="main-header-logo-div">
             <img src={logoLarge} className="logo-large" />

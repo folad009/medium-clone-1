@@ -57,251 +57,260 @@ class FeaturedView extends React.Component {
                 })`
               }}
             />
-
             <div className="big-picture-text grid-0b">
               <div className="big-picture-text-tab">
                 <h4>FEATURED</h4>
               </div>
-              <div className="big-picture-description">
-                <Link to={`/story-view/${posts[0].postid}`}>
-                  <div className="big-picture-description">
-                    <div
-                      className="featured-card-title"
-                      dangerouslySetInnerHTML={this.createMarkup(
-                        posts[0].title
-                      )}
-                    />
-                    <div
-                      className="featured-card-text"
-                      dangerouslySetInnerHTML={this.createMarkup(
-                        shortenDescription(posts[0].body)
-                      )}
-                    />
-                  </div>
-                </Link>
-                <Link to={`/user/${posts[0].userid}`}>
-                  <h6>
-                    {" "}
-                    <PopOver
-                      activeUser={this.props.user}
-                      user={this.state.featuredPosts[0]}
-                      name={`${this.state.featuredPosts[0].firstname} ${
-                        this.state.featuredPosts[0].lastname
-                      }`}
-                    >
-                      {posts[0].firstname + " " + posts[0].lastname}
-                    </PopOver>
-                  </h6>
-                </Link>
-              </div>
-            </div>
-            <div className="small-picture grid-a">
-              <div
-                className="featured-small-picture picture-a"
-                style={{
-                  backgroundImage: `url(${posts[1].thumbnailimg})`
-                }}
-              />
-              <div className="small-picture-text">
-                <Link to={`/story-view/${posts[1].postid}`}>
+              <Link to={`/story-view/${posts[0].postid}`}>
+                <div className="big-picture-description">
                   <div
-                    className="featured-small-card-title"
-                    dangerouslySetInnerHTML={this.createMarkup(posts[1].title)}
+                    className="featured-card-title"
+                    dangerouslySetInnerHTML={this.createMarkup(posts[0].title)}
                   />
                   <div
                     className="featured-card-text"
                     dangerouslySetInnerHTML={this.createMarkup(
-                      shortenDescription(posts[1].body)
+                      shortenDescription(posts[0].body)
                     )}
                   />
-                </Link>
-                <Link to={`/user/${posts[1].userid}`}>
-                  <h6>
-                    <PopOver
-                      activeUser={this.props.user}
-                      user={this.state.featuredPosts[1]}
-                      name={`${this.state.featuredPosts[1].firstname} ${
-                        this.state.featuredPosts[1].lastname
-                      }`}
-                    >
-                      {posts[1].firstname + " " + posts[1].lastname}
-                    </PopOver>
-                  </h6>
-                </Link>
-              </div>
+                </div>
+              </Link>
+              <Link
+                style={{ color: "black", opacity: ".56" }}
+                to={`/user/${posts[0].userid}`}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[0]}
+                  name={`${this.state.featuredPosts[0].firstname} ${
+                    this.state.featuredPosts[0].lastname
+                  }`}
+                >
+                  {" "}
+                  <h6>{posts[0].firstname + " " + posts[0].lastname}</h6>
+                </PopOver>
+              </Link>
             </div>
-            <div className="small-picture grid-b">
-              <div
-                className="featured-small-picture picture-b"
-                style={{
-                  backgroundImage: `url(${posts[2].thumbnailimg})`
-                }}
-              />
-              <div className="small-picture-text">
-                <Link to={`/story-view/${posts[2].postid}`}>
-                  <div
-                    className="featured-small-card-title"
-                    dangerouslySetInnerHTML={this.createMarkup(posts[2].title)}
-                  />
-                  <div
-                    className="featured-card-text"
-                    dangerouslySetInnerHTML={this.createMarkup(
-                      shortenDescription(posts[2].body)
-                    )}
-                  />
-                </Link>
-                <Link to={`/user/${posts[2].userid}`}>
-                  <h6>
-                    <PopOver
-                      activeUser={this.props.user}
-                      user={this.state.featuredPosts[1]}
-                      name={`${this.state.featuredPosts[1].firstname} ${
-                        this.state.featuredPosts[1].lastname
-                      }`}
-                    >
-                      {posts[2].firstname + " " + posts[2].lastname}
-                    </PopOver>
-                  </h6>
-                </Link>
-              </div>
+          </div>
+          <div className="small-picture grid-a">
+            <div
+              className="featured-small-picture picture-a"
+              style={{ backgroundImage: `url(${posts[1].thumbnailimg})` }}
+            />
+            <div className="small-picture-text">
+              <Link to={`/story-view/${posts[1].postid}`}>
+                <div
+                  className="featured-small-card-title"
+                  dangerouslySetInnerHTML={this.createMarkup(posts[1].title)}
+                />
+                <div
+                  className="featured-card-text"
+                  dangerouslySetInnerHTML={this.createMarkup(
+                    shortenDescription(posts[1].body)
+                  )}
+                />
+              </Link>
+              <Link
+                style={{ color: "black", opacity: ".56" }}
+                to={`/user/${posts[1].userid}`}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[1]}
+                  name={`${this.state.featuredPosts[1].firstname} ${
+                    this.state.featuredPosts[1].lastname
+                  }`}
+                >
+                  {" "}
+                  <h6>{posts[1].firstname + " " + posts[1].lastname}</h6>
+                </PopOver>
+              </Link>
             </div>
-            <div className="small-picture grid-c">
-              <div
-                className="featured-small-picture picture-c"
-                style={{
-                  backgroundImage: `url(${posts[3].thumbnailimg})`
-                }}
-              />
-              <div className="small-picture-text">
-                <Link to={`/story-view/${posts[3].postid}`}>
-                  <div
-                    className="featured-small-card-title"
-                    dangerouslySetInnerHTML={this.createMarkup(posts[3].title)}
-                  />
-                  <div
-                    className="featured-card-text"
-                    dangerouslySetInnerHTML={this.createMarkup(
-                      shortenDescription(posts[3].body)
-                    )}
-                  />
-                </Link>
-                <Link to={`/user/${posts[3].userid}`}>
-                  <h6>
-                    <PopOver
-                      activeUser={this.props.user}
-                      user={this.state.featuredPosts[1]}
-                      name={`${this.state.featuredPosts[1].firstname} ${
-                        this.state.featuredPosts[1].lastname
-                      }`}
-                    >
-                      {posts[3].firstname + " " + posts[3].lastname}
-                    </PopOver>
-                  </h6>
-                </Link>
-              </div>
+          </div>
+          <div className="small-picture grid-b">
+            <div
+              className="featured-small-picture picture-b"
+              style={{ backgroundImage: `url(${posts[2].thumbnailimg})` }}
+            />
+            <div className="small-picture-text">
+              <Link to={`/story-view/${posts[2].postid}`}>
+                <div
+                  className="featured-small-card-title"
+                  dangerouslySetInnerHTML={this.createMarkup(posts[2].title)}
+                />
+                <div
+                  className="featured-card-text"
+                  dangerouslySetInnerHTML={this.createMarkup(
+                    shortenDescription(posts[2].body)
+                  )}
+                />
+              </Link>
+              <Link
+                style={{ color: "black", opacity: ".56" }}
+                to={`/user/${posts[2].userid}`}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[2]}
+                  name={`${this.state.featuredPosts[2].firstname} ${
+                    this.state.featuredPosts[2].lastname
+                  }`}
+                >
+                  {" "}
+                  <h6>{posts[2].firstname + " " + posts[2].lastname}</h6>
+                </PopOver>
+              </Link>
             </div>
-            <div className="small-picture grid-d">
-              <div
-                className="featured-small-picture picture-d"
-                style={{
-                  backgroundImage: `url(${posts[4].thumbnailimg})`
-                }}
-              />
-              <div className="small-picture-text">
-                <Link to={`/story-view/${posts[4].postid}`}>
-                  <div
-                    className="featured-small-card-title"
-                    dangerouslySetInnerHTML={this.createMarkup(posts[4].title)}
-                  />
-                  <div
-                    className="featured-card-text"
-                    dangerouslySetInnerHTML={this.createMarkup(
-                      shortenDescription(posts[4].body)
-                    )}
-                  />
-                </Link>
-                <Link to={`/user/${posts[4].userid}`}>
-                  <h6>
-                    {" "}
-                    <PopOver
-                      activeUser={this.props.user}
-                      user={this.state.featuredPosts[1]}
-                      name={`${this.state.featuredPosts[1].firstname} ${
-                        this.state.featuredPosts[1].lastname
-                      }`}
-                    >
-                      {posts[4].firstname + " " + posts[4].lastname}
-                    </PopOver>
-                  </h6>
-                </Link>
-              </div>
+          </div>
+          <div className="small-picture grid-c">
+            <div
+              className="featured-small-picture picture-c"
+              style={{ backgroundImage: `url(${posts[3].thumbnailimg})` }}
+            />
+            <div className="small-picture-text">
+              <Link to={`/story-view/${posts[3].postid}`}>
+                <div
+                  className="featured-small-card-title"
+                  dangerouslySetInnerHTML={this.createMarkup(posts[3].title)}
+                />
+                <div
+                  className="featured-card-text"
+                  dangerouslySetInnerHTML={this.createMarkup(
+                    shortenDescription(posts[3].body)
+                  )}
+                />
+              </Link>
+              <Link
+                style={{ color: "black", opacity: ".56" }}
+                to={`/user/${posts[3].userid}`}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[3]}
+                  name={`${this.state.featuredPosts[3].firstname} ${
+                    this.state.featuredPosts[3].lastname
+                  }`}
+                >
+                  {" "}
+                  <h6>{posts[3].firstname + " " + posts[3].lastname}</h6>
+                </PopOver>
+              </Link>
             </div>
-            <div className="story-reel grid-e">
-              <div className="featured-extra-link">
-                <Link to={`/story-view/${posts[5].postid}`}>
-                  <div
-                    className="featured-tiny-card-title"
-                    dangerouslySetInnerHTML={this.createMarkup(posts[5].title)}
-                  />
-                </Link>
-                <Link to={`/user/${posts[5].userid}`}>
-                  <h6>
-                    <PopOver
-                      activeUser={this.props.user}
-                      user={this.state.featuredPosts[1]}
-                      name={`${this.state.featuredPosts[1].firstname} ${
-                        this.state.featuredPosts[1].lastname
-                      }`}
-                    >
-                      {" "}
-                      {`${posts[5].firstname} ${posts[5].lastname}`}{" "}
-                    </PopOver>
-                  </h6>
-                </Link>
-              </div>
-              <div className="tiny-faded-border" />
-              <div className="featured-extra-link">
-                <Link to={`/story-view/${posts[6].postid}`}>
-                  <div
-                    className="featured-tiny-card-title"
-                    dangerouslySetInnerHTML={this.createMarkup(posts[6].title)}
-                  />
-                </Link>
-                <Link to={`/user/${posts[6].userid}`}>
-                  <h6>
-                    <PopOver
-                      activeUser={this.props.user}
-                      user={this.state.featuredPosts[1]}
-                      name={`${this.state.featuredPosts[1].firstname} ${
-                        this.state.featuredPosts[1].lastname
-                      }`}
-                    >{`${posts[6].firstname} ${posts[6].lastname}`}</PopOver>
-                  </h6>
-                </Link>
-              </div>
-              <div className="tiny-faded-border" />
-              <div className="featured-extra-link">
-                <Link to={`/story-view/${posts[7].postid}`}>
-                  <div
-                    className="featured-tiny-card-title"
-                    dangerouslySetInnerHTML={this.createMarkup(posts[7].title)}
-                  />
-                </Link>
-                <Link to={`/user/${posts[7].userid}`}>
+          </div>
+          <div className="small-picture grid-d">
+            <div
+              className="featured-small-picture picture-d"
+              style={{ backgroundImage: `url(${posts[4].thumbnailimg})` }}
+            />
+            <div className="small-picture-text">
+              <Link to={`/story-view/${posts[4].postid}`}>
+                <div
+                  className="featured-small-card-title"
+                  dangerouslySetInnerHTML={this.createMarkup(posts[4].title)}
+                />
+                <div
+                  className="featured-card-text"
+                  dangerouslySetInnerHTML={this.createMarkup(
+                    shortenDescription(posts[4].body)
+                  )}
+                />
+              </Link>
+              <Link
+                style={{ color: "black", opacity: ".56" }}
+                to={`/user/${posts[4].userid}`}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[4]}
+                  name={`${this.state.featuredPosts[4].firstname} ${
+                    this.state.featuredPosts[4].lastname
+                  }`}
+                >
+                  {" "}
+                  <h6>{posts[4].firstname + " " + posts[4].lastname}</h6>
+                </PopOver>
+              </Link>
+            </div>
+          </div>
+          <div className="story-reel grid-e">
+            <div className="featured-extra-link">
+              <Link to={`/story-view/${posts[5].postid}`}>
+                <div
+                  className="featured-tiny-card-title"
+                  dangerouslySetInnerHTML={this.createMarkup(posts[5].title)}
+                />
+              </Link>
+              <Link
+                to={`/user/${posts[5].userid}`}
+                style={{ color: "black", opacity: ".56" }}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[5]}
+                  name={`${this.state.featuredPosts[5].firstname} ${
+                    this.state.featuredPosts[5].lastname
+                  }`}
+                >
+                  {" "}
+                  <h6>{`${posts[5].firstname} ${posts[5].lastname}`}</h6>
+                </PopOver>
+              </Link>
+            </div>
+            <div className="tiny-faded-border" />
+            <div className="featured-extra-link">
+              <Link to={`/story-view/${posts[6].postid}`}>
+                <div
+                  className="featured-tiny-card-title"
+                  dangerouslySetInnerHTML={this.createMarkup(posts[6].title)}
+                />
+              </Link>
+              <Link
+                to={`/user/${posts[6].userid}`}
+                style={{ color: "black", opacity: ".56" }}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[6]}
+                  name={`${this.state.featuredPosts[6].firstname} ${
+                    this.state.featuredPosts[6].lastname
+                  }`}
+                >
+                  <h6>{`${posts[6].firstname} ${posts[6].lastname}`}</h6>
+                </PopOver>
+              </Link>
+            </div>
+            <div className="tiny-faded-border" />
+            <div className="featured-extra-link">
+              <Link to={`/story-view/${posts[7].postid}`}>
+                <div
+                  className="featured-tiny-card-title"
+                  dangerouslySetInnerHTML={this.createMarkup(posts[7].title)}
+                />
+              </Link>
+              <Link
+                to={`/user/${posts[7].userid}`}
+                style={{ color: "black", opacity: ".56" }}
+              >
+                <PopOver
+                  activeUser={this.props.user}
+                  user={this.state.featuredPosts[7]}
+                  name={`${this.state.featuredPosts[7].firstname} ${
+                    this.state.featuredPosts[7].lastname
+                  }`}
+                >
+                  {" "}
                   <h6>{`${posts[7].firstname} ${posts[7].lastname}`}</h6>
-                </Link>
-              </div>
-              <div className="tiny-faded-border" />
+                </PopOver>
+              </Link>
             </div>
+            <div className="tiny-faded-border" />
           </div>
         </div>
       );
     }
-
     return <div className="featured-view-main-div featured-grid">Loading"</div>;
   }
 }
 
 const mapStateToProps = state => state;
-
 export default connect(mapStateToProps)(FeaturedView);
