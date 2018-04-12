@@ -1,12 +1,8 @@
 import React from "react";
 import PopOver from "./../subcomponents/Popover";
 import Moment from "react-moment";
-import { Link } from "react-router-dom";
 
-
-
-
-function Latest(props) {
+function Clapped(props) {
   function trimmedBody(str) {
     let trimmed = str.substring(0, 100);
     trimmed.length === 100 ? (trimmed += "...") : trimmed;
@@ -18,9 +14,9 @@ function Latest(props) {
   }
   return (
     <div className="profile-tab" style={{ width: "80%" }}>
-      <h2>Latest</h2>
-      {props.posts.length > 0 ? (
-        props.posts.map((item, i) => {
+      <h2> {`Claps by ${props.user.firstname} ${props.user.lastname}`}</h2>
+      {props.claps.length > 0 ? (
+        props.claps.map((item, i) => {
           return (
             <div
               className="single-story"
@@ -34,6 +30,8 @@ function Latest(props) {
               <div className="profile-story-icon">
                 <img className="user-image" src={props.user.avatar} />
                 <div className="profile-story-name-and-date">
+                  {console.log(props)}
+                  {console.log(item)}
                   <PopOver
                     user={item}
                     name={`${props.user.firstname} ${props.user.lastname}`}
@@ -43,21 +41,19 @@ function Latest(props) {
                   <Moment format="MMM DD">{item.date}</Moment>
                 </div>
               </div>
-              <Link to={`/story-view/${item.postid}`}>
-                <h2
-                  dangerouslySetInnerHTML={createMarkup(item.title)}
-                  style={{
-                    marginTop: "20px",
-                    marginLeft: "10px",
-                    textAlign: "left"
-                  }}
-                />
-              </Link>
+              <h2
+                dangerouslySetInnerHTML={createMarkup(item.title)}
+                style={{
+                  marginTop: "20px",
+                  marginLeft: "10px",
+                  textAlign: "left"
+                }}
+              />
               {item.thumbnailimg ? (
                 <img
                   src={item.thumbnailimg}
                   alt="article thumbnail"
-                  style={{ width: "800px", height: "275px" }}
+                  style={{ width: "97%", height: "25vh" }}
                 />
               ) : (
                 false
@@ -95,11 +91,11 @@ function Latest(props) {
         })
       ) : (
         <h1 style={{ paddingTop: "20px" }}>
-          "You have not made any posts yet."
+          "You have not clapped any posts yet"
         </h1>
       )}
     </div>
   );
 }
 
-export default Latest;
+export default Clapped;

@@ -1,0 +1,1 @@
+SElECT DISTINCT u.firstname, u.lastname, u.avatar, u.bio, p.userid, p.title, p.body, p.thumbnailimg, p.date, p.rating FROM posts as p JOIN postclaps as c on p.id = c.postid JOIN users as u on p.userid = u.id WHERE c.userid = $1;

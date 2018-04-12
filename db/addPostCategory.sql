@@ -1,0 +1,1 @@
+INSERT INTO postcategory (postid, categoryid) VALUES ($1, $2);
