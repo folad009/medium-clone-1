@@ -72,7 +72,7 @@ class InputStoryHeader extends Component {
       <ImageIcon />
     ) : (
       <a href={process.env.REACT_APP_LOGIN}>
-        <button>Login</button>
+        <button className={"sign-in-btn"}>Sign In</button>
       </a>
     );
     return (
