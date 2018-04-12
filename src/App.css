@@ -8,6 +8,24 @@ img {
 input {
   border-style: none;
 }
+@font-face {
+  font-family: 'NoeBoldItalic';
+  src: local('Fonts'), url(./assets/fonts/noe-display-bold.ttf) format('ttf');
+}
+@font-face{
+  font-family: 'NoeRegular';
+  src: local('fonts',url(./assets/fonts/noe-display-regular.ttf)format('ttf'))
+}
+
+/* Sweet alert styles!!!!!!!! */
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #34e79a;
+  font-size: 12px;
+  border: 1px solid #34e79a;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
 .temp-nav {
   /* Styles for the temporary nav button links on the home page */
 }
@@ -96,6 +114,7 @@ input {
   border-bottom: 2px solid rgba(0, 0, 0, 0.54);
 }
 .cat-selector-button-div {
+  cursor: pointer;
   height: 40px;
   max-width: 160px;
   border: 1px solid #03a87c;
@@ -126,6 +145,7 @@ input {
   color: white;
 }
 .cat-button-selected {
+  cursor: pointer;
   padding: 0 10px;
   height: 40px;
   max-width: 160px;
@@ -577,12 +597,14 @@ input {
   width: 60%;
 }
 .news-home-page-column-card-info > h1 {
+  font-family: NoeBoldItalic;
   font-size: 21px;
-  color: black;
+  color: rgb(36, 36, 36);
 }
 .news-home-page-column-card-info > p {
+  font-family: NoeRegular;
   font-weight: 200;
-  font-size: 15px;
+  font-size: 16px;
   color: rgb(121, 121, 121);
 }
 #author-name {

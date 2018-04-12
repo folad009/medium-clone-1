@@ -69,7 +69,8 @@ class NewsHomepageColumnCard extends React.Component {
               onClick={() => {
                 if (!this.props.user.id) {
                   swal({
-                    text: "Sign In to Access Your Personal Reading List"
+                    text: "Sign In to Access Your Personal Reading List",
+                    
                   });
                 } else {
                   this.props
