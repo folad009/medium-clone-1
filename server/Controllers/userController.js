@@ -66,7 +66,7 @@ module.exports = {
     const db = req.app.get("db");
 
     db
-      .unfollowUser(req.params.id)
+      .unfollowUser(req.params.followerid, req.params.followedid)
       .then(response => {
         res.status(200).send(response);
       })

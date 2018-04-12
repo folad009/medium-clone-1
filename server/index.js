@@ -143,7 +143,7 @@ app.delete(
   userController.removeUserInterest
 );
 // UNFOLLOWS USER
-app.delete("/api/unfollow/:id", userController.unfollow);
+app.delete("/api/unfollow/:followerid/:followedid", userController.unfollow);
 
 // AUTHENTICATION
 app.get(
