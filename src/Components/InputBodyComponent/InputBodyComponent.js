@@ -37,8 +37,10 @@ class InputBodyComponent extends Component {
     this.setState({ categories: cats });
   }
   removeCategory(str) {
+    
     let cats = this.state.categories;
-    let deleteIndex = cats.indexOf(val => val == str);
+    let deleteIndex = cats.indexOf(str);
+    console.log(deleteIndex)
     cats.splice(deleteIndex, 1);
     this.setState({ categories: cats });
   }
