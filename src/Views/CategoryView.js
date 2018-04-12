@@ -6,7 +6,8 @@ import {
   getAllPostCategory,
   addUserInterest,
   removeUserInterest,
-  getUserInterests
+  getUserInterests,
+  getReadingList
 } from "../ducks/reducer";
 import { withRouter, Link } from "react-router-dom";
 import TabHeading from "../Components/subcomponents/TabHeading";
@@ -20,12 +21,16 @@ class CategoryView extends Component {
     };
   }
   componentDidMount() {
-    if (this.props.user.id) this.props.getUserInterests(this.props.user.id);
-    this.props
-      .getAllPostCategory(`${this.props.match.params.id}`)
-      .then(response => {
-        this.setState({ categoryId: this.props.match.params.id });
+    if (this.props.user.id) {
+      this.props.getReadingList(this.props.user.id).then(response => {
+        this.props.getUserInterests(this.props.user.id);
+        this.props
+          .getAllPostCategory(`${this.props.match.params.id}`)
+          .then(response => {
+            this.setState({ categoryId: this.props.match.params.id });
+          });
       });
+    }
   }
   componentDidUpdate() {
     if (this.props.match.params.id !== this.state.categoryId) {
@@ -78,6 +83,7 @@ class CategoryView extends Component {
     let categoryReel =
       this.props.posts.length > 0
         ? this.props.posts.map((val, index) => {
+            let saved = this.props.readingList.some(item => item.id === val.id);
             return (
               <CategoryCard
                 id={val.id}
@@ -90,6 +96,7 @@ class CategoryView extends Component {
                 date={val.date}
                 rating={val.rating}
                 body={val.body}
+                saved={saved}
               />
             );
           })
@@ -132,6 +139,7 @@ export default withRouter(
     getAllPostCategory,
     addUserInterest,
     removeUserInterest,
-    getUserInterests
+    getUserInterests,
+    getReadingList
   })(CategoryView)
 );

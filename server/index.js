@@ -134,7 +134,7 @@ app.put("/api/commentClap/:id", postController.addCommentClap);
 app.delete("/api/delete/:id", postController.deletePost);
 //REMOVES POST FROM USER'S READING LIST
 app.delete(
-  "/api/readinglist/remove/:userid/:readinglistid",
+  "/api/readinglist/remove/:userid/:postid",
   userController.deleteFromReadingList
 );
 // REMOVES CATEGORY FROM USER'S INTERESTS

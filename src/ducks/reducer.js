@@ -120,11 +120,11 @@ export function addToReadingList(userid, id) {
       .catch(() => [])
   };
 }
-export function deleteFromReadingList(userid, readinglistid) {
+export function deleteFromReadingList(userid, postid) {
   return {
     type: DELETE_FROM_READING_LIST,
     payload: axios
-      .delete(`/api/readinglist/remove/${userid}/${readinglistid}`)
+      .delete(`/api/readinglist/remove/${userid}/${postid}`)
       .then(response => {
         return response.data;
       })
