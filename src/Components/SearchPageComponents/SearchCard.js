@@ -27,7 +27,10 @@ class SearchCard extends React.Component {
       }
     };
     let shortDescription = shortenDescription(this.props.body);
-
+    
+function createMarkup(str) {
+    return { __html: str };
+  }
     return (
       <div className="search-card">
         <div className="search-card-title">
@@ -48,9 +51,8 @@ class SearchCard extends React.Component {
                 className="search-card-image"
                 style={{ backgroundImage: `url(${this.props.img})` }}
               />
-              <h1 className="search-card-article-title">{this.props.title}</h1>
-              <h3 className="search-card-article-description">
-                {shortDescription}
+              <h1 className="search-card-article-title" dangerouslySetInnerHTML={createMarkup(this.props.title)}></h1>
+              <h3 className="search-card-article-description" dangerouslySetInnerHTML={createMarkup(shortDescription)}>
               </h3>
             </div>
           </Link>

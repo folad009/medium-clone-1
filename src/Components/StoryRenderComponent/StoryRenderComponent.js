@@ -180,45 +180,47 @@ class StoryRenderComponent extends Component {
           dangerouslySetInnerHTML={this.createMarkup(post)}
         />
         <div className="story-render-component-clap-section">
-          <div className="story-render-component-clap-section-text">
-            <h4>One clap, two clap, three clap, forty?</h4>
-            <p>
-              By clapping more or less, you can signal to us which stories
-              really stand out.
+          <div className="story-render-claps-section">
+            <div className="story-render-component-clap-section-text">
+              <h4>One clap, two clap, three clap, forty?</h4>
+              <p>
+                By clapping more or less, you can signal to us which stories
+                really stand out.
             </p>
+            </div>
+            <div className="story-render-component-clap-section-icons-div">
+              <span onClick={() => this.addClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> {claps}  </span>
+              <ChatIcon className="story-header-icons" />
+              <p>3</p>
+              <TwitterIcon className="story-header-icons" />
+              <FacebookIcon className="story-header-icons" />
+            </div>
           </div>
-          <div className="story-render-component-clap-section-icons-div">
-            <span onClick={() => this.addClap()} style={{ height: '100px', width: '100px', backgroundColor: 'blue' }}> {claps}  </span>
-            <ChatIcon className="story-header-icons" />
-            <p>3</p>
-            <TwitterIcon className="story-header-icons" />
-            <FacebookIcon className="story-header-icons" />
-          </div>
+          <div className="comment-input-main-div">
+            <div className="comment-section-input-user-info">
+              <img className="user-image" />
+              <h5>Juan Pecina</h5>
+            </div>
+            <textarea
+              onChange={e => this.setState({ comment: e.target.value })}
+              type="text"
+              className="comment-input"
+            />
 
-
-        </div>
-        <div className="comment-input-main-div">
-          <div className="comment-section-input-user-info">
-            <img className="user-image" />
-            <h5>Juan Pecina</h5>
-          </div>
-          <textarea
-            onChange={e => this.setState({ comment: e.target.value })}
-            type="text"
-            className="comment-input"
-          />
-
-          <div className="publish-comment">
-            <button
-              onClick={() =>
-                this.addcomment(this.props.match.params.id, this.state.comment)
-              }
-            >
-              Publish
+            <div className="publish-comment">
+              <button className="publish-comment-button"
+                onClick={() =>
+                  this.addcomment(this.props.match.params.id, this.state.comment)
+                }
+              >
+                Publish
           </button>
+            </div>
           </div>
+          <div className="comments-section-main-div">{comments}</div>
+
         </div>
-        <div className="comments-section-main-div">{comments}</div>
+
       </div>
     );
   }
