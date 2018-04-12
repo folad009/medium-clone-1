@@ -88,6 +88,8 @@ class SearchPage extends React.Component {
             id={val.id}
             avatar={val.avatar}
             userid={val.userid}
+            commentNum={val.numofcomments}
+            clapsNum={val.rating}
           />
         }
         )

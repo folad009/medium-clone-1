@@ -37,10 +37,11 @@ function createMarkup(str) {
   }
     return (
       <div className="search-card">
+      <Link to={`/user/${this.props.userid}`}>
         <div className="search-card-title">
-        <Link to={`/user/${this.props.userid}`}>
+        
           <img src={this.props.avatar} className="search-card-face-icon" />
-        </Link>
+        
           <div className="search-card-title-header">
             <div>
               <h4 className="search-card-title-name">
@@ -50,6 +51,7 @@ function createMarkup(str) {
               <Moment format="MMM DD">{this.props.date}</Moment>
             </div>
         </div>
+        </Link>
         <div className="search-card-content">
           
             <div className="search-card-inner-content">
@@ -69,9 +71,9 @@ function createMarkup(str) {
           <Link to={`/story-view/${this.props.id}`}>Read more...</Link>
         </div>
         <div className="search-card-claps-and-responses">
-          <div className="search-card-claps">clap 35K</div>
+          <div className="search-card-claps"> claps {this.props.clapsNum} </div>
           <div className="search-card-response-and-save">
-            665 responses save
+            {this.props.commentNum} responses 
           </div>
         </div>
       </div>
