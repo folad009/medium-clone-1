@@ -8,6 +8,24 @@ img {
 input {
   border-style: none;
 }
+@font-face {
+  font-family: 'NoeBoldItalic';
+  src: local('Fonts'), url(./assets/fonts/noe-display-bold.ttf) format('ttf');
+}
+@font-face{
+  font-family: 'NoeRegular';
+  src: local('fonts',url(./assets/fonts/noe-display-regular.ttf)format('ttf'))
+}
+
+/* Sweet alert styles!!!!!!!! */
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #34e79a;
+  font-size: 12px;
+  border: 1px solid #34e79a;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
 .temp-nav {
   /* Styles for the temporary nav button links on the home page */
 }
@@ -80,37 +98,69 @@ input {
   align-items: center;
 }
 .category-selector-body {
+  margin-bottom: 0px;
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
+.category-selector-header {
+  display: flex;
+}
+.category-selector-header h3 {
+  color: rgba(0, 0, 0, 0.54);
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.54);
+}
 .cat-selector-button-div {
+  cursor: pointer;
   height: 40px;
   max-width: 160px;
-  background-color: rgb(159, 215, 191);
+  border: 1px solid #03a87c;
+  padding: 0 8px;
+  color: #03a87c;
   margin: 10px;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 4px;
+  font-weight: 600;
 }
-
+.publish-button {
+  align-self: center;
+  width: 44px;
+  height: 22px;
+  background: #03a87c;
+  border-radius: 4px;
+  color: white;
+  padding: 2px;
+}
+.publish-button:hover {
+  cursor: pointer;
+  background: white;
+  border: 1px solid #03a87c;
+  color: #03a87c;
+}
 .cat-selector-button-div > p {
   color: white;
 }
 .cat-button-selected {
+  cursor: pointer;
+  padding: 0 10px;
   height: 40px;
   max-width: 160px;
-  background-color: rgb(10, 96, 58);
+  background-color: #03a87c;
+  color: white;
   margin: 10px;
   display: flex;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 .category-selector-main-div {
-  width: 500px;
+  /* width: 500px; */
+  max-width: 1000px;
   height: auto;
   display: flex;
-  background-color: rgba(181, 181, 181, 0.591);
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -547,12 +597,14 @@ input {
   width: 60%;
 }
 .news-home-page-column-card-info > h1 {
+  font-family: NoeBoldItalic;
   font-size: 21px;
-  color: black;
+  color: rgb(36, 36, 36);
 }
 .news-home-page-column-card-info > p {
+  font-family: NoeRegular;
   font-weight: 200;
-  font-size: 15px;
+  font-size: 16px;
   color: rgb(121, 121, 121);
 }
 #author-name {
