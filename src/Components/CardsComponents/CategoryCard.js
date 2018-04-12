@@ -12,13 +12,19 @@ class CategoryCard extends React.Component {
     this.state = {
       saved: false
     };
+    this.createMarkup = this.createMarkup.bind(this)
   }
   componentWillUnmount() {
     this.state.saved
       ? this.props.addToReadingList(this.props.user.id, this.props.id)
       : false;
   }
+  createMarkup(str) {
+    return { __html: str };
+  }
+  
   render() {
+    
     let shortenDescription = function(str) {
       let newStr = str
         .split("")
@@ -34,6 +40,7 @@ class CategoryCard extends React.Component {
         }
       }
     };
+    
     let shorterDescription = shortenDescription(this.props.body);
     return (
       <div className="category-card-main-div">
@@ -52,9 +59,9 @@ class CategoryCard extends React.Component {
           <div className="category-card-info">
             <h5>story for members</h5>
             <Link to={`/story-view/${this.props.id}`}>
-              <h1>{this.props.title}</h1>
+              <h1 dangerouslySetInnerHTML={this.createMarkup(this.props.title)}></h1>
             </Link>
-            <p>{shorterDescription}</p>
+            <p dangerouslySetInnerHTML={this.createMarkup(shorterDescription)}></p>
             <div className="category-card-user-info-save">
               <Link to={`/user/${this.props.userid}`}>
                 <div

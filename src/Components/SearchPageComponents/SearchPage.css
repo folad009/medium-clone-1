@@ -4,8 +4,13 @@
 }
 
 .search-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   width: 600px;
-  /* background: khaki; */
+  background: khaki;
+  /* min-height: 700px; */
+  height: auto;
   padding-top: 20px;
   padding-bottom: 25px;
   border-bottom: 1px rgba(0, 0, 0, 0.24) solid;
@@ -16,7 +21,7 @@
   height: auto;
   padding-top: 5px;
   margin-bottom: 15px;
-  /* background: lime; */
+  background: lime;
   display: flex;
   align-items: center;
 }
@@ -39,7 +44,7 @@
   background: darkblue;
 }
 .search-card-content {
-  /* background: seagreen; */
+  background: seagreen;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
