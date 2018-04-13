@@ -82,7 +82,6 @@ class InputStoryHeader extends Component {
             <Link to="/">
               <img src={Logo} className="logo-small" />
             </Link>
-            <p>Save</p>
           </div>
           <div className="story-header-right-side-div">
             {/*<Dropdown
@@ -126,9 +125,7 @@ class InputStoryHeader extends Component {
             >
               Publish
             </p>
-            <Dots className="story-header-icons" />
-            <Bookmark className="story-header-icons" />
-            <Notification className="story-header-icons" />
+
             {loggedin}
           </div>
         </div>
