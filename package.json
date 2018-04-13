@@ -12,7 +12,6 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "firebase": "^4.12.1",
-    "jest": "^22.4.3",
     "jquery": "^3.3.1",
     "jquery-ui": "^1.12.1",
     "jquery-ui-bundle": "^1.12.1-migrate",
@@ -40,16 +39,15 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "mocha --compilers js:babel-core/register",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3005",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-jest": "^22.4.3",
-    "babel-preset-react-app": "^3.1.1"
-  },
-  "babel": {
-    "presets": ["babel-preset-react-app"]
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "jasmine-enzyme": "^6.0.0",
+    "mocha": "^5.1.0"
   }
 }
