@@ -28,8 +28,6 @@ class InputBodyComponent extends Component {
       avatarURL: ""
     };
   }
-  componentDidMount() { }
-
   addCategory(str) {
     console.log("cats", this.state.categories);
     let cats = this.state.categories;
@@ -37,10 +35,9 @@ class InputBodyComponent extends Component {
     this.setState({ categories: cats });
   }
   removeCategory(str) {
-
     let cats = this.state.categories;
     let deleteIndex = cats.indexOf(str);
-    console.log(deleteIndex)
+    console.log(deleteIndex);
     cats.splice(deleteIndex, 1);
     this.setState({ categories: cats });
   }
@@ -120,8 +117,8 @@ class InputBodyComponent extends Component {
             {this.props.user.id ? (
               <img className="user-image" src={this.props.user.avatar} />
             ) : (
-                false
-              )}
+              false
+            )}
             <div className="input-body-component-user-info-name">
               <p>Draft</p>
             </div>

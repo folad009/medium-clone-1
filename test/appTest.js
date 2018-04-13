@@ -1,14 +1,11 @@
-// const assert = require("chai").assert;
-// const expect = require("chai").expect;
-import { assert } from "chai";
-import app from "./app";
-// const app = require("./app");
-// const reducer = require("./reducer");
-// const reducer = require("../src/ducks/reducer");
+const assert = require("chai").assert;
+const expect = require("chai").expect;
+const app = require("./app");
 
 describe("App", function() {
   it("app should return hello", function() {
     assert.equal(app(), "hello");
+    expect(true).to.be.ok;
   });
 });
 // describe(' ', function(){})
