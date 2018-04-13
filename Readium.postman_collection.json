@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "d62cb2d9-79a0-4cee-800a-052cce1a14d6",
 		"name": "Readium",
-		"_postman_id": "81b01f9b-ef76-282b-0dff-7cb4c9bd1ea5",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -36,7 +35,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3005/api/categories",
 					"protocol": "http",
@@ -48,8 +50,7 @@
 						"api",
 						"categories"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -78,7 +79,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3005/api/posts",
 					"protocol": "http",
@@ -90,8 +94,198 @@
 						"api",
 						"posts"
 					]
-				},
-				"description": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Profile By Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aee0fc20-b4cc-4d30-822f-5e1b085429ea",
+						"type": "text/javascript",
+						"exec": [
+							"const response = pm.response.json()[0]",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Expected User Ryan\", function(){",
+							"    pm.expect(response.firstname).to.eql(\"Ryan\")",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/profile/37",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"profile",
+						"37"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Comments By PostId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "da034b70-49a4-4d23-9bac-d352feaa0387",
+						"type": "text/javascript",
+						"exec": [
+							"const response = pm.response.json()",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Expected comment id 106\", function(){",
+							"    pm.expect(response.length).to.eql(4)",
+							"})"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/comments/106",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"comments",
+						"106"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET - Posts by Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8b0642c-86f8-475e-94db-35e94501ac5a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/category/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"category",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Delete Posts by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8b0642c-86f8-475e-94db-35e94501ac5a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/delete/137",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"delete",
+						"137"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Delete Comment By Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7fdfe899-afa7-46a0-bcbe-ff3255f9c287",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/comment/86",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"comment",
+						"86"
+					]
+				}
 			},
 			"response": []
 		}
