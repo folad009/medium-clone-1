@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Readium",
-		"_postman_id": "81b01f9b-ef76-282b-0dff-7cb4c9bd1ea5",
+		"_postman_id": "8127111f-3f45-a21a-b9c1-3ec795b1a550",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -36,7 +36,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3005/api/categories",
 					"protocol": "http",
@@ -48,8 +51,7 @@
 						"api",
 						"categories"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -78,7 +80,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3005/api/posts",
 					"protocol": "http",
@@ -89,6 +94,154 @@
 					"path": [
 						"api",
 						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3005/api/unfollow/2/3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2f67aa02-e783-47b3-a7db-0bd6eb7a0039",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/unfollow/3/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"unfollow",
+						"3",
+						"3"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3005/api/featured",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9182e84f-a13b-4ca2-96ac-78f9bd85b5a5",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/featured",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"featured"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3005/api/addreadinglist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac2b770d-2fc3-43ac-8635-e36fa8c23100",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/addreadinglist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"addreadinglist"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3005/api/getpost/2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "756f38fb-942a-41cd-b105-59508fac5bee",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:3005/api/getpost/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3005",
+					"path": [
+						"api",
+						"getpost",
+						"2"
 					]
 				},
 				"description": ""
