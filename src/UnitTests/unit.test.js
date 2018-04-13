@@ -1,11 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import { shallow } from "enzyme";
-import { TopicHeaderBar } from "../Components/HeaderComponents/TopicHeaderBar";
+import Enzyme from "enzyme";
+import Adapter from "enzyme-adapter-react-16";
+import jasmineEnzyme from "jasmine-enzyme";
 
-test("TopicHeaderBar with twelve topics", () => {
-  const headerBar = shallow(<TopicHeaderBar />);
-  console.log(headerBar._self.props.categories.length);
-  expect(headerBar._self.propcs.categories.length).toBe(11);
+Enzyme.configure({ adapter: new Adapter() });
+
+describe("test", () => {
+  beforeEach(() => {
+    jasmineEnzyme();
+  });
+
+  // tests
 });
