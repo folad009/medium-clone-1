@@ -1,5 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom";
 import App from "./App";
 import { shallow } from "enzyme";
 import { TopicHeaderBar } from "./Components/HeaderComponents/TopicHeaderBar";
