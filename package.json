@@ -43,5 +43,13 @@
     "test": "jest",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3005"
+  "proxy": "http://localhost:3005",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-preset-react-app": "^3.1.1"
+  },
+  "babel": {
+    "presets": ["babel-preset-react-app"]
+  }
 }
