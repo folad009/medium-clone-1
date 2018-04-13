@@ -1,252 +1,467 @@
 {
-	"info": {
-		"name": "Readium",
-		"_postman_id": "8127111f-3f45-a21a-b9c1-3ec795b1a550",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "http://localhost:3005/api/categories",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "d700f91d-f674-4531-9b63-eda075fc4402",
-						"type": "text/javascript",
-						"exec": [
-							"const responseJSON = pm.response.json();",
-							"",
-							"pm.test(\"Status code is 200\", function () {",
-							"  pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Returned data is an array\", function () {",
-							"  pm.expect( Array.isArray( responseJSON ) ).to.eql( true );",
-							"});",
-							"",
-							"pm.test(\"Returned data has a length of 11\", function () {",
-							"  pm.expect( responseJSON.length ).to.eql( 11 ); ",
-							"});",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:3005/api/categories",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3005",
-					"path": [
-						"api",
-						"categories"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3005/api/posts",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "63b0e149-b729-4c65-ab3c-5d0b69b751c2",
-						"type": "text/javascript",
-						"exec": [
-							"const responseJSON = pm.response.json();",
-							"",
-							"pm.test(\"Status code is 200\", function () {",
-							"  pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Returned data is an array\", function () {",
-							"  pm.expect( Array.isArray( responseJSON ) ).to.eql( true );",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:3005/api/posts",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3005",
-					"path": [
-						"api",
-						"posts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3005/api/unfollow/2/3",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "2f67aa02-e783-47b3-a7db-0bd6eb7a0039",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:3005/api/unfollow/3/3",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3005",
-					"path": [
-						"api",
-						"unfollow",
-						"3",
-						"3"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3005/api/featured",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "9182e84f-a13b-4ca2-96ac-78f9bd85b5a5",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:3005/api/featured",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3005",
-					"path": [
-						"api",
-						"featured"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3005/api/addreadinglist",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "ac2b770d-2fc3-43ac-8635-e36fa8c23100",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							""
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:3005/api/addreadinglist",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3005",
-					"path": [
-						"api",
-						"addreadinglist"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		},
-		{
-			"name": "http://localhost:3005/api/getpost/2",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "756f38fb-942a-41cd-b105-59508fac5bee",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": {
-					"raw": "http://localhost:3005/api/getpost/2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3005",
-					"path": [
-						"api",
-						"getpost",
-						"2"
-					]
-				},
-				"description": ""
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "d62cb2d9-79a0-4cee-800a-052cce1a14d6",
+    "name": "Readium",
+    "schema":
+      "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "http://localhost:3005/api/categories",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d700f91d-f674-4531-9b63-eda075fc4402",
+            "type": "text/javascript",
+            "exec": [
+              "const responseJSON = pm.response.json();",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Returned data is an array\", function () {",
+              "  pm.expect( Array.isArray( responseJSON ) ).to.eql( true );",
+              "});",
+              "",
+              "pm.test(\"Returned data has a length of 11\", function () {",
+              "  pm.expect( responseJSON.length ).to.eql( 11 ); ",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3005/api/categories",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "categories"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:3005/api/unfollow/2/3",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "2f67aa02-e783-47b3-a7db-0bd6eb7a0039",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/unfollow/3/3",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "unfollow", "3", "3"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:3005/api/featured",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "9182e84f-a13b-4ca2-96ac-78f9bd85b5a5",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/featured",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "featured"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:3005/api/addreadinglist",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "ac2b770d-2fc3-43ac-8635-e36fa8c23100",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/addreadinglist",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "addreadinglist"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:3005/api/following/40",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "2bb94b4e-838b-493c-9fa8-c81c3cdc3ae2",
+            "type": "text/javascript",
+            "exec": [
+              "const responseJSON = pm.response.json();",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              " pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Returned data is an array\", function () {",
+              " pm.expect( Array.isArray( responseJSON ) ).to.eql( true );",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw":
+            "{\n\"userid\":40,\n\"title\":\"Title\",\n\"body\":\"body body gotti gotti\",\n\"categories\":\"cat,dog\",\n\"img\":\"img.png\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3005/api/following/40",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "following", "40"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:3005/api/getpost/110",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "0fc9df9b-669c-4d1c-9d7a-79e0cec8b38e",
+            "type": "text/javascript",
+            "exec": [
+              "const responseJSON = pm.response.json();",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              " pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Returned data is an array\", function () {",
+              " pm.expect( Array.isArray( responseJSON ) ).to.eql( true );",
+              "});",
+              "",
+              "pm.test(\"userid to equal 39\",function(){",
+              "    pm.expect(responseJSON[0].userid).to.eql(39)",
+              "})"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/getpost/110",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "getpost", "110"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:3005/api/getpost/2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "756f38fb-942a-41cd-b105-59508fac5bee",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/getpost/2",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "getpost", "2"]
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:3005/api/posts",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "63b0e149-b729-4c65-ab3c-5d0b69b751c2",
+            "type": "text/javascript",
+            "exec": [
+              "const responseJSON = pm.response.json();",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Returned data is an array\", function () {",
+              "  pm.expect( Array.isArray( responseJSON ) ).to.eql( true );",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3005/api/posts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Profile By Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "aee0fc20-b4cc-4d30-822f-5e1b085429ea",
+            "type": "text/javascript",
+            "exec": [
+              "const response = pm.response.json()[0]",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Expected User Ryan\", function(){",
+              "    pm.expect(response.firstname).to.eql(\"Ryan\")",
+              "})"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/profile/37",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "profile", "37"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Comments By PostId",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "da034b70-49a4-4d23-9bac-d352feaa0387",
+            "type": "text/javascript",
+            "exec": [
+              "const response = pm.response.json()",
+              "",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Expected comment id 106\", function(){",
+              "    pm.expect(response.length).to.eql(4)",
+              "})"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/comments/106",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "comments", "106"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET - Posts by Category",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d8b0642c-86f8-475e-94db-35e94501ac5a",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/category/6",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "category", "6"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE - Delete Posts by Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "d8b0642c-86f8-475e-94db-35e94501ac5a",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/delete/137",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "delete", "137"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE - Delete Comment By Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7fdfe899-afa7-46a0-bcbe-ff3255f9c287",
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {},
+        "url": {
+          "raw": "http://localhost:3005/api/comment/86",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3005",
+          "path": ["api", "comment", "86"]
+        }
+      },
+      "response": []
+    }
+  ]
 }
