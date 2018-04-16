@@ -49,7 +49,7 @@ class NewsHomepageColumnCard extends React.Component {
         </div>
         {this.props.saved ? (
           <div id="save-icon-column-home">
-            <SavedBookmark 
+            <SavedBookmark
               onClick={() =>
                 this.props
                   .deleteFromReadingList(
@@ -65,7 +65,7 @@ class NewsHomepageColumnCard extends React.Component {
           </div>
         ) : (
           <div id="save-icon-column-home">
-            <Bookmark 
+            <Bookmark
               onClick={() => {
                 if (!this.props.user.id) {
                   swal({
@@ -86,6 +86,7 @@ class NewsHomepageColumnCard extends React.Component {
           </div>
         )}
         <div
+          className="news-home-page-column-card-image"
           style={{
             height: "auto",
             width: "150px",

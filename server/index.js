@@ -137,6 +137,8 @@ app.delete(
   "/api/readinglist/remove/:userid/:postid",
   userController.deleteFromReadingList
 );
+//DELETE COMMENT BY COMMENT ID
+app.delete("/api/comment/:id", postController.deleteComment);
 // REMOVES CATEGORY FROM USER'S INTERESTS
 app.delete(
   "/api/userinterest/:userid/:category",
