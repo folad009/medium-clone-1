@@ -1,12 +1,32 @@
 var expect = require("chai").expect;
 var assert = require("chai").assert;
-var axios = require("axios");
-var shallow = require("enzyme").shallow;
+var should = require("chai").should;
+let promise;
+var getCategories = require("./../src/ducks/reducer").getCategories;
+var getUserInterests = require("./../src/ducks/reducer").getUserInterests;
+var getAllPosts = require("./../src/ducks/reducer").getAllPosts;
 
-describe("gets all categories", function() {
+describe("Get Category function of reducer", function() {
   it("It returns true value", function() {
-    var getCategories = require("./../src/ducks/reducer").getCategories;
     expect(getCategories()).to.be.ok;
+  });
+  it("Calls the correct action type to the reducer", function() {
+    expect(getCategories().type).to.eql("GET_CATEGORIES");
+  });
+});
+
+describe("User interest method on the reducer", function() {
+  it("It returns true value", function() {
+    expect(getUserInterests()).to.be.ok;
+  });
+  it("Calls the correct action type to the reducer", function() {
+    expect(getUserInterests().type).to.eql("GET_USER_INTERESTS");
+  });
+});
+
+describe("Gets all posts", function() {
+  it("Calls the correct action type to the reducer", function() {
+    expect(getAllPosts().type).to.eql("GET_ALL_POSTS");
   });
 });
 
@@ -21,6 +41,11 @@ describe("retrieves user", function() {
   it("retreives user", function() {
     var getUser = require("./../src/ducks/reducer").getUser;
     expect(getUser()).to.be.ok;
+  });
+
+  it("calls the correct action type on the reducer", function() {
+    var getUser = require("./../src/ducks/reducer").getUser;
+    expect(getUser().type).to.eql("GET_USER");
   });
 });
 
