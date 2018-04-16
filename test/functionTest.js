@@ -1,5 +1,7 @@
 var expect = require("chai").expect;
 var assert = require("chai").assert;
+var axios = require("axios");
+var shallow = require("enzyme").shallow;
 
 describe("gets all categories", function() {
   it("It returns true value", function() {
@@ -15,8 +17,6 @@ describe("gets all posts", function() {
   });
 });
 
-
-
 describe("retrieves user", function() {
   it("retreives user", function() {
     var getUser = require("./../src/ducks/reducer").getUser;
@@ -29,10 +29,9 @@ describe("test Reading List ", function() {
     var addToReadingList = require("./../src/ducks/reducer").addToReadingList;
     expect(addToReadingList()).to.be.ok;
   });
-  it("deletes from reading list",function(){
-    var deleteFromReadingList = require("./../src/ducks/reducer").deleteFromReadingList;
+  it("deletes from reading list", function() {
+    var deleteFromReadingList = require("./../src/ducks/reducer")
+      .deleteFromReadingList;
     expect(deleteFromReadingList()).to.be.ok;
   });
-  
 });
-
