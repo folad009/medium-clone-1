@@ -26,9 +26,9 @@ input {
   border: 1px solid #34e79a;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
 }
-.temp-nav {
-  /* Styles for the temporary nav button links on the home page */
-}
+/* .temp-nav {
+  Styles for the temporary nav button links on the home page
+} */
 /* img{
   height:400px;
 } */
@@ -288,9 +288,9 @@ input {
   padding-top: 10px;
   align-items: center;
 }
-.story-render-component-clap-section-text {
-  /* background-color: aqua; */
-}
+/* .story-render-component-clap-section-text {
+  background-color: aqua;
+} */
 .story-render-component-clap-section-icons-div {
   /* background-color: bisque; */
   display: flex;
@@ -1054,3 +1054,4 @@ flex-direction: column;
     display: none;
   }
 }
+

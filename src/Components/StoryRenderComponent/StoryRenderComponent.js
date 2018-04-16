@@ -12,6 +12,7 @@ import Moment from "react-moment";
 import { connect } from "react-redux";
 import swal from "sweetalert";
 
+
 class StoryRenderComponent extends Component {
   constructor() {
     super();

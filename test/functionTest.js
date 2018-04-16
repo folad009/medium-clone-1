@@ -24,7 +24,13 @@ describe("retrieves user", function() {
   });
 });
 
+
+
 describe("test Reading List ", function() {
+  it("retreives reading list",function() {
+    var getReadingList = require('./../src/ducks/reducer').getReadingList;
+    expect(getReadingList()).to.be.ok;
+  })
   it("adds to reading list ", function() {
     var addToReadingList = require("./../src/ducks/reducer").addToReadingList;
     expect(addToReadingList()).to.be.ok;
@@ -33,6 +39,6 @@ describe("test Reading List ", function() {
     var deleteFromReadingList = require("./../src/ducks/reducer").deleteFromReadingList;
     expect(deleteFromReadingList()).to.be.ok;
   });
-  
+
 });
 

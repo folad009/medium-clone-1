@@ -78,8 +78,8 @@
   font-family: NoeRegular;
   /* font-family: Arial, Helvetica, sans-serif; */
 }
-.featured-card-text p {
-}
+/* .featured-card-text p {
+} */
 .big-picture-text-tab h4 {
   margin: 0;
   font-size: 16px;
@@ -152,9 +152,9 @@
   background-size: cover;
   background-position: center;
 }
-.big-picture-text {
-  /* background: orchid; */
-}
+/* .big-picture-text {
+  background: orchid;
+} */
 .grid-0a {
   grid-area: 2 / 1 / -1 / -1;
 }
