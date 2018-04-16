@@ -55,25 +55,6 @@ class StoryRenderComponent extends Component {
     return { __html: str };
   }
 
-  // addcomment(id, body) {
-  //   let comment = {
-  //     id: id,
-  //     body: body
-  //   };
-  //   axios
-  //     .post("/api/addcomment", comment)
-  //     .then(() =>
-  //       axios.get(`/api/comments/${this.props.match.params.id}`).then(r => {
-
-  //         this.setState({ postComments: r.data })
-
-  //       }))
-
-  // }
-
-  createMarkup(str) {
-    return { __html: str };
-  }
 
   addcomment(id, body) {
     let comment = {
@@ -114,8 +95,6 @@ class StoryRenderComponent extends Component {
 
 
     axios.put(`/api/commentClap/${id}`, clap).then((r) => {
-
-      console.log(r.data)
       this.setState({ postComments: r.data })
     })
   }
@@ -127,10 +106,10 @@ class StoryRenderComponent extends Component {
       post = this.state.post
     }
 
-    console.log(this.state.postComments)
+
 
     let comments = this.state.postComments.map((item, i) => {
-      console.log(item)
+
       return (
 
         <div key={i} className="main-comment-render-body-div">

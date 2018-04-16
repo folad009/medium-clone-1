@@ -1,4 +1,9 @@
 import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store";
+import { HashRouter } from "react-router-dom";
+import * as firebase from 'firebase';
+firebase.initializeApp(config);
 import { shallow } from "enzyme";
 import { TopicHeaderBar } from "./Components/HeaderComponents/TopicHeaderBar";
 import { Provider } from "react-redux";
@@ -46,5 +51,5 @@ it("renders without crashing", () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 it("renders without crashing", () => {
- expect( 2 + 2).toBe(4)
+  expect(2 + 2).toBe(4)
 });
