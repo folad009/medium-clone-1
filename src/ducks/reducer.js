@@ -64,7 +64,7 @@ export function logOut() {
       .then(response => {
         return response;
       })
-      .catch(console.log)
+      .catch(() => console.log("no log in"))
   };
 }
 //This hasn't been fully set up in the switch statement or initialstate
