@@ -49,16 +49,14 @@ class FeaturedView extends React.Component {
       return (
         <div className="featured-view-main-div featured-grid">
           <div className="big-picture grid-0">
-            <Link to={`/story-view/${posts[0].postid}`}>
-              <div
-                className="big-picture-image grid-0a"
-                style={{
-                  backgroundImage: `url(${
-                    this.state.featuredPosts[0].thumbnailimg
-                  })`
-                }}
-              />
-            </Link>
+            <div
+              className="big-picture-image grid-0a"
+              style={{
+                backgroundImage: `url(${
+                  this.state.featuredPosts[0].thumbnailimg
+                })`
+              }}
+            />
             <div className="big-picture-text grid-0b">
               <div className="big-picture-text-tab">
                 <h4>FEATURED</h4>
