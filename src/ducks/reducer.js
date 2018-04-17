@@ -112,7 +112,10 @@ export function addToReadingList(userid, id) {
   return {
     type: ADD_TO_READING_LIST,
     payload: axios
-      .post(`http://localhost:3005/api/addreadinglist`, { userid, id })
+      .post(`${process.env.SUCCESS_REDIRECT}/api/addreadinglist`, {
+        userid,
+        id
+      })
       .then(response => {
         console.log("this is the response:", response.data);
         return response.data;
