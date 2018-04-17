@@ -184,7 +184,7 @@ app.get("/me", function(req, res, next) {
                   userid: response[0].id,
                   authid: response[0].authid
                 };
-                res.redirect("http://localhost:3000");
+                res.redirect(`${process.env.SUCCESS_REDIRECT}`);
               });
           } else {
             let name = req.user.displayName;
@@ -200,7 +200,7 @@ app.get("/me", function(req, res, next) {
                   userid: response[0].id,
                   authid: response[0].authid
                 };
-                res.redirect("http://localhost:3000");
+                res.redirect(`${process.env.SUCCESS_REDIRECT}`);
               });
           }
         } else {
@@ -208,7 +208,7 @@ app.get("/me", function(req, res, next) {
             userid: response[0].id,
             authid: response[0].authid
           };
-          res.redirect("http://localhost:3000");
+          res.redirect(`${process.env.SUCCESS_REDIRECT}`);
         }
       });
   }
