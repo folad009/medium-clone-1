@@ -49,14 +49,16 @@ class FeaturedView extends React.Component {
       return (
         <div className="featured-view-main-div featured-grid">
           <div className="big-picture grid-0">
-            <div
-              className="big-picture-image grid-0a"
-              style={{
-                backgroundImage: `url(${
-                  this.state.featuredPosts[0].thumbnailimg
-                })`
-              }}
-            />
+            <Link to={`/story-view/${posts[0].postid}`}>
+              <div
+                className="big-picture-image grid-0a"
+                style={{
+                  backgroundImage: `url(${
+                    this.state.featuredPosts[0].thumbnailimg
+                  })`
+                }}
+              />
+            </Link>
             <div className="big-picture-text grid-0b">
               <div className="big-picture-text-tab">
                 <h4>FEATURED</h4>
@@ -93,10 +95,12 @@ class FeaturedView extends React.Component {
             </div>
           </div>
           <div className="small-picture grid-a">
-            <div
-              className="featured-small-picture picture-a"
-              style={{ backgroundImage: `url(${posts[1].thumbnailimg})` }}
-            />
+            <Link to={`/story-view/${posts[1].postid}`}>
+              <div
+                className="featured-small-picture picture-a"
+                style={{ backgroundImage: `url(${posts[1].thumbnailimg})` }}
+              />
+            </Link>
             <div className="small-picture-text">
               <Link to={`/story-view/${posts[1].postid}`}>
                 <div
@@ -128,17 +132,19 @@ class FeaturedView extends React.Component {
             </div>
           </div>
           <div className="small-picture grid-b">
-            <div
-              className="featured-small-picture picture-b"
-              style={{ backgroundImage: `url(${posts[2].thumbnailimg})` }}
-            />
+            <Link to={`/story-view/${posts[2].postid}`}>
+              <div
+                className="featured-small-picture picture-b"
+                style={{ backgroundImage: `url(${posts[2].thumbnailimg})` }}
+              />
+            </Link>
             <div className="small-picture-text">
               <Link to={`/story-view/${posts[2].postid}`}>
                 <div
                   className="featured-small-card-title"
                   dangerouslySetInnerHTML={this.createMarkup(posts[2].title)}
                 />
-                <div 
+                <div
                   className="featured-card-text"
                   dangerouslySetInnerHTML={this.createMarkup(
                     shortenDescription(posts[2].body)
@@ -163,10 +169,12 @@ class FeaturedView extends React.Component {
             </div>
           </div>
           <div className="small-picture grid-c">
-            <div
-              className="featured-small-picture picture-c"
-              style={{ backgroundImage: `url(${posts[3].thumbnailimg})` }}
-            />
+            <Link to={`/story-view/${posts[3].postid}`}>
+              <div
+                className="featured-small-picture picture-c"
+                style={{ backgroundImage: `url(${posts[3].thumbnailimg})` }}
+              />
+            </Link>
             <div className="small-picture-text">
               <Link to={`/story-view/${posts[3].postid}`}>
                 <div
@@ -198,10 +206,12 @@ class FeaturedView extends React.Component {
             </div>
           </div>
           <div className="small-picture grid-d">
-            <div
-              className="featured-small-picture picture-d"
-              style={{ backgroundImage: `url(${posts[4].thumbnailimg})` }}
-            />
+            <Link to={`/story-view/${posts[4].postid}`}>
+              <div
+                className="featured-small-picture picture-d"
+                style={{ backgroundImage: `url(${posts[4].thumbnailimg})` }}
+              />
+            </Link>
             <div className="small-picture-text">
               <Link to={`/story-view/${posts[4].postid}`}>
                 <div

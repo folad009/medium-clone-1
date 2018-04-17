@@ -112,7 +112,7 @@ export function addToReadingList(userid, id) {
   return {
     type: ADD_TO_READING_LIST,
     payload: axios
-      .post(`${process.env.SUCCESS_REDIRECT}/api/addreadinglist`, {
+      .post(`/api/addreadinglist`, {
         userid,
         id
       })

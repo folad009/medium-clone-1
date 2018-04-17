@@ -16,13 +16,13 @@ const userController = require(`${__dirname}/Controllers/userController`);
 
 // PORT
 
-const port = 3005;
+const port = process.env.PORT || 3005;
 
 // CREATING INSTANCE OF EXPRESS SERVER
 
 const app = express();
 
-//SERVING UP BUILD files
+// SERVING UP BUILD files
 app.use(express.static(`${__dirname}/../build`));
 
 app.use(json());
