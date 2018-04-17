@@ -21,6 +21,10 @@ const port = 3005;
 // CREATING INSTANCE OF EXPRESS SERVER
 
 const app = express();
+
+//SERVING UP BUILD files
+app.use(express.static(`${__dirname}/../build`));
+
 app.use(json());
 app.use(cors());
 
@@ -214,6 +218,13 @@ app.get("/api/logout", (req, res, next) => {
   req.session.destroy();
   next();
   res.status(200);
+});
+
+//POINT ENDPOINTS TO PRODUCTION BUILD
+
+const path = require("path");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../build/index.html"));
 });
 
 // SERVER LISTENING
